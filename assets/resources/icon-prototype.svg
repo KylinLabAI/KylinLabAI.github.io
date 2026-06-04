@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">Prototype development</title>
+  <rect x="13" y="15" width="38" height="31" rx="6" fill="none" stroke="#8052b8" stroke-width="4.5"/>
+  <path d="m29 25 11 6-11 6V25Z" fill="#8052b8"/>
+  <path d="M21 53h22" fill="none" stroke="#8052b8" stroke-width="4.5" stroke-linecap="round"/>
+</svg>
