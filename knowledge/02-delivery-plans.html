@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Delivery plans that survive real project pressure | KylinLab</title>
+    
+    <meta name="description" content="A lightweight approach for tracking risk, scope, ownership, and decision points.">
+    
+    <link rel="icon" href="/assets/resources/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/assets/styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="KylinLab home">
+        <span class="brand-mark">K</span>
+        <span>KylinLab</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a class="nav-link" href="/"><img src="/assets/resources/icon-home.svg" alt=""><span data-i18n="nav.home">Home</span></a>
+        <a class="nav-link" href="/knowledge.html"><img src="/assets/resources/icon-knowledge.svg" alt=""><span data-i18n="nav.knowledge">Knowledge</span></a>
+        <a class="nav-link" href="/services.html"><img src="/assets/resources/icon-services.svg" alt=""><span data-i18n="nav.services">Services</span></a>
+        <a class="nav-link" href="/demos.html"><img src="/assets/resources/icon-demos.svg" alt=""><span data-i18n="nav.demos">Demos</span></a>
+        <a class="nav-link" href="/about.html"><img src="/assets/resources/icon-about.svg" alt=""><span data-i18n="nav.about">About</span></a>
+      </nav>
+      <div class="lang-switcher">
+        <label for="lang-select" class="visually-hidden">Language</label>
+        <select id="lang-select" aria-label="Language selector">
+          <option value="en">English</option>
+          <option value="zh">中文</option>
+        </select>
+      </div>
+    </header>
+
+    <main>
+            <section class="page-hero">
+        <p class="eyebrow" data-i18n="knowledge.eyebrow">Knowledge</p>
+        <h1>Delivery plans that survive real project pressure</h1>
+        <div class="article-meta">
+          <span class="category" data-i18n="knowledge.category.pm">pm</span>
+          <time datetime="2026-04-28">April 28, 2026</time>
+        </div>
+      </section>
+
+      <article class="section article-content">
+        <p>A direct way to connect goals, owners, risks, and review points without turning delivery tracking into a heavy process.</p>
+
+<h2 id="the-problem-with-traditional-plans">The Problem with Traditional Plans</h2>
+
+<p>Most project plans fail because they’re either too rigid (can’t adapt to change) or too vague (provide no guidance). Real projects need something in between.</p>
+
+<h2 id="core-principles">Core Principles</h2>
+
+<h3 id="1-track-outcomes-not-tasks">1. Track Outcomes, Not Tasks</h3>
+
+<p>Instead of listing hundreds of tasks, focus on deliverables:</p>
+
+<p><strong>Bad:</strong></p>
+<ul>
+  <li>Write API endpoint</li>
+  <li>Create database schema</li>
+  <li>Build UI component</li>
+</ul>
+
+<p><strong>Good:</strong></p>
+<ul>
+  <li>User can submit form and receive confirmation</li>
+  <li>Admin can view all submissions in dashboard</li>
+</ul>
+
+<h3 id="2-make-risks-visible-early">2. Make Risks Visible Early</h3>
+
+<p>Maintain a living risk register:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Risk</th>
+      <th>Impact</th>
+      <th>Mitigation</th>
+      <th>Owner</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Third-party API unstable</td>
+      <td>High</td>
+      <td>Build fallback mechanism</td>
+      <td>Alice</td>
+    </tr>
+    <tr>
+      <td>Scope creep from stakeholders</td>
+      <td>Medium</td>
+      <td>Weekly scope review</td>
+      <td>Bob</td>
+    </tr>
+    <tr>
+      <td>Key developer availability</td>
+      <td>High</td>
+      <td>Cross-train team members</td>
+      <td>Carol</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Review this weekly, not monthly.</p>
+
+<h3 id="3-define-clear-decision-points">3. Define Clear Decision Points</h3>
+
+<p>Identify moments where the project could go different directions:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Week 2: Choose database technology
+Week 4: Validate core workflow with users
+Week 6: Decide whether to build or buy reporting module
+</code></pre></div></div>
+
+<p>Each decision point should have:</p>
+<ul>
+  <li>Clear criteria for success</li>
+  <li>Who makes the decision</li>
+  <li>What happens if we delay</li>
+</ul>
+
+<h3 id="4-keep-ownership-explicit">4. Keep Ownership Explicit</h3>
+
+<p>Every deliverable needs exactly one owner. Not a team, not “TBD”—one person.</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">Deliverable</span><span class="pi">:</span> <span class="s">User authentication system</span>
+<span class="na">Owner</span><span class="pi">:</span> <span class="err">@</span><span class="s">alice</span>
+<span class="na">Due</span><span class="pi">:</span> <span class="s">Week </span><span class="m">3</span>
+<span class="na">Dependencies</span><span class="pi">:</span> <span class="s">Database setup complete</span>
+<span class="na">Success Criteria</span><span class="pi">:</span> <span class="s">Users can register, login, and reset password</span>
+</code></pre></div></div>
+
+<h3 id="5-review-rhythm-that-works">5. Review Rhythm That Works</h3>
+
+<p><strong>Daily (15 min):</strong> Blockers and immediate needs<br />
+<strong>Weekly (60 min):</strong> Progress, risks, next week’s priorities<br />
+<strong>Bi-weekly (90 min):</strong> Demo working software, adjust plan</p>
+
+<p>Skip meetings that don’t produce decisions or unblock work.</p>
+
+<h2 id="template-one-page-delivery-plan">Template: One-Page Delivery Plan</h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gh"># Project: [Name]</span>
+
+<span class="gu">## Goals</span>
+<span class="p">-</span> Goal 1 (owner, due date)
+<span class="p">-</span> Goal 2 (owner, due date)
+
+<span class="gu">## Current Sprint (Week X-Y)</span>
+<span class="p">-</span> Deliverable A → Owner
+<span class="p">-</span> Deliverable B → Owner
+
+<span class="gu">## Top 3 Risks</span>
+<span class="p">1.</span> Risk description → Mitigation
+<span class="p">2.</span> Risk description → Mitigation
+<span class="p">3.</span> Risk description → Mitigation
+
+<span class="gu">## Next Decision Points</span>
+<span class="p">-</span> Date: Decision to make → Criteria
+<span class="p">-</span> Date: Decision to make → Criteria
+
+<span class="gu">## Blockers</span>
+<span class="p">-</span> Blocker 1 → Who's resolving it
+<span class="p">-</span> Blocker 2 → Who's resolving it
+</code></pre></div></div>
+
+<p>Keep this visible. Update it weekly. Share it broadly.</p>
+
+<h2 id="when-plans-fail">When Plans Fail</h2>
+
+<p>Plans fail when:</p>
+<ul>
+  <li>They’re created once and never updated</li>
+  <li>They track activity instead of outcomes</li>
+  <li>They hide bad news</li>
+  <li>They’re owned by PMs, not the team</li>
+</ul>
+
+<p>Fix: Make planning a team sport. Update plans based on reality, not hopes.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>Good delivery plans are living documents that help teams navigate uncertainty. They’re not about predicting the future—they’re about creating clarity in the present.</p>
+
+<p>Keep them simple, keep them current, and keep them honest.</p>
+
+      </article>
+
+      <section class="section article-footer">
+        <a href="/knowledge.html" class="button secondary" data-i18n="knowledge.read_more">← Back to all articles</a>
+      </section>
+
+    </main>
+
+    <footer class="site-footer">
+      <p data-i18n="footer.copyright">© 2026 KylinLab. Practical technology consulting and knowledge sharing.</p>
+    </footer>
+    <script src="/assets/resources/i18n.js"></script>
+  </body>
+</html>

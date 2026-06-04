@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Using AI tools without losing engineering ownership | KylinLab</title>
+    
+    <meta name="description" content="Practical guardrails for using AI to accelerate implementation while keeping review, testing, and product judgment explicit.">
+    
+    <link rel="icon" href="/assets/resources/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/assets/styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="KylinLab home">
+        <span class="brand-mark">K</span>
+        <span>KylinLab</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a class="nav-link" href="/"><img src="/assets/resources/icon-home.svg" alt=""><span data-i18n="nav.home">Home</span></a>
+        <a class="nav-link" href="/knowledge.html"><img src="/assets/resources/icon-knowledge.svg" alt=""><span data-i18n="nav.knowledge">Knowledge</span></a>
+        <a class="nav-link" href="/services.html"><img src="/assets/resources/icon-services.svg" alt=""><span data-i18n="nav.services">Services</span></a>
+        <a class="nav-link" href="/demos.html"><img src="/assets/resources/icon-demos.svg" alt=""><span data-i18n="nav.demos">Demos</span></a>
+        <a class="nav-link" href="/about.html"><img src="/assets/resources/icon-about.svg" alt=""><span data-i18n="nav.about">About</span></a>
+      </nav>
+      <div class="lang-switcher">
+        <label for="lang-select" class="visually-hidden">Language</label>
+        <select id="lang-select" aria-label="Language selector">
+          <option value="en">English</option>
+          <option value="zh">中文</option>
+        </select>
+      </div>
+    </header>
+
+    <main>
+            <section class="page-hero">
+        <p class="eyebrow" data-i18n="knowledge.eyebrow">Knowledge</p>
+        <h1>Using AI tools without losing engineering ownership</h1>
+        <div class="article-meta">
+          <span class="category" data-i18n="knowledge.category.ai_dev">ai_dev</span>
+          <time datetime="2026-04-28">April 28, 2026</time>
+        </div>
+      </section>
+
+      <article class="section article-content">
+        <p>Practical guardrails for using AI to accelerate implementation while keeping review, testing, and product judgment explicit.</p>
+
+<h2 id="the-ownership-problem">The Ownership Problem</h2>
+
+<p>AI can write code faster than humans, but it can’t take responsibility for that code. When things break, you’re still on the hook. The challenge is leveraging AI’s speed without surrendering control.</p>
+
+<h2 id="core-principles">Core Principles</h2>
+
+<h3 id="1-you-review-everything">1. You Review Everything</h3>
+
+<p><strong>Rule:</strong> Never commit AI-generated code without reading it line by line.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Bad workflow</span>
+ai generate feature → git add <span class="nb">.</span> → git commit <span class="nt">-m</span> <span class="s2">"Add feature"</span>
+
+<span class="c"># Good workflow</span>
+ai generate feature → <span class="nb">read </span>every line → <span class="nb">test </span>manually → 
+refactor <span class="k">if </span>needed → git add <span class="nb">.</span> → git commit <span class="nt">-m</span> <span class="s2">"Add feature"</span>
+</code></pre></div></div>
+
+<p>Red flags to watch for:</p>
+<ul>
+  <li>Overly complex solutions to simple problems</li>
+  <li>Security vulnerabilities (hardcoded secrets, SQL injection)</li>
+  <li>Dependencies you didn’t approve</li>
+  <li>Code patterns inconsistent with your codebase</li>
+</ul>
+
+<h3 id="2-maintain-test-coverage">2. Maintain Test Coverage</h3>
+
+<p>AI doesn’t write tests unless explicitly asked—and even then, they’re often shallow.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># What AI might generate
+</span><span class="k">def</span> <span class="nf">calculate_discount</span><span class="p">(</span><span class="n">price</span><span class="p">,</span> <span class="n">discount_rate</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">price</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">discount_rate</span><span class="p">)</span>
+
+<span class="c1"># What you should add
+</span><span class="k">def</span> <span class="nf">test_calculate_discount</span><span class="p">():</span>
+    <span class="c1"># Normal case
+</span>    <span class="k">assert</span> <span class="nf">calculate_discount</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">90</span>
+    
+    <span class="c1"># Edge cases AI missed
+</span>    <span class="k">assert</span> <span class="nf">calculate_discount</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">==</span> <span class="mi">100</span>
+    <span class="k">assert</span> <span class="nf">calculate_discount</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+    
+    <span class="c1"># Invalid inputs
+</span>    <span class="k">with</span> <span class="n">pytest</span><span class="p">.</span><span class="nf">raises</span><span class="p">(</span><span class="nb">ValueError</span><span class="p">):</span>
+        <span class="nf">calculate_discount</span><span class="p">(</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+    
+    <span class="k">with</span> <span class="n">pytest</span><span class="p">.</span><span class="nf">raises</span><span class="p">(</span><span class="nb">ValueError</span><span class="p">):</span>
+        <span class="nf">calculate_discount</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><strong>Minimum test requirements:</strong></p>
+<ul>
+  <li>All public APIs have tests</li>
+  <li>Edge cases covered</li>
+  <li>Error conditions tested</li>
+  <li>Integration points mocked appropriately</li>
+</ul>
+
+<h3 id="3-keep-architecture-decisions-human">3. Keep Architecture Decisions Human</h3>
+
+<p>AI is terrible at architectural decisions because it lacks context about:</p>
+<ul>
+  <li>Your team’s skills and preferences</li>
+  <li>Existing technical debt</li>
+  <li>Business constraints and timelines</li>
+  <li>Long-term maintenance considerations</li>
+</ul>
+
+<p><strong>Decisions humans must make:</strong></p>
+<ul>
+  <li>Technology stack choices</li>
+  <li>Service boundaries</li>
+  <li>Data modeling approaches</li>
+  <li>Performance vs. complexity tradeoffs</li>
+  <li>Security architecture</li>
+</ul>
+
+<p><strong>Where AI helps:</strong></p>
+<ul>
+  <li>Implementing agreed-upon designs</li>
+  <li>Generating boilerplate code</li>
+  <li>Suggesting alternative implementations</li>
+  <li>Finding bugs in existing code</li>
+</ul>
+
+<h3 id="4-document-ais-role">4. Document AI’s Role</h3>
+
+<p>Be transparent about what AI generated:</p>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gu">## Implementation Notes</span>
+
+This module was initially scaffolded using Claude 3.5 Sonnet with the following prompt:
+"Create a Python class for handling user authentication with JWT tokens..."
+
+Human modifications:
+<span class="p">-</span> Added rate limiting logic
+<span class="p">-</span> Refactored error handling to match project standards
+<span class="p">-</span> Integrated with existing user service
+<span class="p">-</span> Added comprehensive test coverage
+
+Review checklist completed:
+☑ Security review passed
+☑ Performance benchmarks acceptable
+☑ Code style matches project guidelines
+☑ All edge cases handled
+</code></pre></div></div>
+
+<p>This creates accountability and helps future maintainers understand the code’s origins.</p>
+
+<h2 id="practical-workflow">Practical Workflow</h2>
+
+<h3 id="step-1-define-the-problem-clearly">Step 1: Define the Problem Clearly</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Bad prompt: "Build a login system"
+
+Good prompt: """
+Create a Flask route for user login with these requirements:
+- Accept email and password via POST request
+- Validate credentials against PostgreSQL database
+- Return JWT token valid for 24 hours
+- Rate limit: 5 attempts per IP per minute
+- Log failed attempts for security monitoring
+- Follow existing project patterns in auth/ directory
+"""
+</code></pre></div></div>
+
+<h3 id="step-2-generate-and-review">Step 2: Generate and Review</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Get initial implementation</span>
+ai generate <span class="nt">--prompt</span><span class="o">=</span><span class="s2">"..."</span> <span class="nt">--output</span><span class="o">=</span>login_route.py
+
+<span class="c"># Review checklist</span>
+□ Does it handle all edge cases?
+□ Are there security issues?
+□ Does it match our coding standards?
+□ Are error messages user-friendly?
+□ Is logging adequate?
+
+<span class="c"># Make corrections</span>
+vim login_route.py  <span class="c"># Fix issues found in review</span>
+</code></pre></div></div>
+
+<h3 id="step-3-test-thoroughly">Step 3: Test Thoroughly</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Run existing test suite</span>
+pytest tests/auth/ <span class="nt">-v</span>
+
+<span class="c"># Add new tests for AI-generated code</span>
+pytest tests/auth/test_login_route.py <span class="nt">-v</span>
+
+<span class="c"># Manual testing</span>
+curl <span class="nt">-X</span> POST http://localhost:5000/login <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  <span class="nt">-d</span> <span class="s1">'{"email":"test@example.com","password":"secret"}'</span>
+</code></pre></div></div>
+
+<h3 id="step-4-integrate-carefully">Step 4: Integrate Carefully</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Check for conflicts</span>
+git diff main...feature/ai-login
+
+<span class="c"># Ensure no unintended changes</span>
+git status
+
+<span class="c"># Commit with clear message</span>
+git commit <span class="nt">-m</span> <span class="s2">"Add login route (AI-assisted, human reviewed)
+
+- Generated initial implementation with Claude 3.5
+- Added rate limiting and security logging
+- Comprehensive test coverage
+- Reviewed for OWASP compliance"</span>
+</code></pre></div></div>
+
+<h2 id="common-pitfalls">Common Pitfalls</h2>
+
+<h3 id="-blind-trust">❌ Blind Trust</h3>
+<p>“Iterate until it works” without understanding why it works.</p>
+
+<p><strong>Fix:</strong> Always ask “why does this approach work?” before accepting code.</p>
+
+<h3 id="-context-loss">❌ Context Loss</h3>
+<p>AI doesn’t know your codebase conventions, leading to inconsistent styles.</p>
+
+<p><strong>Fix:</strong> Provide examples of existing code patterns in your prompts.</p>
+
+<h3 id="-over-engineering">❌ Over-Engineering</h3>
+<p>AI tends to solve problems more complexly than needed.</p>
+
+<p><strong>Fix:</strong> Explicitly request “simple, readable solution” and reject unnecessary abstractions.</p>
+
+<h3 id="-security-gaps">❌ Security Gaps</h3>
+<p>AI may introduce vulnerabilities it wasn’t trained to avoid.</p>
+
+<p><strong>Fix:</strong> Run security scanners (SAST tools) on all AI-generated code.</p>
+
+<h2 id="tools-that-help">Tools That Help</h2>
+
+<h3 id="code-review-assistants">Code Review Assistants</h3>
+<ul>
+  <li>GitHub Copilot Chat: Ask questions about generated code</li>
+  <li>CodeRabbit: Automated PR reviews with AI insights</li>
+  <li>SonarQube: Static analysis for quality and security</li>
+</ul>
+
+<h3 id="testing-tools">Testing Tools</h3>
+<ul>
+  <li>pytest-cov: Ensure adequate test coverage</li>
+  <li>Hypothesis: Property-based testing finds edge cases</li>
+  <li>Mutation testing: Verify tests actually catch bugs</li>
+</ul>
+
+<h3 id="security-scanners">Security Scanners</h3>
+<ul>
+  <li>Bandit (Python): Find common security issues</li>
+  <li>ESLint security plugins (JavaScript)</li>
+  <li>OWASP ZAP: Dynamic security testing</li>
+</ul>
+
+<h2 id="measuring-success">Measuring Success</h2>
+
+<p>Track these metrics to ensure AI assistance improves rather than degrades quality:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Metric</th>
+      <th>Target</th>
+      <th>Why It Matters</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Bug rate in AI code</td>
+      <td>&lt; 5% of commits</td>
+      <td>Quality control</td>
+    </tr>
+    <tr>
+      <td>Time to review AI PRs</td>
+      <td>&lt; 30 minutes</td>
+      <td>Review efficiency</td>
+    </tr>
+    <tr>
+      <td>Test coverage</td>
+      <td>&gt; 80%</td>
+      <td>Safety net</td>
+    </tr>
+    <tr>
+      <td>Security findings</td>
+      <td>0 critical</td>
+      <td>Risk management</td>
+    </tr>
+    <tr>
+      <td>Developer satisfaction</td>
+      <td>&gt; 4/5</td>
+      <td>Tool adoption</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>AI is a powerful tool, but it’s a tool—not a replacement for engineering judgment. The teams that succeed with AI are those that use it to amplify human expertise, not replace it.</p>
+
+<p>Stay curious, stay skeptical, and stay in control.</p>
+
+      </article>
+
+      <section class="section article-footer">
+        <a href="/knowledge.html" class="button secondary" data-i18n="knowledge.read_more">← Back to all articles</a>
+      </section>
+
+    </main>
+
+    <footer class="site-footer">
+      <p data-i18n="footer.copyright">© 2026 KylinLab. Practical technology consulting and knowledge sharing.</p>
+    </footer>
+    <script src="/assets/resources/i18n.js"></script>
+  </body>
+</html>

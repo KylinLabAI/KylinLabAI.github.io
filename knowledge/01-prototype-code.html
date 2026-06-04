@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>How to keep prototype code useful after the demo | KylinLab</title>
+    
+    <meta name="description" content="Small practices that make experimental work easier to evolve when the idea proves valuable.">
+    
+    <link rel="icon" href="/assets/resources/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/assets/styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="KylinLab home">
+        <span class="brand-mark">K</span>
+        <span>KylinLab</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a class="nav-link" href="/"><img src="/assets/resources/icon-home.svg" alt=""><span data-i18n="nav.home">Home</span></a>
+        <a class="nav-link" href="/knowledge.html"><img src="/assets/resources/icon-knowledge.svg" alt=""><span data-i18n="nav.knowledge">Knowledge</span></a>
+        <a class="nav-link" href="/services.html"><img src="/assets/resources/icon-services.svg" alt=""><span data-i18n="nav.services">Services</span></a>
+        <a class="nav-link" href="/demos.html"><img src="/assets/resources/icon-demos.svg" alt=""><span data-i18n="nav.demos">Demos</span></a>
+        <a class="nav-link" href="/about.html"><img src="/assets/resources/icon-about.svg" alt=""><span data-i18n="nav.about">About</span></a>
+      </nav>
+      <div class="lang-switcher">
+        <label for="lang-select" class="visually-hidden">Language</label>
+        <select id="lang-select" aria-label="Language selector">
+          <option value="en">English</option>
+          <option value="zh">中文</option>
+        </select>
+      </div>
+    </header>
+
+    <main>
+            <section class="page-hero">
+        <p class="eyebrow" data-i18n="knowledge.eyebrow">Knowledge</p>
+        <h1>How to keep prototype code useful after the demo</h1>
+        <div class="article-meta">
+          <span class="category" data-i18n="knowledge.category.software_dev">software_dev</span>
+          <time datetime="2026-04-28">April 28, 2026</time>
+        </div>
+      </section>
+
+      <article class="section article-content">
+        <p>Prototype code can stay lightweight while still preserving clear boundaries, readable naming, and enough documentation for the next phase.</p>
+
+<h2 id="the-prototype-paradox">The Prototype Paradox</h2>
+
+<p>When building a proof-of-concept, there’s constant tension between speed and structure. Move too fast and you create technical debt. Move too slow and you lose momentum.</p>
+
+<h2 id="practices-that-scale">Practices That Scale</h2>
+
+<h3 id="1-name-things-clearly">1. Name Things Clearly</h3>
+
+<p>Even in throwaway code, use names that reveal intent. <code class="language-plaintext highlighter-rouge">calculateTotal()</code> is better than <code class="language-plaintext highlighter-rouge">calc()</code>. Future you (or someone else) will thank you.</p>
+
+<h3 id="2-keep-boundaries-visible">2. Keep Boundaries Visible</h3>
+
+<p>Separate concerns even in small prototypes:</p>
+<ul>
+  <li>UI logic separate from business rules</li>
+  <li>Data fetching separate from rendering</li>
+  <li>Configuration separate from implementation</li>
+</ul>
+
+<h3 id="3-document-decisions-not-code">3. Document Decisions, Not Code</h3>
+
+<p>Add brief comments explaining <strong>why</strong> you chose an approach, not what the code does. The code shows what; comments should explain why.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Using localStorage for quick persistence</span>
+<span class="c1">// Will migrate to backend API if this gets traction</span>
+<span class="kd">const</span> <span class="nx">saveState</span> <span class="o">=</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">localStorage</span><span class="p">.</span><span class="nf">setItem</span><span class="p">(</span><span class="dl">'</span><span class="s1">prototype-state</span><span class="dl">'</span><span class="p">,</span> <span class="nx">JSON</span><span class="p">.</span><span class="nf">stringify</span><span class="p">(</span><span class="nx">data</span><span class="p">));</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h3 id="4-leave-migration-hooks">4. Leave Migration Hooks</h3>
+
+<p>Add simple extension points that make it easy to evolve:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// TODO: Replace with proper state management</span>
+<span class="kd">const</span> <span class="nx">appState</span> <span class="o">=</span> <span class="p">{</span> <span class="cm">/* ... */</span> <span class="p">};</span>
+
+<span class="c1">// TODO: Add error handling</span>
+<span class="kd">const</span> <span class="nx">fetchData</span> <span class="o">=</span> <span class="k">async </span><span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="cm">/* ... */</span> <span class="p">};</span>
+</code></pre></div></div>
+
+<h3 id="5-test-critical-paths">5. Test Critical Paths</h3>
+
+<p>Even one or two smoke tests can save hours later:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">describe</span><span class="p">(</span><span class="dl">'</span><span class="s1">Core workflow</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nf">it</span><span class="p">(</span><span class="dl">'</span><span class="s1">processes input and produces output</span><span class="dl">'</span><span class="p">);</span>
+  <span class="nf">it</span><span class="p">(</span><span class="dl">'</span><span class="s1">handles empty input gracefully</span><span class="dl">'</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<h2 id="when-to-refactor-vs-rewrite">When to Refactor vs Rewrite</h2>
+
+<p><strong>Refactor when:</strong></p>
+<ul>
+  <li>Core architecture is sound</li>
+  <li>Only specific modules need improvement</li>
+  <li>Team understands the codebase</li>
+</ul>
+
+<p><strong>Rewrite when:</strong></p>
+<ul>
+  <li>Fundamental assumptions were wrong</li>
+  <li>Technical debt blocks progress</li>
+  <li>Requirements changed significantly</li>
+</ul>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>Prototype code doesn’t have to be disposable. With minimal discipline, it can evolve into production-ready software without complete rewrites.</p>
+
+<p>The key is finding the right balance: enough structure to enable evolution, but not so much that it slows down experimentation.</p>
+
+      </article>
+
+      <section class="section article-footer">
+        <a href="/knowledge.html" class="button secondary" data-i18n="knowledge.read_more">← Back to all articles</a>
+      </section>
+
+    </main>
+
+    <footer class="site-footer">
+      <p data-i18n="footer.copyright">© 2026 KylinLab. Practical technology consulting and knowledge sharing.</p>
+    </footer>
+    <script src="/assets/resources/i18n.js"></script>
+  </body>
+</html>

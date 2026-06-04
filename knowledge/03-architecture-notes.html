@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Architecture notes that help teams decide faster | KylinLab</title>
+    
+    <meta name="description" content="Good design notes capture the tradeoff, the chosen direction, and what evidence would change the decision later.">
+    
+    <link rel="icon" href="/assets/resources/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/assets/styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="KylinLab home">
+        <span class="brand-mark">K</span>
+        <span>KylinLab</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a class="nav-link" href="/"><img src="/assets/resources/icon-home.svg" alt=""><span data-i18n="nav.home">Home</span></a>
+        <a class="nav-link" href="/knowledge.html"><img src="/assets/resources/icon-knowledge.svg" alt=""><span data-i18n="nav.knowledge">Knowledge</span></a>
+        <a class="nav-link" href="/services.html"><img src="/assets/resources/icon-services.svg" alt=""><span data-i18n="nav.services">Services</span></a>
+        <a class="nav-link" href="/demos.html"><img src="/assets/resources/icon-demos.svg" alt=""><span data-i18n="nav.demos">Demos</span></a>
+        <a class="nav-link" href="/about.html"><img src="/assets/resources/icon-about.svg" alt=""><span data-i18n="nav.about">About</span></a>
+      </nav>
+      <div class="lang-switcher">
+        <label for="lang-select" class="visually-hidden">Language</label>
+        <select id="lang-select" aria-label="Language selector">
+          <option value="en">English</option>
+          <option value="zh">中文</option>
+        </select>
+      </div>
+    </header>
+
+    <main>
+            <section class="page-hero">
+        <p class="eyebrow" data-i18n="knowledge.eyebrow">Knowledge</p>
+        <h1>Architecture notes that help teams decide faster</h1>
+        <div class="article-meta">
+          <span class="category" data-i18n="knowledge.category.architecture">architecture</span>
+          <time datetime="2026-04-28">April 28, 2026</time>
+        </div>
+      </section>
+
+      <article class="section article-content">
+        <p>Good design notes capture the tradeoff, the chosen direction, and what evidence would change the decision later.</p>
+
+<h2 id="why-architecture-decisions-get-stuck">Why Architecture Decisions Get Stuck</h2>
+
+<p>Teams debate architecture for weeks because they’re trying to predict the future. But good architecture isn’t about being right forever—it’s about making reversible decisions with clear criteria.</p>
+
+<h2 id="the-adr-pattern-architecture-decision-record">The ADR Pattern (Architecture Decision Record)</h2>
+
+<p>Document each significant decision using this template:</p>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gh"># ADR-001: Choose PostgreSQL over MongoDB</span>
+
+<span class="gu">## Context</span>
+We need a database for user data with complex queries and transactions.
+
+<span class="gu">## Decision</span>
+Use PostgreSQL 15 with JSONB support.
+
+<span class="gu">## Consequences</span>
+
+<span class="gu">### Positive</span>
+<span class="p">-</span> ACID transactions ensure data integrity
+<span class="p">-</span> Complex joins supported natively
+<span class="p">-</span> Strong ecosystem and tooling
+<span class="p">-</span> Team has existing PostgreSQL experience
+
+<span class="gu">### Negative</span>
+<span class="p">-</span> Less flexible schema changes than NoSQL
+<span class="p">-</span> Horizontal scaling more complex
+<span class="p">-</span> Higher operational overhead initially
+
+<span class="gu">## Reversibility</span>
+Medium. Migration possible but requires effort.
+
+<span class="gu">## Review Criteria</span>
+Revisit if:
+<span class="p">-</span> Query performance degrades with &gt;1M records
+<span class="p">-</span> Schema changes needed weekly or more
+<span class="p">-</span> Team reports significant friction with relational model
+</code></pre></div></div>
+
+<h2 id="what-makes-good-architecture-notes">What Makes Good Architecture Notes</h2>
+
+<h3 id="1-capture-the-tradeoff">1. Capture the Tradeoff</h3>
+
+<p>Every decision has costs. Document them honestly:</p>
+
+<p><strong>Bad:</strong> “We chose React because it’s popular”<br />
+<strong>Good:</strong> “We chose React despite Vue’s simpler learning curve because our team already knows JSX patterns and we need the larger component ecosystem”</p>
+
+<h3 id="2-state-assumptions-explicitly">2. State Assumptions Explicitly</h3>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">Assumptions</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">Traffic will stay under 10K daily users for first year</span>
+  <span class="pi">-</span> <span class="s">Team size will remain 3-5 developers</span>
+  <span class="pi">-</span> <span class="s">Budget allows $500/month infrastructure spend</span>
+  <span class="pi">-</span> <span class="s">No real-time collaboration features needed initially</span>
+</code></pre></div></div>
+
+<p>When assumptions change, re-evaluate the decision.</p>
+
+<h3 id="3-define-success-metrics">3. Define Success Metrics</h3>
+
+<p>How will you know if the decision was right?</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Metrics to track:
+- API response time &lt; 200ms at p95
+- Database query time &lt; 50ms average
+- Deployment frequency: 2x per week minimum
+- Time to onboard new developer: &lt; 2 days
+</code></pre></div></div>
+
+<h3 id="4-note-what-would-change-your-mind">4. Note What Would Change Your Mind</h3>
+
+<p>The best architecture decisions include exit criteria:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>We'll reconsider this decision if:
+☐ Performance benchmarks show 30%+ degradation
+☐ Team velocity drops below 15 story points/sprint for 3 sprints
+☐ Customer requests require fundamental architectural changes
+☐ New technology emerges that solves our core problem 2x better
+</code></pre></div></div>
+
+<h2 id="common-architecture-decision-categories">Common Architecture Decision Categories</h2>
+
+<h3 id="data-storage">Data Storage</h3>
+<ul>
+  <li>SQL vs NoSQL</li>
+  <li>Single database vs polyglot persistence</li>
+  <li>Managed service vs self-hosted</li>
+</ul>
+
+<h3 id="communication-patterns">Communication Patterns</h3>
+<ul>
+  <li>REST vs GraphQL vs gRPC</li>
+  <li>Synchronous vs asynchronous</li>
+  <li>Event-driven vs request-response</li>
+</ul>
+
+<h3 id="deployment-strategy">Deployment Strategy</h3>
+<ul>
+  <li>Monolith vs microservices</li>
+  <li>Serverless vs containers vs VMs</li>
+  <li>Single region vs multi-region</li>
+</ul>
+
+<h3 id="development-approach">Development Approach</h3>
+<ul>
+  <li>Framework choice (React, Vue, Angular, etc.)</li>
+  <li>Language selection</li>
+  <li>Testing strategy</li>
+</ul>
+
+<h2 id="when-to-write-adrs">When to Write ADRs</h2>
+
+<p>Write an ADR when:</p>
+<ul>
+  <li>✅ Multiple viable options exist</li>
+  <li>✅ Decision affects multiple teams</li>
+  <li>✅ Changing course later would be expensive</li>
+  <li>✅ Team members disagree on approach</li>
+</ul>
+
+<p>Skip ADRs when:</p>
+<ul>
+  <li>❌ Obvious best choice exists</li>
+  <li>❌ Decision is easily reversible</li>
+  <li>❌ Impact is limited to one developer</li>
+  <li>❌ It’s purely a preference issue</li>
+</ul>
+
+<h2 id="keeping-adrs-alive">Keeping ADRs Alive</h2>
+
+<h3 id="monthly-review">Monthly Review</h3>
+<p>Scan recent ADRs. Are assumptions still valid?</p>
+
+<h3 id="trigger-based-review">Trigger-Based Review</h3>
+<p>When metrics hit review criteria, automatically revisit the decision.</p>
+
+<h3 id="sunset-old-adrs">Sunset Old ADRs</h3>
+<p>Mark decisions as superseded when replaced. Keep history for learning.</p>
+
+<h2 id="example-real-adr-in-action">Example: Real ADR in Action</h2>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gh"># ADR-003: Use Redis for Session Management</span>
+
+Date: 2026-03-15
+Status: Accepted
+
+<span class="gu">## Context</span>
+Current session storage in application memory doesn't scale across multiple instances.
+
+<span class="gu">## Options Considered</span>
+<span class="p">1.</span> <span class="gs">**Redis**</span> - Fast, proven, supports TTL natively
+<span class="p">2.</span> <span class="gs">**Database sessions**</span> - Simpler ops, but slower
+<span class="p">3.</span> <span class="gs">**JWT tokens**</span> - Stateless, but can't invalidate easily
+
+<span class="gu">## Decision</span>
+Use Redis with 30-minute TTL for user sessions.
+
+<span class="gu">## Rationale</span>
+<span class="p">-</span> Sub-millisecond read/write performance
+<span class="p">-</span> Automatic expiration prevents stale sessions
+<span class="p">-</span> Can share sessions across load-balanced instances
+<span class="p">-</span> Team has Redis operational experience
+
+<span class="gu">## Implementation Notes</span>
+<span class="p">-</span> Use Redis cluster mode for high availability
+<span class="p">-</span> Store only session ID and minimal user context
+<span class="p">-</span> Implement graceful fallback if Redis unavailable
+
+<span class="gu">## Review Date: 2026-06-15</span>
+Check: Session store performance at scale, operational complexity
+</code></pre></div></div>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>Architecture decisions don’t need to be perfect—they need to be documented, reversible, and measurable. Good notes turn debates into experiments and opinions into testable hypotheses.</p>
+
+<p>Write less, document better, decide faster.</p>
+
+      </article>
+
+      <section class="section article-footer">
+        <a href="/knowledge.html" class="button secondary" data-i18n="knowledge.read_more">← Back to all articles</a>
+      </section>
+
+    </main>
+
+    <footer class="site-footer">
+      <p data-i18n="footer.copyright">© 2026 KylinLab. Practical technology consulting and knowledge sharing.</p>
+    </footer>
+    <script src="/assets/resources/i18n.js"></script>
+  </body>
+</html>
