@@ -1,0 +1,215 @@
+
+<!doctype html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>项目交付看板 | KylinLab</title>
+    
+    <meta name="description" content="用于规划工作、揭示风险并保持交付检查点可见的紧凑模板。">
+    
+    <link rel="icon" href="/assets/resources/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/assets/styles.css">
+    
+    <link rel="alternate" hreflang="en" href="/demos/project-delivery-board.html">
+    
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/zh/" aria-label="KylinLab home">
+        <span class="brand-mark">K</span>
+        <span>KylinLab</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        
+        
+        <a class="nav-link" href="/zh/"><img src="/assets/resources/icon-home.svg" alt=""><span data-i18n="nav.home">Home</span></a>
+        <a class="nav-link" href="/zh/knowledge.html"><img src="/assets/resources/icon-knowledge.svg" alt=""><span data-i18n="nav.knowledge">Knowledge</span></a>
+        <a class="nav-link" href="/services.html"><img src="/assets/resources/icon-services.svg" alt=""><span data-i18n="nav.services">Services</span></a>
+        <a class="nav-link is-active" href="/zh/demos.html"><img src="/assets/resources/icon-demos.svg" alt=""><span data-i18n="nav.demos">Demos</span></a>
+        <a class="nav-link" href="/about.html"><img src="/assets/resources/icon-about.svg" alt=""><span data-i18n="nav.about">About</span></a>
+      </nav>
+      <div class="lang-switcher">
+        <label for="lang-select" class="visually-hidden">Language</label>
+        <select id="lang-select" aria-label="Language selector" data-current-lang="zh" data-current-url="/zh/demos/project-delivery-board.html">
+          <option value="en">English</option>
+          <option value="zh">中文</option>
+        </select>
+      </div>
+    </header>
+
+    <main>
+            <section class="page-hero">
+        <p class="eyebrow" data-i18n="demos.eyebrow">Demos</p>
+        <h1>项目交付看板</h1>
+        <div class="article-meta">
+          <span class="tag" data-i18n="demos.tag.prototype">Prototype</span>
+          <time datetime="2026-04-28">April 28, 2026</time>
+        </div>
+      </section>
+
+      <article class="section article-content">
+        <h2 id="概述">概述</h2>
+
+<p>一个可视化项目管理工具，帮助团队在单一视图中跟踪交付进度、风险和决策点。</p>
+
+<h2 id="问题">问题</h2>
+
+<p>传统项目管理工具要么过于复杂（Jira 有数百个选项），要么过于简单（Trello 没有风险跟踪）。团队需要一个中间地带——足够强大以应对真实项目，但又足够简单，无需培训即可上手。</p>
+
+<h2 id="解决方案">解决方案</h2>
+
+<p>一个单一页面的看板模板，展示：</p>
+<ul>
+  <li>当前冲刺状态</li>
+  <li>风险与缓解措施</li>
+  <li>即将到来的决策点</li>
+  <li>阻碍项跟踪</li>
+  <li>团队工作量</li>
+</ul>
+
+<h2 id="看板结构">看板结构</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>┌─────────────────────────────────────────────────────────┐
+│ 项目: 用户门户重新设计          更新于: 2026-04-28       │
+├──────────────┬──────────────┬──────────────┬─────────────┤
+│ 📋 待办       │ 🔄 进行中     │ ✅ 已完成     │ ⚠️ 阻碍     │
+├──────────────┼──────────────┼──────────────┼─────────────┤
+│ 搜索功能      │ 仪表板布局    │ 用户资料页    │ API 响应慢   │
+│ 通知系统      │ 登录流程      │ 数据导出      │ 等待设计评审  │
+│ 设置页面      │ API 集成      │               │             │
+├──────────────┴──────────────┴──────────────┴─────────────┤
+│ 🔴 高风险: 第三方API不稳定 → 构建回退机制                 │
+│ 🟡 中风险: 范围蔓延 → 每周范围评审                        │
+│ 📅 决策: 周五前决定数据库方案                              │
+└─────────────────────────────────────────────────────────┘
+</code></pre></div></div>
+
+<h2 id="关键功能">关键功能</h2>
+
+<h3 id="1-拖放式任务管理">1. 拖放式任务管理</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 看板列管理</span>
+<span class="kd">class</span> <span class="nc">KanbanBoard</span> <span class="p">{</span>
+  <span class="nf">constructor</span><span class="p">(</span><span class="nx">columns</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">columns</span> <span class="o">=</span> <span class="nx">columns</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nf">initDragDrop</span><span class="p">();</span>
+  <span class="p">}</span>
+  
+  <span class="nf">initDragDrop</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nf">querySelectorAll</span><span class="p">(</span><span class="dl">'</span><span class="s1">.kanban-card</span><span class="dl">'</span><span class="p">).</span><span class="nf">forEach</span><span class="p">(</span><span class="nx">card</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="nx">card</span><span class="p">.</span><span class="nf">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">dragstart</span><span class="dl">'</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">handleDragStart</span><span class="p">);</span>
+      <span class="nx">card</span><span class="p">.</span><span class="nf">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">dragend</span><span class="dl">'</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">handleDragEnd</span><span class="p">);</span>
+    <span class="p">});</span>
+    
+    <span class="nb">document</span><span class="p">.</span><span class="nf">querySelectorAll</span><span class="p">(</span><span class="dl">'</span><span class="s1">.kanban-column</span><span class="dl">'</span><span class="p">).</span><span class="nf">forEach</span><span class="p">(</span><span class="nx">col</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="nx">col</span><span class="p">.</span><span class="nf">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">dragover</span><span class="dl">'</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">handleDragOver</span><span class="p">);</span>
+      <span class="nx">col</span><span class="p">.</span><span class="nf">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">drop</span><span class="dl">'</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">handleDrop</span><span class="p">);</span>
+    <span class="p">});</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="2-风险矩阵">2. 风险矩阵</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">RiskMatrix</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">critical</span><span class="p">:</span> <span class="p">{</span> <span class="na">color</span><span class="p">:</span> <span class="dl">'</span><span class="s1">#ff4444</span><span class="dl">'</span><span class="p">,</span> <span class="na">label</span><span class="p">:</span> <span class="dl">'</span><span class="s1">严重</span><span class="dl">'</span><span class="p">,</span> <span class="na">action</span><span class="p">:</span> <span class="dl">'</span><span class="s1">24小时内解决</span><span class="dl">'</span> <span class="p">},</span>
+  <span class="na">high</span><span class="p">:</span>     <span class="p">{</span> <span class="na">color</span><span class="p">:</span> <span class="dl">'</span><span class="s1">#ff8800</span><span class="dl">'</span><span class="p">,</span> <span class="na">label</span><span class="p">:</span> <span class="dl">'</span><span class="s1">高</span><span class="dl">'</span><span class="p">,</span>   <span class="na">action</span><span class="p">:</span> <span class="dl">'</span><span class="s1">本周内解决</span><span class="dl">'</span> <span class="p">},</span>
+  <span class="na">medium</span><span class="p">:</span>   <span class="p">{</span> <span class="na">color</span><span class="p">:</span> <span class="dl">'</span><span class="s1">#ffcc00</span><span class="dl">'</span><span class="p">,</span> <span class="na">label</span><span class="p">:</span> <span class="dl">'</span><span class="s1">中</span><span class="dl">'</span><span class="p">,</span>   <span class="na">action</span><span class="p">:</span> <span class="dl">'</span><span class="s1">本冲刺内解决</span><span class="dl">'</span> <span class="p">},</span>
+  <span class="na">low</span><span class="p">:</span>      <span class="p">{</span> <span class="na">color</span><span class="p">:</span> <span class="dl">'</span><span class="s1">#44bb44</span><span class="dl">'</span><span class="p">,</span> <span class="na">label</span><span class="p">:</span> <span class="dl">'</span><span class="s1">低</span><span class="dl">'</span><span class="p">,</span>   <span class="na">action</span><span class="p">:</span> <span class="dl">'</span><span class="s1">监控</span><span class="dl">'</span> <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kd">function</span> <span class="nf">renderRiskCard</span><span class="p">(</span><span class="nx">risk</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">level</span> <span class="o">=</span> <span class="nx">RiskMatrix</span><span class="p">[</span><span class="nx">risk</span><span class="p">.</span><span class="nx">level</span><span class="p">];</span>
+  <span class="k">return</span> <span class="s2">`
+    &lt;div class="risk-card" style="border-left: 4px solid </span><span class="p">${</span><span class="nx">level</span><span class="p">.</span><span class="nx">color</span><span class="p">}</span><span class="s2">"&gt;
+      &lt;span class="risk-badge" style="background: </span><span class="p">${</span><span class="nx">level</span><span class="p">.</span><span class="nx">color</span><span class="p">}</span><span class="s2">"&gt;
+        </span><span class="p">${</span><span class="nx">level</span><span class="p">.</span><span class="nx">label</span><span class="p">}</span><span class="s2">
+      &lt;/span&gt;
+      &lt;p&gt;</span><span class="p">${</span><span class="nx">risk</span><span class="p">.</span><span class="nx">description</span><span class="p">}</span><span class="s2">&lt;/p&gt;
+      &lt;small&gt;缓解措施: </span><span class="p">${</span><span class="nx">risk</span><span class="p">.</span><span class="nx">mitigation</span><span class="p">}</span><span class="s2">&lt;/small&gt;
+    &lt;/div&gt;
+  `</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="3-决策时间线">3. 决策时间线</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">DecisionPoints</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">{</span> <span class="na">date</span><span class="p">:</span> <span class="dl">'</span><span class="s1">2026-05-01</span><span class="dl">'</span><span class="p">,</span> <span class="na">decision</span><span class="p">:</span> <span class="dl">'</span><span class="s1">数据库技术选型</span><span class="dl">'</span><span class="p">,</span> <span class="na">owner</span><span class="p">:</span> <span class="dl">'</span><span class="s1">@tech-lead</span><span class="dl">'</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="na">date</span><span class="p">:</span> <span class="dl">'</span><span class="s1">2026-05-05</span><span class="dl">'</span><span class="p">,</span> <span class="na">decision</span><span class="p">:</span> <span class="dl">'</span><span class="s1">是否购买第三方组件</span><span class="dl">'</span><span class="p">,</span> <span class="na">owner</span><span class="p">:</span> <span class="dl">'</span><span class="s1">@pm</span><span class="dl">'</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="na">date</span><span class="p">:</span> <span class="dl">'</span><span class="s1">2026-05-10</span><span class="dl">'</span><span class="p">,</span> <span class="na">decision</span><span class="p">:</span> <span class="dl">'</span><span class="s1">启动 beta 测试</span><span class="dl">'</span><span class="p">,</span> <span class="na">owner</span><span class="p">:</span> <span class="dl">'</span><span class="s1">@product-owner</span><span class="dl">'</span> <span class="p">}</span>
+<span class="p">];</span>
+
+<span class="kd">function</span> <span class="nf">renderTimeline</span><span class="p">(</span><span class="nx">decisions</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">decisions</span><span class="p">.</span><span class="nf">map</span><span class="p">((</span><span class="nx">d</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="s2">`
+    &lt;div class="timeline-item"&gt;
+      &lt;div class="timeline-marker </span><span class="p">${</span><span class="nx">i</span> <span class="o">===</span> <span class="mi">0</span> <span class="p">?</span> <span class="dl">'</span><span class="s1">next</span><span class="dl">'</span> <span class="p">:</span> <span class="dl">''</span><span class="p">}</span><span class="s2">"&gt;&lt;/div&gt;
+      &lt;time&gt;</span><span class="p">${</span><span class="nx">d</span><span class="p">.</span><span class="nx">date</span><span class="p">}</span><span class="s2">&lt;/time&gt;
+      &lt;strong&gt;</span><span class="p">${</span><span class="nx">d</span><span class="p">.</span><span class="nx">decision</span><span class="p">}</span><span class="s2">&lt;/strong&gt;
+      &lt;span&gt;负责人: </span><span class="p">${</span><span class="nx">d</span><span class="p">.</span><span class="nx">owner</span><span class="p">}</span><span class="s2">&lt;/span&gt;
+    &lt;/div&gt;
+  `</span><span class="p">).</span><span class="nf">join</span><span class="p">(</span><span class="dl">''</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="技术栈">技术栈</h2>
+
+<ul>
+  <li><strong>前端</strong>: 原生 HTML/CSS/JavaScript（无需框架）</li>
+  <li><strong>数据存储</strong>: localStorage（原型）/ 后端 API（生产环境）</li>
+  <li><strong>实时更新</strong>: WebSocket（可选）</li>
+  <li><strong>导出</strong>: CSV/PDF 报表生成</li>
+</ul>
+
+<h2 id="部署">部署</h2>
+
+<p>可作为静态 HTML 页面运行，或部署到：</p>
+<ul>
+  <li>GitHub Pages</li>
+  <li>Netlify</li>
+  <li>任意 Web 服务器</li>
+</ul>
+
+<h2 id="经验教训">经验教训</h2>
+
+<ol>
+  <li><strong>可见性驱动行动</strong> - 当风险可见时，团队会更积极地处理</li>
+  <li><strong>简单胜过全面</strong> - 5个字段比50个选项更有效</li>
+  <li><strong>实时更新很重要</strong> - 过时的看板会失去信任</li>
+</ol>
+
+<h2 id="后续步骤">后续步骤</h2>
+
+<ul>
+  <li>添加团队工作量视图</li>
+  <li>与 Jira/Linear API 集成</li>
+  <li>历史趋势分析</li>
+  <li>多项目仪表板视图</li>
+</ul>
+
+      </article>
+
+      <section class="article-footer">
+        
+          <span class="text-link muted-link" data-i18n="demos.coming_soon">Demo link coming later</span>
+        
+        <div style="margin-top: 1rem;">
+          
+            
+            <p class="lang-notice"><a href="/demos/project-delivery-board.html">📖 Read in English</a></p>
+          
+        </div>
+        <div style="margin-top: 1rem;">
+          <a href="/zh/demos.html" class="button secondary" data-i18n="demos.view">← Back to all demos</a>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="site-footer">
+      <p data-i18n="footer.copyright">© 2026 KylinLab. Practical technology consulting and knowledge sharing.</p>
+    </footer>
+    <script src="/assets/resources/i18n.js?v=4"></script>
+  </body>
+</html>

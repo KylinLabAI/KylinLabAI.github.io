@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -9,6 +10,9 @@
     
     <link rel="icon" href="/assets/resources/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="/assets/styles.css">
+    
+    <link rel="alternate" hreflang="zh" href="/zh/knowledge.html">
+    
   </head>
   <body>
     <header class="site-header">
@@ -17,6 +21,8 @@
         <span>KylinLab</span>
       </a>
       <nav class="site-nav" aria-label="Primary navigation">
+        
+        
         <a class="nav-link" href="/"><img src="/assets/resources/icon-home.svg" alt=""><span data-i18n="nav.home">Home</span></a>
         <a class="nav-link is-active" href="/knowledge.html"><img src="/assets/resources/icon-knowledge.svg" alt=""><span data-i18n="nav.knowledge">Knowledge</span></a>
         <a class="nav-link" href="/services.html"><img src="/assets/resources/icon-services.svg" alt=""><span data-i18n="nav.services">Services</span></a>
@@ -25,7 +31,7 @@
       </nav>
       <div class="lang-switcher">
         <label for="lang-select" class="visually-hidden">Language</label>
-        <select id="lang-select" aria-label="Language selector">
+        <select id="lang-select" aria-label="Language selector" data-current-lang="en" data-current-url="/knowledge.html">
           <option value="en">English</option>
           <option value="zh">中文</option>
         </select>
@@ -42,12 +48,13 @@
       <section class="section" aria-label="Knowledge articles">
         <div class="article-list">
           
+          
           <article class="article-card">
             <div class="meta-row">
               <span data-i18n="knowledge.category.testing_automation">testing_automation</span>
               <time datetime="2026-04-28">Apr 28, 2026</time>
             </div>
-            <h2><a href="/knowledge/05-automation-scripts.html">Small automation that removes recurring delivery friction</a></h2>
+            <h2><a href="/knowledge/automation-scripts.html">Small automation that removes recurring delivery friction</a></h2>
             <p>Simple scripts, checks, and templates can remove repeated manual work before a full internal platform is justified.</p>
           </article>
           
@@ -56,7 +63,7 @@
               <span data-i18n="knowledge.category.ai_dev">ai_dev</span>
               <time datetime="2026-04-28">Apr 28, 2026</time>
             </div>
-            <h2><a href="/knowledge/04-ai-assisted-development.html">Using AI tools without losing engineering ownership</a></h2>
+            <h2><a href="/knowledge/ai-assisted-development.html">Using AI tools without losing engineering ownership</a></h2>
             <p>Practical guardrails for using AI to accelerate implementation while keeping review, testing, and product judgment explicit.</p>
           </article>
           
@@ -65,7 +72,7 @@
               <span data-i18n="knowledge.category.architecture">architecture</span>
               <time datetime="2026-04-28">Apr 28, 2026</time>
             </div>
-            <h2><a href="/knowledge/03-architecture-notes.html">Architecture notes that help teams decide faster</a></h2>
+            <h2><a href="/knowledge/architecture-notes.html">Architecture notes that help teams decide faster</a></h2>
             <p>Good design notes capture the tradeoff, the chosen direction, and what evidence would change the decision later.</p>
           </article>
           
@@ -74,7 +81,7 @@
               <span data-i18n="knowledge.category.pm">pm</span>
               <time datetime="2026-04-28">Apr 28, 2026</time>
             </div>
-            <h2><a href="/knowledge/02-delivery-plans.html">Delivery plans that survive real project pressure</a></h2>
+            <h2><a href="/knowledge/delivery-plans.html">Delivery plans that survive real project pressure</a></h2>
             <p>A lightweight approach for tracking risk, scope, ownership, and decision points.</p>
           </article>
           
@@ -83,7 +90,7 @@
               <span data-i18n="knowledge.category.software_dev">software_dev</span>
               <time datetime="2026-04-28">Apr 28, 2026</time>
             </div>
-            <h2><a href="/knowledge/01-prototype-code.html">How to keep prototype code useful after the demo</a></h2>
+            <h2><a href="/knowledge/prototype-code.html">How to keep prototype code useful after the demo</a></h2>
             <p>Small practices that make experimental work easier to evolve when the idea proves valuable.</p>
           </article>
           
@@ -95,6 +102,6 @@
     <footer class="site-footer">
       <p data-i18n="footer.copyright">© 2026 KylinLab. Practical technology consulting and knowledge sharing.</p>
     </footer>
-    <script src="/assets/resources/i18n.js"></script>
+    <script src="/assets/resources/i18n.js?v=4"></script>
   </body>
 </html>

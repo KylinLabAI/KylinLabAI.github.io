@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -9,6 +10,9 @@
     
     <link rel="icon" href="/assets/resources/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="/assets/styles.css">
+    
+    <link rel="alternate" hreflang="zh" href="/zh/knowledge/delivery-plans.html">
+    
   </head>
   <body>
     <header class="site-header">
@@ -17,15 +21,17 @@
         <span>KylinLab</span>
       </a>
       <nav class="site-nav" aria-label="Primary navigation">
+        
+        
         <a class="nav-link" href="/"><img src="/assets/resources/icon-home.svg" alt=""><span data-i18n="nav.home">Home</span></a>
-        <a class="nav-link" href="/knowledge.html"><img src="/assets/resources/icon-knowledge.svg" alt=""><span data-i18n="nav.knowledge">Knowledge</span></a>
+        <a class="nav-link is-active" href="/knowledge.html"><img src="/assets/resources/icon-knowledge.svg" alt=""><span data-i18n="nav.knowledge">Knowledge</span></a>
         <a class="nav-link" href="/services.html"><img src="/assets/resources/icon-services.svg" alt=""><span data-i18n="nav.services">Services</span></a>
         <a class="nav-link" href="/demos.html"><img src="/assets/resources/icon-demos.svg" alt=""><span data-i18n="nav.demos">Demos</span></a>
         <a class="nav-link" href="/about.html"><img src="/assets/resources/icon-about.svg" alt=""><span data-i18n="nav.about">About</span></a>
       </nav>
       <div class="lang-switcher">
         <label for="lang-select" class="visually-hidden">Language</label>
-        <select id="lang-select" aria-label="Language selector">
+        <select id="lang-select" aria-label="Language selector" data-current-lang="en" data-current-url="/knowledge/delivery-plans.html">
           <option value="en">English</option>
           <option value="zh">中文</option>
         </select>
@@ -188,7 +194,11 @@ Week 6: Decide whether to build or buy reporting module
 
       </article>
 
-      <section class="section article-footer">
+      <section class="article-footer">
+        
+          
+          <p class="lang-notice"><a href="/zh/knowledge/delivery-plans.html">📖 阅读中文版本</a></p>
+        
         <a href="/knowledge.html" class="button secondary" data-i18n="knowledge.read_more">← Back to all articles</a>
       </section>
 
@@ -197,6 +207,6 @@ Week 6: Decide whether to build or buy reporting module
     <footer class="site-footer">
       <p data-i18n="footer.copyright">© 2026 KylinLab. Practical technology consulting and knowledge sharing.</p>
     </footer>
-    <script src="/assets/resources/i18n.js"></script>
+    <script src="/assets/resources/i18n.js?v=4"></script>
   </body>
 </html>
