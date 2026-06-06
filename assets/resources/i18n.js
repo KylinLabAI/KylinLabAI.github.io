@@ -124,13 +124,12 @@
     sel.value = currentLang;
     sel.addEventListener('change', function(e){ setLang(e.target.value); });
 
-    if (isTranslatedPage()){
-      // Server-rendered content — language is already correct, just sync selector
-      // No translations to load (content comes from markdown → HTML)
-    } else {
-      // Static page — load translations for preferred language
-      loadLang(currentLang).then(applyTranslations);
-      // Update nav links to match the current language (server always renders EN links)
+    // Always load translations for nav/footer chrome (data-i18n on every page)
+    // Translated pages have server-rendered content but nav chrome still needs i18n
+    loadLang(currentLang).then(applyTranslations);
+
+    // Update nav links on static pages where server always renders EN hrefs
+    if (!isTranslatedPage()){
       updateNavLinks(currentLang);
     }
   });
