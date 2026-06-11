@@ -1,17 +1,17 @@
 
 <!doctype html>
-<html lang="zh">
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>消除重复交付摩擦的小型自动化 | KylinLab</title>
+    <title>Small automation that removes recurring delivery friction | KylinLab</title>
     
-    <meta name="description" content="简单的脚本、检查与模板可以在不需要完整内部平台前删除重复手工工作。">
+    <meta name="description" content="Simple scripts, checks, and templates can remove repeated manual work before a full internal platform is justified.">
     
     <link rel="icon" href="/assets/resources/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="/assets/styles.css">
     
-    <link rel="alternate" hreflang="en" href="/knowledge/automation-scripts.html">
+    <link rel="alternate" hreflang="zh" href="/zh/knowledge/automation-scripts.html">
     
   </head>
   <body>
@@ -24,14 +24,14 @@
         
         
         <a class="nav-link" href="/"><img src="/assets/resources/icon-home.svg" alt=""><span data-i18n="nav.home">Home</span></a>
-        <a class="nav-link is-active" href="/zh/knowledge.html"><img src="/assets/resources/icon-knowledge.svg" alt=""><span data-i18n="nav.knowledge">Knowledge</span></a>
+        <a class="nav-link is-active" href="/knowledge.html"><img src="/assets/resources/icon-knowledge.svg" alt=""><span data-i18n="nav.knowledge">Knowledge</span></a>
         <a class="nav-link" href="/services.html"><img src="/assets/resources/icon-services.svg" alt=""><span data-i18n="nav.services">Services</span></a>
-        <a class="nav-link" href="/zh/demos.html"><img src="/assets/resources/icon-demos.svg" alt=""><span data-i18n="nav.demos">Demos</span></a>
+        <a class="nav-link" href="/demos.html"><img src="/assets/resources/icon-demos.svg" alt=""><span data-i18n="nav.demos">Demos</span></a>
         <a class="nav-link" href="/about.html"><img src="/assets/resources/icon-about.svg" alt=""><span data-i18n="nav.about">About</span></a>
       </nav>
       <div class="lang-switcher">
         <label for="lang-select" class="visually-hidden">Language</label>
-        <select id="lang-select" aria-label="Language selector" data-current-lang="zh" data-current-url="/zh/knowledge/automation-scripts.html">
+        <select id="lang-select" aria-label="Language selector" data-current-lang="en" data-current-url="/knowledge/automation-scripts.html">
           <option value="en">English</option>
           <option value="zh">中文</option>
         </select>
@@ -41,7 +41,7 @@
     <main>
             <section class="page-hero">
         <p class="eyebrow" data-i18n="knowledge.eyebrow">Knowledge</p>
-        <h1>消除重复交付摩擦的小型自动化</h1>
+        <h1>Small automation that removes recurring delivery friction</h1>
         <div class="article-meta">
           <span class="category" data-i18n="knowledge.category.testing_automation">testing_automation</span>
           <time datetime="2026-04-28">April 28, 2026</time>
@@ -49,92 +49,128 @@
       </section>
 
       <article class="section article-content">
-        <p>简单的脚本、检查和模板可以在不需要完整内部平台之前，消除重复的人工工作。</p>
+        <p>Simple scripts, checks, and templates can remove repeated manual work before a full internal platform is justified.</p>
 
-<h2 id="自动化的最佳切入点">自动化的最佳切入点</h2>
+<h2 id="the-automation-sweet-spot">The Automation Sweet Spot</h2>
 
-<p>大多数团队等待自动化太久。他们认为需要复杂的 CI/CD 管道，但简单的脚本能用5%的努力解决80%的问题。</p>
+<p>Most teams wait too long to automate. They think they need sophisticated CI/CD pipelines, but simple scripts solve 80% of problems with 5% of the effort.</p>
 
-<h2 id="识别自动化候选任务">识别自动化候选任务</h2>
+<h2 id="identify-automation-candidates">Identify Automation Candidates</h2>
 
-<p>寻找以下特征的任务：</p>
+<p>Look for tasks that are:</p>
 <ul>
-  <li>✅ 每周执行超过一次</li>
-  <li>✅ 遵循可预测的步骤</li>
-  <li>✅ 容易出现人为错误</li>
-  <li>✅ 耗时较长（&gt;5分钟）</li>
-  <li>✅ 阻碍其他工作</li>
+  <li>✅ Done more than once per week</li>
+  <li>✅ Follow predictable steps</li>
+  <li>✅ Prone to human error</li>
+  <li>✅ Time-consuming (&gt;5 minutes)</li>
+  <li>✅ Blocking other work</li>
 </ul>
 
-<p><strong>常见候选任务：</strong></p>
+<p><strong>Common candidates:</strong></p>
 <ul>
-  <li>数据库迁移</li>
-  <li>环境搭建</li>
-  <li>数据导入/导出</li>
-  <li>报表生成</li>
-  <li>部署步骤</li>
-  <li>代码格式化</li>
-  <li>测试数据创建</li>
+  <li>Database migrations</li>
+  <li>Environment setup</li>
+  <li>Data exports/imports</li>
+  <li>Report generation</li>
+  <li>Deployment steps</li>
+  <li>Code formatting</li>
+  <li>Test data creation</li>
 </ul>
 
-<h2 id="从小处着手脚本库">从小处着手：脚本库</h2>
+<h2 id="start-small-the-script-library">Start Small: The Script Library</h2>
 
-<p>创建一个 <code class="language-plaintext highlighter-rouge">scripts/</code> 目录，存放专注的工具脚本：</p>
+<p>Create a <code class="language-plaintext highlighter-rouge">scripts/</code> directory with focused utilities:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>project/
 ├── scripts/
-│   ├── setup-dev.sh          # 一条命令搭建开发环境
-│   ├── deploy-staging.sh     # 安全的部署流程
-│   ├── backup-db.sh          # 自动备份
-│   ├── generate-report.py    # 周度指标
-│   └── cleanup-old-data.sh   # 维护任务
-└── README.md                 # 如何使用脚本
+│   ├── setup-dev.sh          # One-command dev environment
+│   ├── deploy-staging.sh     # Safe deployment process
+│   ├── backup-db.sh          # Automated backups
+│   ├── generate-report.py    # Weekly metrics
+│   └── cleanup-old-data.sh   # Maintenance task
+└── README.md                 # How to use scripts
 </code></pre></div></div>
 
-<h3 id="示例开发环境搭建脚本">示例：开发环境搭建脚本</h3>
+<h3 id="example-development-setup-script">Example: Development Setup Script</h3>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
-<span class="c"># scripts/setup-dev.sh - 一条命令搭建开发环境</span>
+<span class="c"># scripts/setup-dev.sh - One command to set up development environment</span>
 
-<span class="nb">set</span> <span class="nt">-e</span>  <span class="c"># 遇错退出</span>
+<span class="nb">set</span> <span class="nt">-e</span>  <span class="c"># Exit on error</span>
 
-<span class="nb">echo</span> <span class="s2">"🚀 正在搭建开发环境..."</span>
+<span class="nb">echo</span> <span class="s2">"🚀 Setting up development environment..."</span>
 
-<span class="c"># 检查前置条件</span>
-<span class="nb">command</span> <span class="nt">-v</span> docker <span class="o">&gt;</span>/dev/null 2&gt;&amp;1 <span class="o">||</span> <span class="o">{</span> <span class="nb">echo</span> <span class="s2">"❌ 需要 Docker"</span><span class="p">;</span> <span class="nb">exit </span>1<span class="p">;</span> <span class="o">}</span>
-<span class="nb">command</span> <span class="nt">-v</span> docker-compose <span class="o">&gt;</span>/dev/null 2&gt;&amp;1 <span class="o">||</span> <span class="o">{</span> <span class="nb">echo</span> <span class="s2">"❌ 需要 Docker Compose"</span><span class="p">;</span> <span class="nb">exit </span>1<span class="p">;</span> <span class="o">}</span>
+<span class="c"># Check prerequisites</span>
+<span class="nb">command</span> <span class="nt">-v</span> docker <span class="o">&gt;</span>/dev/null 2&gt;&amp;1 <span class="o">||</span> <span class="o">{</span> <span class="nb">echo</span> <span class="s2">"❌ Docker required"</span><span class="p">;</span> <span class="nb">exit </span>1<span class="p">;</span> <span class="o">}</span>
+<span class="nb">command</span> <span class="nt">-v</span> docker-compose <span class="o">&gt;</span>/dev/null 2&gt;&amp;1 <span class="o">||</span> <span class="o">{</span> <span class="nb">echo</span> <span class="s2">"❌ Docker Compose required"</span><span class="p">;</span> <span class="nb">exit </span>1<span class="p">;</span> <span class="o">}</span>
 
-<span class="c"># 启动服务</span>
-<span class="nb">echo</span> <span class="s2">"📦 正在启动数据库和缓存..."</span>
+<span class="c"># Start services</span>
+<span class="nb">echo</span> <span class="s2">"📦 Starting database and cache..."</span>
 docker-compose up <span class="nt">-d</span> db redis
 
-<span class="c"># 等待服务就绪</span>
-<span class="nb">echo</span> <span class="s2">"⏳ 等待数据库..."</span>
+<span class="c"># Wait for services</span>
+<span class="nb">echo</span> <span class="s2">"⏳ Waiting for database..."</span>
 <span class="k">until </span>docker-compose <span class="nb">exec </span>db pg_isready <span class="nt">-U</span> postgres<span class="p">;</span> <span class="k">do
   </span><span class="nb">sleep </span>1
 <span class="k">done</span>
 
-<span class="c"># 运行迁移</span>
-<span class="nb">echo</span> <span class="s2">"🔄 正在运行数据库迁移..."</span>
+<span class="c"># Run migrations</span>
+<span class="nb">echo</span> <span class="s2">"🔄 Running database migrations..."</span>
 docker-compose run <span class="nt">--rm</span> web python manage.py migrate
 
-<span class="c"># 加载测试数据（可选）</span>
+<span class="c"># Load test data (optional)</span>
 <span class="k">if</span> <span class="o">[</span> <span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span> <span class="o">==</span> <span class="s2">"--with-data"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then
-  </span><span class="nb">echo</span> <span class="s2">"📊 加载测试数据..."</span>
+  </span><span class="nb">echo</span> <span class="s2">"📊 Loading test data..."</span>
   docker-compose run <span class="nt">--rm</span> web python manage.py loaddata fixtures/dev_data.json
 <span class="k">fi
 
-</span><span class="nb">echo</span> <span class="s2">"✅ 开发环境就绪！"</span>
-<span class="nb">echo</span> <span class="s2">"   应用: http://localhost:8000"</span>
-<span class="nb">echo</span> <span class="s2">"   管理后台: http://localhost:8000/admin"</span>
+</span><span class="nb">echo</span> <span class="s2">"✅ Development environment ready!"</span>
+<span class="nb">echo</span> <span class="s2">"   App: http://localhost:8000"</span>
+<span class="nb">echo</span> <span class="s2">"   Admin: http://localhost:8000/admin"</span>
 </code></pre></div></div>
 
-<h2 id="基于模板的自动化">基于模板的自动化</h2>
+<p>Usage:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">chmod</span> +x scripts/setup-dev.sh
+./scripts/setup-dev.sh           <span class="c"># Basic setup</span>
+./scripts/setup-dev.sh <span class="nt">--with-data</span>  <span class="c"># With sample data</span>
+</code></pre></div></div>
 
-<p>对于重复性文档创建，使用变量替换模板：</p>
+<h2 id="template-based-automation">Template-Based Automation</h2>
 
-<h3 id="示例项目启动模板生成器">示例：项目启动模板生成器</h3>
+<p>For repetitive document creation, use templates with variable substitution:</p>
 
+<h3 id="example-project-kickoff-template">Example: Project Kickoff Template</h3>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gh"># scripts/templates/project-kickoff.md</span>
+
+<span class="gh"># </span>
+
+<span class="gu">## Overview</span><span class="sb">
+
+
+</span><span class="gu">## Team</span>
+<span class="p">-</span> Product Owner: 
+<span class="p">-</span> Tech Lead: 
+<span class="p">-</span> Developers: 
+
+<span class="gu">## Timeline</span>
+<span class="p">-</span> Kickoff: 
+<span class="p">-</span> MVP Target: 
+<span class="p">-</span> Launch: 
+
+<span class="gu">## Initial Setup</span>
+<span class="p">-</span> [ ] Repository created
+<span class="p">-</span> [ ] CI/CD pipeline configured
+<span class="p">-</span> [ ] Development environment documented
+<span class="p">-</span> [ ] First sprint planned
+
+<span class="gu">## Resources</span>
+<span class="p">-</span> Design files: 
+<span class="p">-</span> Requirements: 
+<span class="p">-</span> Slack channel: #
+</code></pre></div></div>
+
+<p>Generator script:</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#!/usr/bin/env python3
 # scripts/create-project.py
 </span>
@@ -150,64 +186,83 @@ docker-compose run <span class="nt">--rm</span> web python manage.py migrate
     <span class="n">content</span> <span class="o">=</span> <span class="n">content</span><span class="p">.</span><span class="nf">replace</span><span class="p">(</span><span class="sh">""</span><span class="p">,</span> <span class="n">po</span><span class="p">)</span>
     <span class="n">content</span> <span class="o">=</span> <span class="n">content</span><span class="p">.</span><span class="nf">replace</span><span class="p">(</span><span class="sh">""</span><span class="p">,</span> <span class="n">tech_lead</span><span class="p">)</span>
     <span class="n">content</span> <span class="o">=</span> <span class="n">content</span><span class="p">.</span><span class="nf">replace</span><span class="p">(</span><span class="sh">""</span><span class="p">,</span> <span class="n">datetime</span><span class="p">.</span><span class="nf">now</span><span class="p">().</span><span class="nf">strftime</span><span class="p">(</span><span class="sh">"</span><span class="s">%Y-%m-%d</span><span class="sh">"</span><span class="p">))</span>
-    
+    <span class="c1"># ... replace other variables
+</span>    
     <span class="n">output_path</span> <span class="o">=</span> <span class="nc">Path</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">docs/</span><span class="si">{</span><span class="n">name</span><span class="p">.</span><span class="nf">lower</span><span class="p">().</span><span class="nf">replace</span><span class="p">(</span><span class="sh">'</span><span class="s"> </span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">-</span><span class="sh">'</span><span class="p">)</span><span class="si">}</span><span class="s">-kickoff.md</span><span class="sh">"</span><span class="p">)</span>
     <span class="n">output_path</span><span class="p">.</span><span class="nf">write_text</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
-    <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">✅ 已创建 </span><span class="si">{</span><span class="n">output_path</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">✅ Created </span><span class="si">{</span><span class="n">output_path</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
 
 <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="sh">"</span><span class="s">__main__</span><span class="sh">"</span><span class="p">:</span>
     <span class="k">if</span> <span class="nf">len</span><span class="p">(</span><span class="n">sys</span><span class="p">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
-        <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">用法: create-project.py &lt;名称&gt; &lt;描述&gt; &lt;产品负责人&gt; &lt;技术负责人&gt;</span><span class="sh">"</span><span class="p">)</span>
+        <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Usage: create-project.py &lt;name&gt; &lt;description&gt; &lt;po&gt; &lt;tech-lead&gt;</span><span class="sh">"</span><span class="p">)</span>
         <span class="n">sys</span><span class="p">.</span><span class="nf">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
     
     <span class="nf">create_project_kickoff</span><span class="p">(</span><span class="o">*</span><span class="n">sys</span><span class="p">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
 </code></pre></div></div>
 
-<h2 id="使用-cron-定时自动化">使用 Cron 定时自动化</h2>
+<p>Usage:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python scripts/create-project.py <span class="se">\</span>
+  <span class="s2">"Payment Gateway Integration"</span> <span class="se">\</span>
+  <span class="s2">"Integrate Stripe for subscription billing"</span> <span class="se">\</span>
+  <span class="s2">"Alice Johnson"</span> <span class="se">\</span>
+  <span class="s2">"Bob Smith"</span>
+</code></pre></div></div>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 编辑 crontab</span>
+<h2 id="scheduled-automation-with-cron">Scheduled Automation with Cron</h2>
+
+<p>For recurring tasks, use cron jobs:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Edit crontab</span>
 crontab <span class="nt">-e</span>
 
-<span class="c"># 添加条目</span>
-<span class="c"># 每天凌晨2点备份</span>
+<span class="c"># Add entries</span>
+<span class="c"># Daily backup at 2 AM</span>
 0 2 <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> /path/to/scripts/backup-db.sh <span class="o">&gt;&gt;</span> /var/log/backups.log 2&gt;&amp;1
 
-<span class="c"># 每周一上午9点生成周报</span>
+<span class="c"># Weekly report every Monday at 9 AM</span>
 0 9 <span class="k">*</span> <span class="k">*</span> 1 /path/to/scripts/generate-report.py <span class="nt">--email</span> team@company.com
 
-<span class="c"># 每月1号凌晨3点清理</span>
+<span class="c"># Monthly cleanup on 1st at 3 AM</span>
 0 3 1 <span class="k">*</span> <span class="k">*</span> /path/to/scripts/cleanup-old-data.sh <span class="nt">--days</span> 90
 </code></pre></div></div>
 
-<h2 id="git-hooks-作为质量门禁">Git Hooks 作为质量门禁</h2>
+<h2 id="git-hooks-for-quality-gates">Git Hooks for Quality Gates</h2>
+
+<p>Automate checks before commits:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># .git/hooks/pre-commit</span>
 <span class="c">#!/bin/bash</span>
 
-<span class="nb">echo</span> <span class="s2">"🔍 运行提交前检查..."</span>
+<span class="nb">echo</span> <span class="s2">"🔍 Running pre-commit checks..."</span>
 
-<span class="c"># 格式检查</span>
+<span class="c"># Format check</span>
 <span class="k">if</span> <span class="o">!</span> black <span class="nt">--check</span> .<span class="p">;</span> <span class="k">then
-  </span><span class="nb">echo</span> <span class="s2">"❌ 代码未格式化。请先运行 'black .'"</span>
+  </span><span class="nb">echo</span> <span class="s2">"❌ Code not formatted. Run 'black .' first."</span>
   <span class="nb">exit </span>1
 <span class="k">fi</span>
 
-<span class="c"># 类型检查</span>
+<span class="c"># Type checking</span>
 <span class="k">if</span> <span class="o">!</span> mypy src/<span class="p">;</span> <span class="k">then
-  </span><span class="nb">echo</span> <span class="s2">"❌ 发现类型错误。"</span>
+  </span><span class="nb">echo</span> <span class="s2">"❌ Type errors found."</span>
   <span class="nb">exit </span>1
 <span class="k">fi</span>
 
-<span class="c"># 快速测试</span>
+<span class="c"># Quick tests</span>
 <span class="k">if</span> <span class="o">!</span> pytest tests/unit/ <span class="nt">-q</span><span class="p">;</span> <span class="k">then
-  </span><span class="nb">echo</span> <span class="s2">"❌ 单元测试失败。"</span>
+  </span><span class="nb">echo</span> <span class="s2">"❌ Unit tests failed."</span>
   <span class="nb">exit </span>1
 <span class="k">fi
 
-</span><span class="nb">echo</span> <span class="s2">"✅ 所有检查通过！"</span>
+</span><span class="nb">echo</span> <span class="s2">"✅ All checks passed!"</span>
 </code></pre></div></div>
 
-<h2 id="监控自动化效果">监控自动化效果</h2>
+<p>Make it executable:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">chmod</span> +x .git/hooks/pre-commit
+</code></pre></div></div>
+
+<h2 id="monitoring-simple-automation">Monitoring Simple Automation</h2>
+
+<p>Track what’s working:</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># scripts/monitor-automation.py
 </span><span class="kn">import</span> <span class="n">json</span>
@@ -230,9 +285,9 @@ crontab <span class="nt">-e</span>
         <span class="n">f</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="n">json</span><span class="p">.</span><span class="nf">dumps</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span> <span class="o">+</span> <span class="sh">"</span><span class="se">\n</span><span class="sh">"</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">generate_report</span><span class="p">():</span>
-    <span class="sh">"""</span><span class="s">展示自动化效果</span><span class="sh">"""</span>
+    <span class="sh">"""</span><span class="s">Show automation effectiveness</span><span class="sh">"""</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">LOG_FILE</span><span class="p">.</span><span class="nf">exists</span><span class="p">():</span>
-        <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">未找到自动化日志</span><span class="sh">"</span><span class="p">)</span>
+        <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">No automation logs found</span><span class="sh">"</span><span class="p">)</span>
         <span class="k">return</span>
     
     <span class="n">executions</span> <span class="o">=</span> <span class="p">[]</span>
@@ -243,80 +298,83 @@ crontab <span class="nt">-e</span>
     <span class="n">successful</span> <span class="o">=</span> <span class="nf">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">executions</span> <span class="k">if</span> <span class="n">e</span><span class="p">[</span><span class="sh">"</span><span class="s">success</span><span class="sh">"</span><span class="p">])</span>
     <span class="n">avg_duration</span> <span class="o">=</span> <span class="nf">sum</span><span class="p">(</span><span class="n">e</span><span class="p">[</span><span class="sh">"</span><span class="s">duration</span><span class="sh">"</span><span class="p">]</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">executions</span><span class="p">)</span> <span class="o">/</span> <span class="n">total</span> <span class="k">if</span> <span class="n">total</span> <span class="k">else</span> <span class="mi">0</span>
     
-    <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">自动化报告:</span><span class="sh">"</span><span class="p">)</span>
-    <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">  总运行次数: </span><span class="si">{</span><span class="n">total</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
-    <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">  成功率: </span><span class="si">{</span><span class="n">successful</span><span class="o">/</span><span class="n">total</span><span class="o">*</span><span class="mi">100</span><span class="si">:</span><span class="p">.</span><span class="mi">1</span><span class="n">f</span><span class="si">}</span><span class="s">%</span><span class="sh">"</span><span class="p">)</span>
-    <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">  平均耗时: </span><span class="si">{</span><span class="n">avg_duration</span><span class="si">:</span><span class="p">.</span><span class="mi">1</span><span class="n">f</span><span class="si">}</span><span class="s">s</span><span class="sh">"</span><span class="p">)</span>
-    <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">  预估节省时间: ~</span><span class="si">{</span><span class="n">total</span> <span class="o">*</span> <span class="mi">5</span><span class="si">}</span><span class="s"> 分钟</span><span class="sh">"</span><span class="p">)</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">Automation Report:</span><span class="sh">"</span><span class="p">)</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">  Total runs: </span><span class="si">{</span><span class="n">total</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">  Success rate: </span><span class="si">{</span><span class="n">successful</span><span class="o">/</span><span class="n">total</span><span class="o">*</span><span class="mi">100</span><span class="si">:</span><span class="p">.</span><span class="mi">1</span><span class="n">f</span><span class="si">}</span><span class="s">%</span><span class="sh">"</span><span class="p">)</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">  Average duration: </span><span class="si">{</span><span class="n">avg_duration</span><span class="si">:</span><span class="p">.</span><span class="mi">1</span><span class="n">f</span><span class="si">}</span><span class="s">s</span><span class="sh">"</span><span class="p">)</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">  Time saved: ~</span><span class="si">{</span><span class="n">total</span> <span class="o">*</span> <span class="mi">5</span><span class="si">}</span><span class="s"> minutes (estimated)</span><span class="sh">"</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="sh">"</span><span class="s">__main__</span><span class="sh">"</span><span class="p">:</span>
+    <span class="nf">generate_report</span><span class="p">()</span>
 </code></pre></div></div>
 
-<h2 id="何时升级">何时升级</h2>
+<h2 id="when-to-level-up">When to Level Up</h2>
 
-<p>从脚本迁移到正式 CI/CD 的时机：</p>
+<p>Move from scripts to proper CI/CD when:</p>
 <ul>
-  <li>自动化脚本超过10个</li>
-  <li>多人维护这些脚本</li>
-  <li>需要并行执行</li>
-  <li>合规要求审计跟踪</li>
-  <li>脚本变得复杂（超过100行）</li>
+  <li>You have &gt;10 automation scripts</li>
+  <li>Multiple people maintain the scripts</li>
+  <li>You need parallel execution</li>
+  <li>Compliance requires audit trails</li>
+  <li>Scripts become complex (&gt;100 lines)</li>
 </ul>
 
-<p>在此之前，保持简单。</p>
+<p>Until then, keep it simple.</p>
 
-<h2 id="常见陷阱">常见陷阱</h2>
+<h2 id="common-pitfalls">Common Pitfalls</h2>
 
-<h3 id="-过度自动化">❌ 过度自动化</h3>
-<p>自动化每周都在变化的事情会带来维护负担。</p>
+<h3 id="-over-automation">❌ Over-Automation</h3>
+<p>Automating something that changes weekly creates maintenance burden.</p>
 
-<p><strong>修复：</strong> 先自动化稳定的流程。等待模式形成后再下手。</p>
+<p><strong>Fix:</strong> Automate stable processes first. Wait for patterns to emerge.</p>
 
-<h3 id="-缺乏错误处理">❌ 缺乏错误处理</h3>
-<p>脚本静默失败，无人知晓。</p>
+<h3 id="-no-error-handling">❌ No Error Handling</h3>
+<p>Scripts fail silently and nobody knows.</p>
 
-<p><strong>修复：</strong> 始终记录失败日志，为关键自动化发送告警。</p>
+<p><strong>Fix:</strong> Always log failures and send alerts for critical automations.</p>
 
-<h3 id="-隐藏知识">❌ 隐藏知识</h3>
-<p>只有一个人知道脚本如何工作。</p>
+<h3 id="-hidden-knowledge">❌ Hidden Knowledge</h3>
+<p>Only one person knows how the scripts work.</p>
 
-<p><strong>修复：</strong> 在 README 中为每个脚本附上使用示例。</p>
+<p><strong>Fix:</strong> Document each script with examples in a README.</p>
 
-<h3 id="-脆弱的依赖">❌ 脆弱的依赖</h3>
-<p>工具更新时脚本损坏。</p>
+<h3 id="-brittle-dependencies">❌ Brittle Dependencies</h3>
+<p>Scripts break when tools update.</p>
 
-<p><strong>修复：</strong> 锁定版本，在依赖更新后测试。</p>
+<p><strong>Fix:</strong> Pin versions and test after dependency updates.</p>
 
-<h2 id="衡量投资回报">衡量投资回报</h2>
+<h2 id="measuring-roi">Measuring ROI</h2>
 
-<p>跟踪节省的时间：</p>
+<p>Track time saved:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>手动任务: 15分钟 × 每周3次 = 45分钟/周
-自动化: 5分钟搭建 + 2分钟/周维护 = 7分钟/周
-净节省: 38分钟/周 = 33小时/年
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Manual task: 15 minutes × 3 times/week = 45 min/week
+Automation: 5 minutes setup + 2 minutes/week maintenance = 7 min/week
+Net savings: 38 minutes/week = 33 hours/year
 </code></pre></div></div>
 
-<p>即使每周只节省30分钟，一年下来也是可观的收益。</p>
+<p>Even saving 30 minutes per week adds up to significant annual gains.</p>
 
-<h2 id="结论">结论</h2>
+<h2 id="conclusion">Conclusion</h2>
 
-<p>从脚本开始。掌握基础。然后在需要时扩展。大多数团队不需要复杂的自动化平台——他们需要今天就能省时的可靠、简单的脚本。</p>
+<p>Start with scripts. Master the basics. Then scale up when needed. Most teams never need complex automation platforms—they need reliable, simple scripts that save time today.</p>
 
-<p>自动化无聊的部分。把精力集中在有趣的问题上。</p>
+<p>Automate the boring stuff. Focus your energy on the interesting problems.</p>
 
       </article>
 
       <section class="article-footer">
         
           
-          <p class="lang-notice"><a href="/knowledge/automation-scripts.html">📖 Read in English</a></p>
+          <p class="lang-notice"><a href="/zh/knowledge/automation-scripts.html">📖 阅读中文版本</a></p>
         
-        <a href="/zh/knowledge.html" class="button secondary" data-i18n="knowledge.read_more">← Back to all articles</a>
+        <a href="/knowledge.html" class="button secondary" data-i18n="knowledge.read_more">← Back to all articles</a>
       </section>
 
     </main>
 
     <footer class="site-footer">
       <p data-i18n="footer.copyright">© 2026 KylinLab. Practical technology consulting and knowledge sharing.</p>
-      <p class="footer-beian"><a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">浙ICP备2026031785号-2</a></p>
+
     </footer>
     <script src="/assets/resources/i18n.js?v=5"></script>
   </body>
