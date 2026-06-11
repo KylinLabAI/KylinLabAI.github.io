@@ -1,0 +1,295 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>RecordMgr — Mock Interview Recording & Feedback Platform | KylinLab</title>
+    
+    <meta name="description" content="A mock interview recording platform for college entrance exam prep. Record, AI-analyze, annotate, and securely distribute videos to parents.">
+    
+    <link rel="icon" href="/assets/resources/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/assets/styles.css">
+    
+    <link rel="alternate" hreflang="zh" href="/zh/demos/recordmgr.html">
+    
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="KylinLab home">
+        <span class="brand-mark">K</span>
+        <span>KylinLab</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        
+        
+        <a class="nav-link" href="/"><img src="/assets/resources/icon-home.svg" alt=""><span data-i18n="nav.home">Home</span></a>
+        <a class="nav-link" href="/knowledge.html"><img src="/assets/resources/icon-knowledge.svg" alt=""><span data-i18n="nav.knowledge">Knowledge</span></a>
+        <a class="nav-link" href="/services.html"><img src="/assets/resources/icon-services.svg" alt=""><span data-i18n="nav.services">Services</span></a>
+        <a class="nav-link is-active" href="/demos.html"><img src="/assets/resources/icon-demos.svg" alt=""><span data-i18n="nav.demos">Demos</span></a>
+        <a class="nav-link" href="/about.html"><img src="/assets/resources/icon-about.svg" alt=""><span data-i18n="nav.about">About</span></a>
+      </nav>
+      <div class="lang-switcher">
+        <label for="lang-select" class="visually-hidden">Language</label>
+        <select id="lang-select" aria-label="Language selector" data-current-lang="en" data-current-url="/demos/recordmgr.html">
+          <option value="en">English</option>
+          <option value="zh">中文</option>
+        </select>
+      </div>
+    </header>
+
+    <main>
+            <section class="page-hero">
+        <p class="eyebrow" data-i18n="demos.eyebrow">Demos</p>
+        <h1>RecordMgr — Mock Interview Recording & Feedback Platform</h1>
+        <div class="article-meta">
+          <span class="tag" data-i18n="demos.tag.prototype">Prototype</span>
+          <time datetime="2026-06-11">June 11, 2026</time>
+        </div>
+      </section>
+
+      <article class="section article-content">
+        <h1 id="-recordmgr--mock-interview-recording--feedback-platform">🎬 RecordMgr — Mock Interview Recording &amp; Feedback Platform</h1>
+
+<p><strong>From scheduling to feedback — one platform for the complete mock interview workflow.</strong></p>
+
+<p><a href="#download">Download for PC</a> · <a href="#download">Download for Android</a> · <a href="/zh/demos/recordmgr.html">中文版</a></p>
+
+<hr />
+
+<h2 id="the-problem">The Problem</h2>
+
+<p>You run a training center that prepares high school students for college entrance exam interviews. Mock interviews are the heart of your program — students practice, teachers correct, parents track progress. But the logistics are wearing you down:</p>
+
+<ul>
+  <li><strong>No systematic recording</strong> — interviews happen in classrooms with phones propped up on desks. Teachers juggle between teaching and managing recordings.</li>
+  <li><strong>Videos pile up with no structure</strong> — after a day of mock interviews, you have dozens of video files with cryptic names. Finding a specific student’s recording from last month takes longer than watching it.</li>
+  <li><strong>Parents are left in the dark</strong> — they want to see their child’s progress, but sharing videos means uploading to generic cloud drives, copying links, and hoping the right parent sees the right video — without accidentally exposing another student’s recording.</li>
+  <li><strong>Feedback doesn’t stick</strong> — teachers give verbal feedback during the session, but students forget half of it by the time they get home. There’s no way to tie feedback to specific moments in the recording.</li>
+  <li><strong>No insight from all that video</strong> — every recording contains valuable data about speaking pace, logical structure, and content quality, but manually analyzing each one is impossible at scale.</li>
+</ul>
+
+<hr />
+
+<h2 id="the-solution">The Solution</h2>
+
+<p><strong>RecordMgr</strong> turns the chaotic mock interview workflow into a streamlined, end-to-end pipeline: schedule sessions → record → get AI-powered analysis → annotate → distribute to parents — all from one platform.</p>
+
+<p>Teachers record with a dedicated desktop app or Android phone. Videos upload automatically. AI transcribes the speech and generates structured feedback on pronunciation, logic, and content quality. Teachers add time-stamped annotations. Parents receive a secure link via WeChat or DingTalk and watch their child’s video — with teacher notes and AI insights — right in their browser. No extra apps, no confusing file shares.</p>
+
+<hr />
+
+<h2 id="core-value">Core Value</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>What You Get</th>
+      <th>How It Works</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>A complete teaching loop</strong></td>
+      <td>Schedule sessions, record in order, annotate, distribute, and get parent feedback — every step connected, nothing falls through the cracks.</td>
+    </tr>
+    <tr>
+      <td><strong>AI that saves teachers hours</strong></td>
+      <td>Automatic speech-to-text and multi-dimension analysis (pacing, logic, content quality, improvement suggestions) for every recording.</td>
+    </tr>
+    <tr>
+      <td><strong>Privacy by design</strong></td>
+      <td>Parents can only see their own child’s videos. Each shared link is cryptographically signed and time-limited.</td>
+    </tr>
+    <tr>
+      <td><strong>Works everywhere that matters</strong></td>
+      <td>Teachers use a PC desktop app or Android phone. Parents just tap a WeChat or DingTalk link — works in a browser, no install needed.</td>
+    </tr>
+    <tr>
+      <td><strong>One-click deployment</strong></td>
+      <td>The entire platform ships as Docker containers. Deploy to a single cloud server in minutes.</td>
+    </tr>
+    <tr>
+      <td><strong>Grows with your business</strong></td>
+      <td>Start with local disk storage (zero extra cost). When you scale, switch to cloud object storage with a config change — no code rewrite.</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="key-features">Key Features</h2>
+
+<h3 id="1-smart-session-scheduling">1. Smart Session Scheduling</h3>
+
+<p>Create a mock interview session for any class. Drag and drop to arrange the student order, or randomize with one click. Track progress at a glance — “5 of 20 completed.” If a student is late or absent, skip or reorder on the fly without restarting the session.</p>
+
+<h3 id="2-reliable-recording-pc--android">2. Reliable Recording (PC + Android)</h3>
+
+<p>Record with a purpose-built desktop app (Windows/macOS) for stable, high-quality classroom capture, or use the Android app for flexibility on the go. Pause, resume, or cancel anytime. Videos upload in the background — finish one recording and move straight to the next student with zero wait.</p>
+
+<h3 id="3-ai-powered-analysis">3. AI-Powered Analysis</h3>
+
+<p>Once a video uploads, the AI pipeline kicks in automatically: extract audio → transcribe speech to text (with subtitles) → analyze pacing, logical structure, content quality, and generate specific improvement suggestions. Teachers review, edit, or remove AI annotations before sharing with parents.</p>
+
+<h3 id="4-timeline-annotations">4. Timeline Annotations</h3>
+
+<p>Teachers add time-stamped text or voice notes directly on the video timeline — during the mock interview or afterward. Mark each annotation as “public” (visible to parents) or “internal” (teacher-only). Parents see exactly which feedback applies to which moment in the recording.</p>
+
+<h3 id="5-secure-distribution-to-parents">5. Secure Distribution to Parents</h3>
+
+<p>When a video is ready and annotated, the teacher approves and triggers distribution. The system matches the student to their parent’s account, generates a signed, time-limited access URL, and sends it via WeChat or DingTalk. Parents tap the link, verify their identity, and watch — with teacher annotations, AI insights, and optional subtitles. They can also download the video for offline viewing.</p>
+
+<h3 id="6-batch-data-import">6. Batch Data Import</h3>
+
+<p>Getting started with hundreds of students? Upload an Excel spreadsheet with users, classes, students, and parents. Preview and validate before importing — everything goes in as one atomic transaction, or nothing does. Download a blank template from the admin panel to get the format right.</p>
+
+<hr />
+
+<h2 id="quick-start">Quick Start</h2>
+
+<ol>
+  <li><strong>Deploy the platform</strong> — <code class="language-plaintext highlighter-rouge">docker-compose up -d</code> on your cloud server and you’re live in minutes</li>
+  <li><strong>Create accounts</strong> — add teachers and registrars, or batch-import from an Excel spreadsheet</li>
+  <li><strong>Set up classes and students</strong> — registrars create classes, enroll students, and link parent contacts</li>
+  <li><strong>Run a mock interview session</strong> — teachers create a session, arrange the student order, and start recording with the desktop or Android app</li>
+  <li><strong>Annotate and distribute</strong> — after recording, teachers review AI insights, add their own notes, and send the video to parents with one click</li>
+</ol>
+
+<hr />
+
+<h2 id="download">Download</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Platform</th>
+      <th>Download</th>
+      <th>Requirements</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Windows (Desktop App)</td>
+      <td><a href="#">RecordMgr-Setup.exe</a></td>
+      <td>Windows 10+ (x64)</td>
+    </tr>
+    <tr>
+      <td>macOS (Desktop App)</td>
+      <td><a href="#">RecordMgr.dmg</a></td>
+      <td>macOS 11+ (Intel &amp; Apple Silicon)</td>
+    </tr>
+    <tr>
+      <td>Android (Teacher App)</td>
+      <td><a href="#">Download APK</a></td>
+      <td>Android 10+</td>
+    </tr>
+    <tr>
+      <td>Web (Management)</td>
+      <td><a href="#">Open Admin Panel</a></td>
+      <td>Modern browser (Chrome, Edge, Safari)</td>
+    </tr>
+    <tr>
+      <td>Parents (H5 / Mini Program)</td>
+      <td>Via WeChat or DingTalk link</td>
+      <td>Any modern mobile browser</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p>Download links will be available after the first release build.</p>
+</blockquote>
+
+<hr />
+
+<h2 id="privacy--data">Privacy &amp; Data</h2>
+
+<ul>
+  <li><strong>Your data stays on your server</strong> — all videos, transcripts, and annotations are stored on the infrastructure you control. No third-party cloud services required for storage.</li>
+  <li><strong>Strict access isolation</strong> — parents can only view videos linked to their own child. Every distribution link is cryptographically signed with an expiration time.</li>
+  <li><strong>On-server AI processing</strong> — speech-to-text conversion runs locally on your server. Voice data never leaves your machine. Only the transcribed text (a few kilobytes) is sent for content analysis — the audio stays private.</li>
+  <li><strong>No parent accounts required</strong> — parents access videos through secure one-time links. No registration, no password to remember.</li>
+</ul>
+
+<hr />
+
+<h2 id="roadmap">Roadmap</h2>
+
+<p>RecordMgr is currently in <strong>prototype</strong> stage — actively being developed toward an MVP release.</p>
+
+<p><strong>What’s available now:</strong></p>
+<ul>
+  <li>Core platform backend with secure user authentication</li>
+  <li>Teacher web management interface (classes, students, sessions, video management)</li>
+  <li>Parent H5 video player</li>
+  <li>Desktop recording application for Windows and macOS</li>
+  <li>One-click deployment to any cloud server</li>
+</ul>
+
+<p><strong>Coming in MVP (Phase 1):</strong></p>
+<ul>
+  <li>Android teacher recording app</li>
+  <li>Session ordering with drag-and-drop</li>
+  <li>Video upload and local storage</li>
+  <li>Parent self-registration (phone / WeChat / DingTalk)</li>
+  <li>Registrar management (enrollment, payment status, class assignment)</li>
+</ul>
+
+<p><strong>Coming in Phase 2:</strong></p>
+<ul>
+  <li>AI-powered annotation pipeline (automatic speech analysis and feedback)</li>
+  <li>Teacher timeline annotations on video</li>
+  <li>Secure video distribution with signed, time-limited URLs</li>
+  <li>Multi-channel parent notifications (WeChat and DingTalk)</li>
+</ul>
+
+<p><strong>Coming later:</strong></p>
+<ul>
+  <li>AI annotation quality improvements</li>
+  <li>Storage upgrade path to cloud object storage for larger scale</li>
+  <li>Parent viewing analytics</li>
+  <li>Session data export and review reports</li>
+</ul>
+
+<hr />
+
+<h2 id="community--support">Community &amp; Support</h2>
+
+<ul>
+  <li><a href="https://gitee.com/KylinLab">Report an issue</a> — Found a bug or have a feature request?</li>
+  <li><a href="./">Read the documentation</a> — Full technical design, API reference, and user manual.</li>
+  <li><a href="https://gitee.com/KylinLab">Join the discussion</a> — Questions, feedback, or want to contribute?</li>
+</ul>
+
+<hr />
+
+<p><strong>Ready to streamline your mock interview workflow?</strong></p>
+
+<p><a href="#download">Download Now</a></p>
+
+      </article>
+
+      <section class="article-footer">
+        
+          <span class="text-link muted-link" data-i18n="demos.coming_soon">Demo link coming later</span>
+        
+        <div style="margin-top: 1rem;">
+          
+            
+            <p class="lang-notice"><a href="/zh/demos/recordmgr.html">📖 阅读中文版本</a></p>
+          
+        </div>
+        <div style="margin-top: 1rem;">
+          <a href="/demos.html" class="button secondary" data-i18n="demos.view">← Back to all demos</a>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="site-footer">
+      <p data-i18n="footer.copyright">© 2026 KylinLab. Practical technology consulting and knowledge sharing.</p>
+    </footer>
+    <script src="/assets/resources/i18n.js?v=5"></script>
+  </body>
+</html>
