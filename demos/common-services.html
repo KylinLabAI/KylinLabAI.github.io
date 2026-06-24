@@ -1,0 +1,273 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CommonServices — One Backend for All Your Apps | KylinLab</title>
+    
+    <meta name="description" content="A self-hosted backend platform that gives every app you build user auth, licensing, feedback collection, file storage, and managed upgrades — out of the box.">
+    
+    <link rel="icon" href="/assets/resources/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/assets/styles.css">
+    
+    <link rel="alternate" hreflang="zh" href="/zh/demos/common-services.html">
+    
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="KylinLab home">
+        <span class="brand-mark">K</span>
+        <span>KylinLab</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        
+        
+        <a class="nav-link" href="/"><img src="/assets/resources/icon-home.svg" alt=""><span data-i18n="nav.home">Home</span></a>
+        <a class="nav-link" href="/knowledge.html"><img src="/assets/resources/icon-knowledge.svg" alt=""><span data-i18n="nav.knowledge">Knowledge</span></a>
+        <a class="nav-link" href="/services.html"><img src="/assets/resources/icon-services.svg" alt=""><span data-i18n="nav.services">Services</span></a>
+        <a class="nav-link is-active" href="/demos.html"><img src="/assets/resources/icon-demos.svg" alt=""><span data-i18n="nav.demos">Demos</span></a>
+        <a class="nav-link" href="/about.html"><img src="/assets/resources/icon-about.svg" alt=""><span data-i18n="nav.about">About</span></a>
+      </nav>
+      <div class="lang-switcher">
+        <label for="lang-select" class="visually-hidden">Language</label>
+        <select id="lang-select" aria-label="Language selector" data-current-lang="en" data-current-url="/demos/common-services.html">
+          <option value="en">English</option>
+          <option value="zh">中文</option>
+        </select>
+      </div>
+    </header>
+
+    <main>
+            <section class="page-hero">
+        <p class="eyebrow" data-i18n="demos.eyebrow">Demos</p>
+        <h1>CommonServices — One Backend for All Your Apps</h1>
+        <div class="article-meta">
+          <span class="tag" data-i18n="demos.tag.prototype">Prototype</span>
+          <time datetime="2026-06-11">June 11, 2026</time>
+        </div>
+      </section>
+
+      <article class="section article-content">
+        <h1 id="️-commonservices--one-backend-for-all-your-apps">🛠️ CommonServices — One Backend for All Your Apps</h1>
+
+<p><strong>Stop rebuilding user login, licensing, and file storage for every project. Deploy once, connect everything.</strong></p>
+
+<p><a href="#quick-start">Get Started</a> · <a href="/zh/demos/common-services.html">中文版</a></p>
+
+<hr />
+
+<h2 id="the-problem">The Problem</h2>
+
+<p>You’re building your third side project this year, and you’re writing the same backend code — again. User registration, password reset, JWT tokens, role-based permissions. Then file uploads, notification emails, license key management. Each project gets its own database, its own auth module, its own admin panel.</p>
+
+<ul>
+  <li><strong>Wasted weekends</strong> rebuilding login flows and permission systems you’ve already written before</li>
+  <li><strong>Inconsistent security</strong> because each project takes a slightly different shortcut on password hashing or token expiry</li>
+  <li><strong>No visibility</strong> across your apps — user data, feedback, and license keys scattered in separate databases with no unified view</li>
+  <li><strong>Upgrade headaches</strong> — when you release a new version, there’s no built-in way to notify users or manage rollouts</li>
+</ul>
+
+<p>You end up spending more time on infrastructure plumbing than on the features that make your app unique.</p>
+
+<h2 id="the-solution">The Solution</h2>
+
+<p><strong>CommonServices</strong> is a self-hosted backend platform that provides the foundational services every app needs — authentication, licensing, feedback, file storage, notifications, and managed upgrades — through a single, unified API. You deploy it once on your own server, register each of your apps, and immediately get production-ready backend capabilities without writing another line of boilerplate.</p>
+
+<hr />
+
+<h2 id="core-value">Core Value</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>What You Get</th>
+      <th>How It Works</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>One identity system for all your apps</strong></td>
+      <td>Users register once and access any app you build. OAuth with GitHub and WeChat is built in.</td>
+    </tr>
+    <tr>
+      <td><strong>License key management without third-party services</strong></td>
+      <td>Generate activation keys, bind to devices, set trial periods, and track usage — all from your own server.</td>
+    </tr>
+    <tr>
+      <td><strong>Customer feedback in one place</strong></td>
+      <td>Pull feedback from GitHub Issues, Gitee, and WeChat into a single dashboard with auto-reply and AI-powered duplicate detection.</td>
+    </tr>
+    <tr>
+      <td><strong>Managed app upgrades with staged rollouts</strong></td>
+      <td>Publish new versions, set rollout percentages, and let clients auto-check for updates — no custom update server needed.</td>
+    </tr>
+    <tr>
+      <td><strong>Per-app file storage and databases</strong></td>
+      <td>Each app gets isolated storage with quota management, provisioned automatically.</td>
+    </tr>
+    <tr>
+      <td><strong>Full audit trail</strong></td>
+      <td>Every action is logged with who, what, when, and where — time-partitioned for fast queries.</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="key-features">Key Features</h2>
+
+<h3 id="1-unified-authentication--user-management">1. Unified Authentication &amp; User Management</h3>
+
+<p>One login system for all your apps. Users register with email/password or sign in with GitHub or WeChat. JWT-based sessions, Argon2 password hashing, personal access tokens with scoped permissions, and configurable refresh token expiry — all handled for you.</p>
+
+<h3 id="2-software-licensing--activation">2. Software Licensing &amp; Activation</h3>
+
+<p>Sell or distribute your apps with a built-in licensing engine. Define pricing plans, generate activation keys in bulk, bind licenses to specific machines, set trial periods (with offline grace), and manage the full lifecycle — trial, active, suspended, revoked — from the admin console or CLI.</p>
+
+<h3 id="3-multi-channel-feedback-collection">3. Multi-Channel Feedback Collection</h3>
+
+<p>Connect GitHub Issues, Gitee, or WeChat Official Account as feedback channels. All feedback flows into one unified inbox where you can classify, reply, set up auto-reply rules (keyword, regex, or AI-based), and use AI aggregation to detect duplicate reports.</p>
+
+<h3 id="4-app-upgrade--release-management">4. App Upgrade &amp; Release Management</h3>
+
+<p>Create releases with version numbers, release notes, and per-platform packages (Windows, macOS, Linux, Android, iOS). Control rollout speed with percentage-based staged deployment. Clients call a single endpoint to check for updates — force-upgrade support included.</p>
+
+<h3 id="5-multi-tenant-app-management">5. Multi-Tenant App Management</h3>
+
+<p>Register each app with its own slug, API credentials, team members, and role-based access (user, developer, admin). Each app gets isolated quotas for users, database storage, and file storage. Suspend, resume, or rotate credentials at any time.</p>
+
+<h3 id="6-admin-console--cli">6. Admin Console &amp; CLI</h3>
+
+<p>A Vue 3 web console gives you dashboards, user management, license key generation, feedback triage, config editing, and audit log browsing — all in one place. The <code class="language-plaintext highlighter-rouge">csctl</code> CLI tool covers the same operations for scripting and automation.</p>
+
+<hr />
+
+<h2 id="quick-start">Quick Start</h2>
+
+<ol>
+  <li><strong>Clone the repository</strong> and copy <code class="language-plaintext highlighter-rouge">.env.example</code> to <code class="language-plaintext highlighter-rouge">.env</code></li>
+  <li><strong>Start the infrastructure</strong> — run <code class="language-plaintext highlighter-rouge">docker compose up -d postgres caddy</code> to launch PostgreSQL and Caddy</li>
+  <li><strong>Run database migrations</strong> — execute <code class="language-plaintext highlighter-rouge">sqlx migrate run</code> to set up all schemas</li>
+  <li><strong>Start the API server</strong> — run <code class="language-plaintext highlighter-rouge">cargo run -p server</code> to launch on port 8000</li>
+  <li><strong>Open the admin console</strong> — <code class="language-plaintext highlighter-rouge">cd admin-console &amp;&amp; npm install &amp;&amp; npm run dev</code>, then register your first user and create an app</li>
+</ol>
+
+<hr />
+
+<h2 id="download">Download</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>How to Get It</th>
+      <th>Requirements</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>API Server</td>
+      <td><a href="#">Source Code</a></td>
+      <td>Rust stable, PostgreSQL 17</td>
+    </tr>
+    <tr>
+      <td>Admin Console</td>
+      <td><a href="#">Source Code</a></td>
+      <td>Node.js 18+</td>
+    </tr>
+    <tr>
+      <td>CLI Tool</td>
+      <td><code class="language-plaintext highlighter-rouge">cargo install --path crates/csctl</code></td>
+      <td>Rust stable</td>
+    </tr>
+    <tr>
+      <td>Docker</td>
+      <td><code class="language-plaintext highlighter-rouge">docker compose up</code></td>
+      <td>Docker 24+, Docker Compose v2</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p>CommonServices is self-hosted. Clone the repository and deploy on your own server.</p>
+</blockquote>
+
+<hr />
+
+<h2 id="privacy--data">Privacy &amp; Data</h2>
+
+<ul>
+  <li><strong>Your data stays on your server</strong> — CommonServices runs entirely on your own infrastructure. No external telemetry, no cloud dependencies.</li>
+  <li><strong>No account required</strong> — the platform itself requires no registration with any third-party service.</li>
+  <li><strong>Full database control</strong> — PostgreSQL with per-app schema isolation. You own every byte.</li>
+</ul>
+
+<hr />
+
+<h2 id="roadmap">Roadmap</h2>
+
+<p>CommonServices is currently in <strong>prototype</strong> stage.</p>
+
+<p><strong>What’s available now:</strong></p>
+<ul>
+  <li>User authentication with JWT and OAuth (GitHub, WeChat)</li>
+  <li>Multi-tenant app registration and management</li>
+  <li>Software licensing with activation keys and device binding</li>
+  <li>Multi-channel feedback collection and auto-reply</li>
+  <li>App upgrade management with staged rollouts</li>
+  <li>Certificate Authority (CA) and certificate lifecycle management</li>
+  <li>Notification system (email, SMS, WeChat, in-app)</li>
+  <li>Configuration management with feature flags</li>
+  <li>Audit logging with time-partitioned storage</li>
+  <li>Observability integration (Prometheus, Loki, Grafana)</li>
+  <li>Admin console (Vue 3) and CLI tool (csctl)</li>
+</ul>
+
+<p><strong>Coming soon:</strong></p>
+<ul>
+  <li>Production deployment guides and Helm charts</li>
+  <li>Plugin system for custom service modules</li>
+  <li>SDK libraries for common client languages</li>
+  <li>Enhanced analytics dashboards</li>
+</ul>
+
+<hr />
+
+<h2 id="community--support">Community &amp; Support</h2>
+
+<ul>
+  <li><a href="#">Report an issue</a></li>
+  <li><a href="#">Read the documentation</a></li>
+</ul>
+
+<hr />
+
+<p><strong>Ready to stop rebuilding backend infrastructure?</strong> <a href="#quick-start">Get Started</a></p>
+
+      </article>
+
+      <section class="article-footer">
+        
+          <span class="text-link muted-link" data-i18n="demos.coming_soon">Demo link coming later</span>
+        
+        <div style="margin-top: 1rem;">
+          
+            
+            <p class="lang-notice"><a href="/zh/demos/common-services.html">📖 阅读中文版本</a></p>
+          
+        </div>
+        <div style="margin-top: 1rem;">
+          <a href="/demos.html" class="button secondary" data-i18n="demos.view">← Back to all demos</a>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="site-footer">
+      <p data-i18n="footer.copyright">© 2026 KylinLab. Practical technology consulting and knowledge sharing.</p>
+
+    </footer>
+    <script src="/assets/resources/i18n.js?v=5"></script>
+  </body>
+</html>

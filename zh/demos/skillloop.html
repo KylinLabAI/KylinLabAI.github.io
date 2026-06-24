@@ -1,0 +1,308 @@
+
+<!doctype html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SkillLoop — 让 AI 技能自我进化 | KylinLab</title>
+    
+    <meta name="description" content="自托管服务，自动从用户对话中发现 AI 技能问题，聚类分析后生成改进 PR。零侵入、零打扰、零摩擦。">
+    
+    <link rel="icon" href="/assets/resources/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/assets/styles.css">
+    
+    <link rel="alternate" hreflang="en" href="/demos/skillloop.html">
+    
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="KylinLab home">
+        <span class="brand-mark">K</span>
+        <span>KylinLab</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        
+        
+        <a class="nav-link" href="/"><img src="/assets/resources/icon-home.svg" alt=""><span data-i18n="nav.home">Home</span></a>
+        <a class="nav-link" href="/zh/knowledge.html"><img src="/assets/resources/icon-knowledge.svg" alt=""><span data-i18n="nav.knowledge">Knowledge</span></a>
+        <a class="nav-link" href="/services.html"><img src="/assets/resources/icon-services.svg" alt=""><span data-i18n="nav.services">Services</span></a>
+        <a class="nav-link is-active" href="/zh/demos.html"><img src="/assets/resources/icon-demos.svg" alt=""><span data-i18n="nav.demos">Demos</span></a>
+        <a class="nav-link" href="/about.html"><img src="/assets/resources/icon-about.svg" alt=""><span data-i18n="nav.about">About</span></a>
+      </nav>
+      <div class="lang-switcher">
+        <label for="lang-select" class="visually-hidden">Language</label>
+        <select id="lang-select" aria-label="Language selector" data-current-lang="zh" data-current-url="/zh/demos/skillloop.html">
+          <option value="en">English</option>
+          <option value="zh">中文</option>
+        </select>
+      </div>
+    </header>
+
+    <main>
+            <section class="page-hero">
+        <p class="eyebrow" data-i18n="demos.eyebrow">Demos</p>
+        <h1>SkillLoop — 让 AI 技能自我进化</h1>
+        <div class="article-meta">
+          <span class="tag" data-i18n="demos.tag.prototype">Prototype</span>
+          <time datetime="2026-06-11">June 11, 2026</time>
+        </div>
+      </section>
+
+      <article class="section article-content">
+        <div align="center">
+
+# 🔄 SkillLoop — 让 AI 技能自我进化
+
+**团队每一次使用 AI 技能，都在让它变得更好——全自动，零额外操作。**
+
+[快速上手](#快速上手) · [下载安装](#下载安装) · [English](/demos/skillloop.html)
+
+</div>
+
+<hr />
+
+<h2 id="痛点">痛点</h2>
+
+<p>团队精心打造了一套共享 AI 技能库——代码审查、文档生成、SQL 分析……所有人用同一套 Skill，输出质量统一，效率显著提升。</p>
+
+<p>然后现实来了：</p>
+
+<ul>
+  <li>某个 Skill 在常见场景下表现良好，但<strong>边缘场景</strong>频频翻车。用户不得不在对话中反复纠正 AI。</li>
+  <li>每个人都在<strong>各自的聊天记录里</strong>独立解决同一个问题——彼此看不见，更谈不上共享。</li>
+  <li>这些修复<strong>没有路径</strong>回流到共享技能库。</li>
+  <li>技能一直”坏”着。新人踩同样的坑，老人每次都要重新解释同一个 workaround。</li>
+</ul>
+
+<p>结果就是：技能”应该怎样工作”和”实际怎样工作”之间的差距越拉越大——而且是悄无声息地拉大的。</p>
+
+<h2 id="解决方案">解决方案</h2>
+
+<p><strong>SkillLoop</strong> 透明地观察你的 AI 对话，检测到你纠正技能的行为后，自动提取问题上下文。当足够多的人遇到同一个问题时，SkillLoop 直接生成一个改进 PR——你只管继续工作，技能会自己变好。</p>
+
+<hr />
+
+<h2 id="核心价值">核心价值</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>你得到什么</th>
+      <th>怎么做到的</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>技能自动改进，不用任何人提 Bug</strong></td>
+      <td>SkillLoop 接入 AI 平台的原生 Hook 机制，自动检测纠错信号</td>
+    </tr>
+    <tr>
+      <td><strong>团队工作流零改变</strong></td>
+      <td>用户照常和 AI 聊天，检测完全无感</td>
+    </tr>
+    <tr>
+      <td><strong>直接收到可合并的 PR，不是模糊的报告</strong></td>
+      <td>当 3 位以上用户遇到同一问题时，SkillLoop 生成包含修复、根因和证据的 Draft PR</td>
+    </tr>
+    <tr>
+      <td><strong>数据完全留在内网</strong></td>
+      <td>自托管服务，本地数据库、本地 LLM 调用，不依赖任何云服务</td>
+    </tr>
+    <tr>
+      <td><strong>一个服务管理所有技能</strong></td>
+      <td>多仓库技能注册表，统一管理不同 Git 仓库中的技能、插件和 Agent</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="主要功能">主要功能</h2>
+
+<h3 id="1-零侵入检测">1. 零侵入检测</h3>
+
+<p>SkillLoop 利用每个 AI 平台的<strong>原生 Hook 系统</strong>——不改技能代码，不加包装层，不加中间件。装一次适配器，所有对话自动被透明观察。</p>
+
+<h3 id="2-双路径分析">2. 双路径分析</h3>
+
+<p>检测到纠错后，SkillLoop 优先在<strong>本地分析</strong>——在你的电脑上启动一个后台 AI Agent（Claude Code 或 Copilot CLI）。如果本地没有 CLI，则回退到服务器处理。无论哪条路径，结果一样。</p>
+
+<h3 id="3-智能聚类">3. 智能聚类</h3>
+
+<p>来自不同用户的相似问题自动聚合，使用向量嵌入计算语义相似度。同一根因不会产生重复 PR——技能维护者只看到一个清晰的改进建议，而不是一堆噪音。</p>
+
+<h3 id="4-自动生成-pr">4. 自动生成 PR</h3>
+
+<p>当某个聚类的证据数量达到阈值，SkillLoop 拉取当前技能文件，生成改进版本，创建 Draft PR，附带问题模式、根因分析、变更说明和证据数量。</p>
+
+<h3 id="5-web-管理后台">5. Web 管理后台</h3>
+
+<p>内置管理页面，可直接在浏览器中管理技能注册表、服务器配置、纠错检测模式和信号监控——不需要进容器改配置文件。</p>
+
+<hr />
+
+<h2 id="快速上手">快速上手</h2>
+
+<ol>
+  <li><strong>启动服务器</strong> — <code class="language-plaintext highlighter-rouge">docker-compose up -d</code>（一条命令，一次搞定）</li>
+  <li><strong>安装适配器</strong> — <code class="language-plaintext highlighter-rouge">pip install skillloop-client &amp;&amp; skillloop-client install copilot --url http://your-server:8080</code></li>
+  <li><strong>照常使用 AI 技能</strong> — 工作流完全不变</li>
+  <li><strong>SkillLoop 自动捕获纠错</strong> — 当你说”不对”、”应该是”、”再来一次”时，信号被自动采集</li>
+  <li><strong>审阅 PR</strong> — 证据积累到阈值后，技能仓库中出现 Draft PR</li>
+</ol>
+
+<hr />
+
+<h2 id="下载安装">下载安装</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>组件</th>
+      <th>安装方式</th>
+      <th>要求</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>服务端</td>
+      <td><code class="language-plaintext highlighter-rouge">docker-compose up -d</code></td>
+      <td>Docker，500 MB 内存</td>
+    </tr>
+    <tr>
+      <td>客户端（pip）</td>
+      <td><code class="language-plaintext highlighter-rouge">pip install skillloop-client</code></td>
+      <td>Python 3.10+</td>
+    </tr>
+    <tr>
+      <td>客户端（pipx）</td>
+      <td><code class="language-plaintext highlighter-rouge">pipx install skillloop-client</code></td>
+      <td>Python 3.10+</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p>客户端 <strong>零外部依赖</strong> — 纯 Python 标准库。</p>
+</blockquote>
+
+<h3 id="支持的-ai-平台">支持的 AI 平台</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>平台</th>
+      <th>状态</th>
+      <th>Hook 机制</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Claude Code</td>
+      <td>✅ 已支持</td>
+      <td><code class="language-plaintext highlighter-rouge">~/.claude/settings.json</code> → Stop hook</td>
+    </tr>
+    <tr>
+      <td>Copilot CLI</td>
+      <td>✅ 已支持</td>
+      <td><code class="language-plaintext highlighter-rouge">~/.copilot/hooks/</code> → agentStop</td>
+    </tr>
+    <tr>
+      <td>VS Code Copilot Chat</td>
+      <td>✅ 已支持</td>
+      <td>与 Copilot CLI 共享配置</td>
+    </tr>
+    <tr>
+      <td>Codex CLI</td>
+      <td>📋 计划中</td>
+      <td>Phase 2</td>
+    </tr>
+    <tr>
+      <td>Cursor</td>
+      <td>📋 计划中</td>
+      <td>Phase 2</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="隐私与数据">隐私与数据</h2>
+
+<ul>
+  <li><strong>所有数据留在你的基础设施内</strong> — 自托管服务器、本地数据库、无云端依赖</li>
+  <li><strong>无需注册账号</strong> — 没有注册、没有 SaaS、没有订阅</li>
+  <li><strong>客户端不在本地存储会话数据</strong> — 会话结束后流式上报服务器</li>
+  <li><strong>LLM 调用留在内网</strong> — 配置你自己的 LLM 端点（DashScope、OpenAI 兼容接口或本地模型）</li>
+</ul>
+
+<hr />
+
+<h2 id="路线图">路线图</h2>
+
+<p>SkillLoop 目前处于 <strong>原型</strong> 阶段。</p>
+
+<p><strong>已实现：</strong></p>
+<ul>
+  <li>Claude Code、Copilot CLI 和 VS Code Copilot Chat 零侵入 Hook</li>
+  <li>双路径架构（本地 Agent + 服务器回退）</li>
+  <li>可配置的纠错检测模式（中文 + 英文正则）</li>
+  <li>LLM + 向量嵌入的问题提取和聚类</li>
+  <li>Web 看板和管理后台</li>
+  <li>多仓库技能注册表，支持从仓库自动扫描注册</li>
+</ul>
+
+<p><strong>即将到来：</strong></p>
+<ul>
+  <li>Codex CLI、Cursor、Cline 适配器（Phase 2）</li>
+  <li>基于证据的自动 PR 生成</li>
+  <li>高置信度修复的自动合并模式</li>
+  <li>GitLab 和 Gitea 支持</li>
+</ul>
+
+<hr />
+
+<h2 id="社区与支持">社区与支持</h2>
+
+<ul>
+  <li><a href="https://github.com/vagouzhou/vagou-skills/issues">提交 Issue</a></li>
+  <li><a href="docs/">查看文档</a></li>
+  <li><a href="https://github.com/vagouzhou/vagou-skills">查看源码</a></li>
+</ul>
+
+<hr />
+
+<div align="center">
+
+**准备好让你的 AI 技能自我进化了吗？**
+
+[立即开始](#快速上手)
+
+</div>
+
+      </article>
+
+      <section class="article-footer">
+        
+          <span class="text-link muted-link" data-i18n="demos.coming_soon">Demo link coming later</span>
+        
+        <div style="margin-top: 1rem;">
+          
+            
+            <p class="lang-notice"><a href="/demos/skillloop.html">📖 Read in English</a></p>
+          
+        </div>
+        <div style="margin-top: 1rem;">
+          <a href="/zh/demos.html" class="button secondary" data-i18n="demos.view">← Back to all demos</a>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="site-footer">
+      <p data-i18n="footer.copyright">© 2026 KylinLab. Practical technology consulting and knowledge sharing.</p>
+
+    </footer>
+    <script src="/assets/resources/i18n.js?v=5"></script>
+  </body>
+</html>

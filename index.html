@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -9,6 +10,9 @@
     
     <link rel="icon" href="/assets/resources/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="/assets/styles.css">
+    
+    <link rel="alternate" hreflang="zh" href="/zh/">
+    
   </head>
   <body>
     <header class="site-header">
@@ -17,6 +21,8 @@
         <span>KylinLab</span>
       </a>
       <nav class="site-nav" aria-label="Primary navigation">
+        
+        
         <a class="nav-link is-active" href="/" aria-current="page"><img src="/assets/resources/icon-home.svg" alt=""><span data-i18n="nav.home">Home</span></a>
         <a class="nav-link" href="/knowledge.html"><img src="/assets/resources/icon-knowledge.svg" alt=""><span data-i18n="nav.knowledge">Knowledge</span></a>
         <a class="nav-link" href="/services.html"><img src="/assets/resources/icon-services.svg" alt=""><span data-i18n="nav.services">Services</span></a>
@@ -25,7 +31,7 @@
       </nav>
       <div class="lang-switcher">
         <label for="lang-select" class="visually-hidden">Language</label>
-        <select id="lang-select" aria-label="Language selector">
+        <select id="lang-select" aria-label="Language selector" data-current-lang="en" data-current-url="/">
           <option value="en">English</option>
           <option value="zh">中文</option>
         </select>
@@ -108,11 +114,11 @@
           
           <article class="article-card">
             <div class="meta-row">
-              <span data-i18n="knowledge.category.pm">pm</span>
+              <span data-i18n="knowledge.category.software_dev">software_dev</span>
               <time datetime="2026-04-28">Apr 28, 2026</time>
             </div>
-            <h3><a href="/knowledge/02-delivery-plans.html">Delivery plans that survive real project pressure</a></h3>
-            <p>A lightweight approach for tracking risk, scope, ownership, and decision points.</p>
+            <h3><a href="/zh/knowledge/prototype-code.html">如何在演示后保持原型代码有用</a></h3>
+            <p>一些小实践，让实验性工作在被证明有价值后更容易演进。</p>
           </article>
           
           <article class="article-card">
@@ -120,7 +126,7 @@
               <span data-i18n="knowledge.category.software_dev">software_dev</span>
               <time datetime="2026-04-28">Apr 28, 2026</time>
             </div>
-            <h3><a href="/knowledge/01-prototype-code.html">How to keep prototype code useful after the demo</a></h3>
+            <h3><a href="/knowledge/prototype-code.html">How to keep prototype code useful after the demo</a></h3>
             <p>Small practices that make experimental work easier to evolve when the idea proves valuable.</p>
           </article>
           
@@ -138,40 +144,40 @@
         <div class="card-grid two">
           
           <article class="demo-card">
-            <div class="demo-preview violet-preview">
-              <img src="/assets/resources/icon-prototype.svg" alt="">
+            <div class="demo-preview blue-preview">
+              <img src="/assets/resources/icon-code.svg" alt="">
             </div>
             <div class="demo-body">
               <p class="tag" data-i18n="demos.tag.prototype">Prototype</p>
-              <h3><a href="/demos/02-project-delivery-board.html">Project delivery board</a></h3>
-              <p>A compact template for planning work, surfacing risk, and keeping delivery checkpoints visible.</p>
+              <h3><a href="/zh/demos/doujia.html">豆荚 — 让你真正拥有 AI 对话</a></h3>
+              <p>一款桌面应用，把你和 AI 的每一次对话变成可搜索、可整理、可导出的知识资产。内嵌 AI 平台，自动采集对话，完全掌控数据。</p>
               <div class="tech-list">
                 
-                <span data-i18n="demos.tech.web_ui">Web UI</span>
+                <span data-i18n="demos.tech.electron">Electron</span>
                 
-                <span data-i18n="demos.tech.templates">Templates</span>
+                <span data-i18n="demos.tech.vue">Vue</span>
                 
-                <span data-i18n="demos.tech.pm">PM</span>
+                <span data-i18n="demos.tech.ai">AI</span>
                 
               </div>
             </div>
           </article>
           
           <article class="demo-card">
-            <div class="demo-preview green-preview">
-              <img src="/assets/resources/icon-automation.svg" alt="">
+            <div class="demo-preview blue-preview">
+              <img src="/assets/resources/icon-code.svg" alt="">
             </div>
             <div class="demo-body">
               <p class="tag" data-i18n="demos.tag.prototype">Prototype</p>
-              <h3><a href="/demos/01-workflow-automation.html">Workflow automation starter</a></h3>
-              <p>A small demo showing how repeatable handoff steps can become a clear automated flow.</p>
+              <h3><a href="/demos/doujia.html">DouJia — Own Your AI Conversations</a></h3>
+              <p>A desktop app that turns your AI chat history into organized, searchable, exportable knowledge. Embed AI platforms, auto-capture conversations, and own your data.</p>
               <div class="tech-list">
                 
-                <span data-i18n="demos.tech.html">HTML</span>
+                <span data-i18n="demos.tech.electron">Electron</span>
                 
-                <span data-i18n="demos.tech.css">CSS</span>
+                <span data-i18n="demos.tech.vue">Vue</span>
                 
-                <span data-i18n="demos.tech.automation">Automation</span>
+                <span data-i18n="demos.tech.ai">AI</span>
                 
               </div>
             </div>
@@ -193,7 +199,8 @@
 
     <footer class="site-footer">
       <p data-i18n="footer.copyright">© 2026 KylinLab. Practical technology consulting and knowledge sharing.</p>
+
     </footer>
-    <script src="/assets/resources/i18n.js"></script>
+    <script src="/assets/resources/i18n.js?v=5"></script>
   </body>
 </html>

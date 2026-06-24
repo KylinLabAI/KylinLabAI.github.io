@@ -1,0 +1,273 @@
+
+<!doctype html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CommonServices — 一套后端，服务所有应用 | KylinLab</title>
+    
+    <meta name="description" content="私有部署的通用后端平台，为你的每个应用提供用户认证、软件授权、反馈收集、文件存储和版本升级管理，开箱即用。">
+    
+    <link rel="icon" href="/assets/resources/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/assets/styles.css">
+    
+    <link rel="alternate" hreflang="en" href="/demos/common-services.html">
+    
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="KylinLab home">
+        <span class="brand-mark">K</span>
+        <span>KylinLab</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        
+        
+        <a class="nav-link" href="/"><img src="/assets/resources/icon-home.svg" alt=""><span data-i18n="nav.home">Home</span></a>
+        <a class="nav-link" href="/zh/knowledge.html"><img src="/assets/resources/icon-knowledge.svg" alt=""><span data-i18n="nav.knowledge">Knowledge</span></a>
+        <a class="nav-link" href="/services.html"><img src="/assets/resources/icon-services.svg" alt=""><span data-i18n="nav.services">Services</span></a>
+        <a class="nav-link is-active" href="/zh/demos.html"><img src="/assets/resources/icon-demos.svg" alt=""><span data-i18n="nav.demos">Demos</span></a>
+        <a class="nav-link" href="/about.html"><img src="/assets/resources/icon-about.svg" alt=""><span data-i18n="nav.about">About</span></a>
+      </nav>
+      <div class="lang-switcher">
+        <label for="lang-select" class="visually-hidden">Language</label>
+        <select id="lang-select" aria-label="Language selector" data-current-lang="zh" data-current-url="/zh/demos/common-services.html">
+          <option value="en">English</option>
+          <option value="zh">中文</option>
+        </select>
+      </div>
+    </header>
+
+    <main>
+            <section class="page-hero">
+        <p class="eyebrow" data-i18n="demos.eyebrow">Demos</p>
+        <h1>CommonServices — 一套后端，服务所有应用</h1>
+        <div class="article-meta">
+          <span class="tag" data-i18n="demos.tag.prototype">Prototype</span>
+          <time datetime="2026-06-11">June 11, 2026</time>
+        </div>
+      </section>
+
+      <article class="section article-content">
+        <h1 id="️-commonservices--一套后端服务所有应用">🛠️ CommonServices — 一套后端，服务所有应用</h1>
+
+<p><strong>别再为每个项目重复造轮子。部署一次，所有应用共享用户体系、授权管理和运维能力。</strong></p>
+
+<p><a href="#快速开始">快速开始</a> · <a href="/demos/common-services.html">English</a></p>
+
+<hr />
+
+<h2 id="你一定遇到过这样的问题">你一定遇到过这样的问题</h2>
+
+<p>每次启动新项目，你都要写一遍用户注册、密码重置、JWT 鉴权、角色权限。然后是文件上传、邮件通知、License 激活码管理。每个项目各有一套数据库、一套认证模块、一套管理后台。</p>
+
+<ul>
+  <li><strong>周末都花在重复工作上</strong> — 登录流程和权限系统已经写过好几遍了，每次还是要从头来</li>
+  <li><strong>安全标准不统一</strong> — 项目 A 用 bcrypt，项目 B 用 MD5，Token 过期策略各不相同</li>
+  <li><strong>数据各自为政</strong> — 用户信息、反馈工单、授权记录分散在不同数据库，没有统一视图</li>
+  <li><strong>版本升级全靠手动</strong> — 发了新版本，没有好的方式通知用户，更别提灰度发布</li>
+</ul>
+
+<p>你花在基础设施上的时间，远远超过了打磨产品本身的时间。</p>
+
+<h2 id="解决方案">解决方案</h2>
+
+<p><strong>CommonServices</strong> 是一个私有部署的通用后端平台，把每个应用都需要的基础能力 — 用户认证、软件授权、反馈收集、文件存储、消息通知、版本升级 — 整合到一套统一的 API 中。你只需要部署一次，注册你的应用，就能立即获得生产级的后端能力，不用再写一行重复代码。</p>
+
+<hr />
+
+<h2 id="核心价值">核心价值</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>你获得的能力</th>
+      <th>实现方式</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>一套用户体系，所有应用共用</strong></td>
+      <td>用户注册一次，即可访问你开发的任何应用。内置 GitHub 和微信 OAuth 登录。</td>
+    </tr>
+    <tr>
+      <td><strong>软件授权管理，无需第三方服务</strong></td>
+      <td>生成激活码、绑定设备、设置试用期、追踪使用情况 — 全部在自己的服务器上完成。</td>
+    </tr>
+    <tr>
+      <td><strong>多渠道反馈统一管理</strong></td>
+      <td>从 GitHub Issues、Gitee、微信公众号拉取反馈，汇总到一个收件箱，支持自动回复和 AI 去重。</td>
+    </tr>
+    <tr>
+      <td><strong>版本升级灰度发布</strong></td>
+      <td>发布新版本、设置灰度比例，客户端自动检查更新 — 无需自建升级服务器。</td>
+    </tr>
+    <tr>
+      <td><strong>按应用隔离的存储和数据库</strong></td>
+      <td>每个应用拥有独立的文件存储和数据库，配额可控，自动创建。</td>
+    </tr>
+    <tr>
+      <td><strong>完整审计日志</strong></td>
+      <td>每一次操作都有记录 — 谁、做了什么、什么时候、从哪里，按月分区存储，查询高效。</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="核心功能">核心功能</h2>
+
+<h3 id="1-统一认证与用户管理">1. 统一认证与用户管理</h3>
+
+<p>一套登录系统覆盖所有应用。支持邮箱密码注册和 GitHub、微信 OAuth 登录。JWT 会话管理、Argon2 密码加密、个人访问令牌（PAT）带作用域权限控制、可配置的刷新令牌过期时间 — 全部开箱即用。</p>
+
+<h3 id="2-软件授权与激活管理">2. 软件授权与激活管理</h3>
+
+<p>为你的应用提供完整的授权引擎。定义定价方案、批量生成激活码、将 License 绑定到具体设备、设置试用期（支持离线宽限期），从管理后台或命令行工具管理完整的授权生命周期 — 试用、激活、暂停、吊销。</p>
+
+<h3 id="3-多渠道反馈收集">3. 多渠道反馈收集</h3>
+
+<p>连接 GitHub Issues、Gitee 或微信公众号作为反馈渠道。所有反馈汇入统一收件箱，支持分类标注、回复、自动回复规则（关键词、正则、AI 匹配），以及 AI 智能去重聚合。</p>
+
+<h3 id="4-版本升级与发布管理">4. 版本升级与发布管理</h3>
+
+<p>创建发布版本，附带版本号、更新日志和多平台安装包（Windows、macOS、Linux、Android、iOS）。通过灰度百分比控制发布节奏，客户端调用一个接口即可检查更新，支持强制升级。</p>
+
+<h3 id="5-多租户应用管理">5. 多租户应用管理</h3>
+
+<p>为每个应用注册独立的标识、API 凭证、团队成员和角色权限（用户、开发者、管理员）。每个应用拥有隔离的用户配额、数据库配额和文件存储配额，随时可以暂停、恢复或轮换凭证。</p>
+
+<h3 id="6-管理后台与命令行工具">6. 管理后台与命令行工具</h3>
+
+<p>Vue 3 构建的 Web 管理后台，集成了仪表盘、用户管理、激活码生成、反馈处理、配置编辑和审计日志查看。<code class="language-plaintext highlighter-rouge">csctl</code> 命令行工具覆盖同样的操作，适合脚本和自动化场景。</p>
+
+<hr />
+
+<h2 id="快速开始">快速开始</h2>
+
+<ol>
+  <li><strong>克隆仓库</strong> 并将 <code class="language-plaintext highlighter-rouge">.env.example</code> 复制为 <code class="language-plaintext highlighter-rouge">.env</code>，填写配置</li>
+  <li><strong>启动基础设施</strong> — 执行 <code class="language-plaintext highlighter-rouge">docker compose up -d postgres caddy</code> 启动 PostgreSQL 和 Caddy</li>
+  <li><strong>执行数据库迁移</strong> — 运行 <code class="language-plaintext highlighter-rouge">sqlx migrate run</code> 创建所有数据表</li>
+  <li><strong>启动 API 服务</strong> — 运行 <code class="language-plaintext highlighter-rouge">cargo run -p server</code>，服务将监听 8000 端口</li>
+  <li><strong>打开管理后台</strong> — 进入 <code class="language-plaintext highlighter-rouge">admin-console</code> 目录，执行 <code class="language-plaintext highlighter-rouge">npm install &amp;&amp; npm run dev</code>，注册第一个用户并创建应用</li>
+</ol>
+
+<hr />
+
+<h2 id="获取方式">获取方式</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>组件</th>
+      <th>获取方式</th>
+      <th>环境要求</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>API 服务</td>
+      <td><a href="#">源码</a></td>
+      <td>Rust stable, PostgreSQL 17</td>
+    </tr>
+    <tr>
+      <td>管理后台</td>
+      <td><a href="#">源码</a></td>
+      <td>Node.js 18+</td>
+    </tr>
+    <tr>
+      <td>命令行工具</td>
+      <td><code class="language-plaintext highlighter-rouge">cargo install --path crates/csctl</code></td>
+      <td>Rust stable</td>
+    </tr>
+    <tr>
+      <td>Docker 部署</td>
+      <td><code class="language-plaintext highlighter-rouge">docker compose up</code></td>
+      <td>Docker 24+, Docker Compose v2</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p>CommonServices 为私有部署方案。克隆仓库后部署到你自己的服务器上。</p>
+</blockquote>
+
+<hr />
+
+<h2 id="隐私与数据">隐私与数据</h2>
+
+<ul>
+  <li><strong>数据完全在你的服务器上</strong> — CommonServices 运行在你自己的基础设施上，没有外部遥测，不依赖任何云服务。</li>
+  <li><strong>无需注册第三方账号</strong> — 平台本身不需要向任何外部服务注册。</li>
+  <li><strong>数据库完全可控</strong> — PostgreSQL 存储，每个应用 Schema 隔离，数据完全归你所有。</li>
+</ul>
+
+<hr />
+
+<h2 id="路线图">路线图</h2>
+
+<p>CommonServices 目前处于 <strong>原型</strong> 阶段。</p>
+
+<p><strong>已实现的能力：</strong></p>
+<ul>
+  <li>用户认证（JWT + OAuth：GitHub、微信）</li>
+  <li>多租户应用注册与管理</li>
+  <li>软件授权管理（激活码、设备绑定、试用期）</li>
+  <li>多渠道反馈收集与自动回复</li>
+  <li>版本升级管理与灰度发布</li>
+  <li>证书签发与生命周期管理（CA）</li>
+  <li>多渠道通知（邮件、短信、微信、应用内）</li>
+  <li>配置管理与功能开关</li>
+  <li>审计日志（按月分区存储）</li>
+  <li>可观测性集成（Prometheus、Loki、Grafana）</li>
+  <li>Vue 3 管理后台与 csctl 命令行工具</li>
+</ul>
+
+<p><strong>即将到来：</strong></p>
+<ul>
+  <li>生产环境部署指南与 Helm Charts</li>
+  <li>插件系统，支持自定义服务模块</li>
+  <li>常用语言客户端 SDK</li>
+  <li>增强版数据分析仪表盘</li>
+</ul>
+
+<hr />
+
+<h2 id="社区与支持">社区与支持</h2>
+
+<ul>
+  <li><a href="#">提交问题</a></li>
+  <li><a href="#">查看文档</a></li>
+</ul>
+
+<hr />
+
+<p><strong>不想再重复造后端轮子？</strong> <a href="#快速开始">立即开始</a></p>
+
+      </article>
+
+      <section class="article-footer">
+        
+          <span class="text-link muted-link" data-i18n="demos.coming_soon">Demo link coming later</span>
+        
+        <div style="margin-top: 1rem;">
+          
+            
+            <p class="lang-notice"><a href="/demos/common-services.html">📖 Read in English</a></p>
+          
+        </div>
+        <div style="margin-top: 1rem;">
+          <a href="/zh/demos.html" class="button secondary" data-i18n="demos.view">← Back to all demos</a>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="site-footer">
+      <p data-i18n="footer.copyright">© 2026 KylinLab. Practical technology consulting and knowledge sharing.</p>
+
+    </footer>
+    <script src="/assets/resources/i18n.js?v=5"></script>
+  </body>
+</html>

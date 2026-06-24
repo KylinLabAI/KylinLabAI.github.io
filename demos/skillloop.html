@@ -1,0 +1,308 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SkillLoop — Self-Healing AI Skills | KylinLab</title>
+    
+    <meta name="description" content="A self-hosted service that detects AI skill issues from user conversations, clusters them, and generates improvement PRs automatically. Zero friction.">
+    
+    <link rel="icon" href="/assets/resources/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/assets/styles.css">
+    
+    <link rel="alternate" hreflang="zh" href="/zh/demos/skillloop.html">
+    
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="KylinLab home">
+        <span class="brand-mark">K</span>
+        <span>KylinLab</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        
+        
+        <a class="nav-link" href="/"><img src="/assets/resources/icon-home.svg" alt=""><span data-i18n="nav.home">Home</span></a>
+        <a class="nav-link" href="/knowledge.html"><img src="/assets/resources/icon-knowledge.svg" alt=""><span data-i18n="nav.knowledge">Knowledge</span></a>
+        <a class="nav-link" href="/services.html"><img src="/assets/resources/icon-services.svg" alt=""><span data-i18n="nav.services">Services</span></a>
+        <a class="nav-link is-active" href="/demos.html"><img src="/assets/resources/icon-demos.svg" alt=""><span data-i18n="nav.demos">Demos</span></a>
+        <a class="nav-link" href="/about.html"><img src="/assets/resources/icon-about.svg" alt=""><span data-i18n="nav.about">About</span></a>
+      </nav>
+      <div class="lang-switcher">
+        <label for="lang-select" class="visually-hidden">Language</label>
+        <select id="lang-select" aria-label="Language selector" data-current-lang="en" data-current-url="/demos/skillloop.html">
+          <option value="en">English</option>
+          <option value="zh">中文</option>
+        </select>
+      </div>
+    </header>
+
+    <main>
+            <section class="page-hero">
+        <p class="eyebrow" data-i18n="demos.eyebrow">Demos</p>
+        <h1>SkillLoop — Self-Healing AI Skills</h1>
+        <div class="article-meta">
+          <span class="tag" data-i18n="demos.tag.prototype">Prototype</span>
+          <time datetime="2026-06-11">June 11, 2026</time>
+        </div>
+      </section>
+
+      <article class="section article-content">
+        <div align="center">
+
+# 🔄 SkillLoop — Self-Healing AI Skills
+
+**Your team's AI skills get better every time someone uses them — automatically, with zero extra effort.**
+
+[Quick Start](#quick-start) · [Download](#download) · [中文版](/zh/demos/skillloop.html)
+
+</div>
+
+<hr />
+
+<h2 id="the-problem">The Problem</h2>
+
+<p>Your team built a library of AI skills — prompt templates for code review, doc generation, SQL analysis, and dozens of other tasks. Everyone uses the same skills. Consistency is high. Life is good.</p>
+
+<p>Then reality kicks in:</p>
+
+<ul>
+  <li>A skill works for common cases, but <strong>edge cases</strong> trip it up. Users correct the AI mid-conversation to get the right output.</li>
+  <li>Each person solves the same problem <strong>independently</strong> — in their own chat history, invisible to everyone else.</li>
+  <li>There is <strong>no path</strong> to feed those individual fixes back into the shared skill.</li>
+  <li>The skill stays broken. New team members hit the same wall. Veteran users waste time re-explaining the same fix.</li>
+</ul>
+
+<p>The result? A growing gap between how your skills <em>should</em> work and how they <em>actually</em> work — widening silently with every conversation.</p>
+
+<h2 id="the-solution">The Solution</h2>
+
+<p><strong>SkillLoop</strong> watches your AI conversations transparently, detects when you correct a skill, extracts the issue, and — when enough people hit the same problem — generates a ready-to-review Pull Request that fixes the skill. You just keep working. The skills get better on their own.</p>
+
+<hr />
+
+<h2 id="core-value">Core Value</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>What You Get</th>
+      <th>How It Works</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Skills improve without anyone filing a bug</strong></td>
+      <td>SkillLoop hooks into your AI agent’s native event system and detects correction signals automatically</td>
+    </tr>
+    <tr>
+      <td><strong>No workflow changes for your team</strong></td>
+      <td>Users keep chatting with AI as usual — detection is completely invisible</td>
+    </tr>
+    <tr>
+      <td><strong>Ready-to-merge PRs, not vague reports</strong></td>
+      <td>When 3+ users hit the same issue, SkillLoop generates a Draft PR with the fix, root cause, and evidence</td>
+    </tr>
+    <tr>
+      <td><strong>Your data stays on your network</strong></td>
+      <td>Self-hosted server with local LLM and embedding — nothing leaves your infrastructure</td>
+    </tr>
+    <tr>
+      <td><strong>One service for all your skills</strong></td>
+      <td>Multi-repo skill registry handles skills, plugins, and agents across different Git repos</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="key-features">Key Features</h2>
+
+<h3 id="1-zero-intrusion-detection">1. Zero-Intrusion Detection</h3>
+
+<p>SkillLoop uses each AI platform’s <strong>native hook system</strong> — no skill code changes, no wrappers, no middleware. Install the adapter once, and every conversation is observed transparently.</p>
+
+<h3 id="2-two-path-analysis">2. Two-Path Analysis</h3>
+
+<p>When a correction is detected, SkillLoop prefers <strong>local analysis</strong> — spawning a background AI agent (Claude Code or Copilot CLI) on your machine. If no local CLI is available, it falls back to the server. Either way, you get the same result.</p>
+
+<h3 id="3-smart-clustering">3. Smart Clustering</h3>
+
+<p>Similar issues from different users are grouped automatically using sentence embeddings. Duplicate PRs for the same underlying problem are prevented — the skill owner sees one clear PR, not a flood of noise.</p>
+
+<h3 id="4-automatic-pr-generation">4. Automatic PR Generation</h3>
+
+<p>When a cluster reaches the evidence threshold, SkillLoop fetches the current skill file, generates an improved version, and opens a Draft PR with the problem pattern, root cause, proposed diff, and evidence count.</p>
+
+<h3 id="5-web-admin-dashboard">5. Web Admin Dashboard</h3>
+
+<p>A built-in admin page for managing skill registries, server settings, correction patterns, and monitoring signals — no config files to edit inside containers.</p>
+
+<hr />
+
+<h2 id="quick-start">Quick Start</h2>
+
+<ol>
+  <li><strong>Start the server</strong> — <code class="language-plaintext highlighter-rouge">docker-compose up -d</code> (one command, one time)</li>
+  <li><strong>Install the adapter</strong> — <code class="language-plaintext highlighter-rouge">pip install skillloop-client &amp;&amp; skillloop-client install copilot --url http://your-server:8080</code></li>
+  <li><strong>Use your AI skills as usual</strong> — no changes to your workflow</li>
+  <li><strong>SkillLoop detects corrections</strong> — when you say “no, that’s wrong” or “try again”, it captures the signal</li>
+  <li><strong>Review the PR</strong> — when enough evidence accumulates, a Draft PR appears in your skill repo</li>
+</ol>
+
+<hr />
+
+<h2 id="download">Download</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Install</th>
+      <th>Requirements</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Server</td>
+      <td><code class="language-plaintext highlighter-rouge">docker-compose up -d</code></td>
+      <td>Docker, 500 MB RAM</td>
+    </tr>
+    <tr>
+      <td>Client (pip)</td>
+      <td><code class="language-plaintext highlighter-rouge">pip install skillloop-client</code></td>
+      <td>Python 3.10+</td>
+    </tr>
+    <tr>
+      <td>Client (pipx)</td>
+      <td><code class="language-plaintext highlighter-rouge">pipx install skillloop-client</code></td>
+      <td>Python 3.10+</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p>The client package has <strong>zero external dependencies</strong> — pure Python stdlib.</p>
+</blockquote>
+
+<h3 id="supported-ai-platforms">Supported AI Platforms</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Platform</th>
+      <th>Status</th>
+      <th>Hook Mechanism</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Claude Code</td>
+      <td>✅ Supported</td>
+      <td><code class="language-plaintext highlighter-rouge">~/.claude/settings.json</code> → Stop hook</td>
+    </tr>
+    <tr>
+      <td>Copilot CLI</td>
+      <td>✅ Supported</td>
+      <td><code class="language-plaintext highlighter-rouge">~/.copilot/hooks/</code> → agentStop</td>
+    </tr>
+    <tr>
+      <td>VS Code Copilot Chat</td>
+      <td>✅ Supported</td>
+      <td>Same config as Copilot CLI</td>
+    </tr>
+    <tr>
+      <td>Codex CLI</td>
+      <td>📋 Planned</td>
+      <td>Phase 2</td>
+    </tr>
+    <tr>
+      <td>Cursor</td>
+      <td>📋 Planned</td>
+      <td>Phase 2</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="privacy--data">Privacy &amp; Data</h2>
+
+<ul>
+  <li><strong>All data stays on your infrastructure</strong> — self-hosted server, local database, no cloud dependency</li>
+  <li><strong>No account required</strong> — no sign-up, no SaaS, no subscription</li>
+  <li><strong>Session data is never stored on disk</strong> by the client — streamed to the server on session end</li>
+  <li><strong>LLM calls stay internal</strong> — configure your own LLM endpoint (DashScope, OpenAI-compatible, or local model)</li>
+</ul>
+
+<hr />
+
+<h2 id="roadmap">Roadmap</h2>
+
+<p>SkillLoop is currently in <strong>prototype</strong> stage.</p>
+
+<p><strong>What’s available now:</strong></p>
+<ul>
+  <li>Zero-intrusion hooks for Claude Code, Copilot CLI, and VS Code Copilot Chat</li>
+  <li>Two-path architecture (local agent + server fallback)</li>
+  <li>Correction detection with configurable regex patterns (Chinese + English)</li>
+  <li>Issue extraction and clustering via LLM + embeddings</li>
+  <li>Web dashboard and admin UI</li>
+  <li>Multi-repo skill registry with scan-from-repo</li>
+</ul>
+
+<p><strong>Coming soon:</strong></p>
+<ul>
+  <li>Codex CLI, Cursor, and Cline adapters (Phase 2)</li>
+  <li>Automatic PR generation with evidence-based diffs</li>
+  <li>Auto-merge mode for high-confidence fixes</li>
+  <li>GitLab and Gitea provider support</li>
+</ul>
+
+<hr />
+
+<h2 id="community--support">Community &amp; Support</h2>
+
+<ul>
+  <li><a href="https://github.com/vagouzhou/vagou-skills/issues">Report an issue</a></li>
+  <li><a href="docs/">Read the documentation</a></li>
+  <li><a href="https://github.com/vagouzhou/vagou-skills">View the source code</a></li>
+</ul>
+
+<hr />
+
+<div align="center">
+
+**Ready to let your skills heal themselves?**
+
+[Get Started](#quick-start)
+
+</div>
+
+      </article>
+
+      <section class="article-footer">
+        
+          <span class="text-link muted-link" data-i18n="demos.coming_soon">Demo link coming later</span>
+        
+        <div style="margin-top: 1rem;">
+          
+            
+            <p class="lang-notice"><a href="/zh/demos/skillloop.html">📖 阅读中文版本</a></p>
+          
+        </div>
+        <div style="margin-top: 1rem;">
+          <a href="/demos.html" class="button secondary" data-i18n="demos.view">← Back to all demos</a>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="site-footer">
+      <p data-i18n="footer.copyright">© 2026 KylinLab. Practical technology consulting and knowledge sharing.</p>
+
+    </footer>
+    <script src="/assets/resources/i18n.js?v=5"></script>
+  </body>
+</html>
