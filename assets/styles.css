@@ -544,6 +544,27 @@ h3 {
   margin: 0;
 }
 
+.footer-beian {
+  margin-top: 6px;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.footer-beian a {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.footer-beian a:hover {
+  text-decoration: underline;
+}
+
+.footer-beian a + a {
+  margin-left: 12px;
+  padding-left: 12px;
+  border-left: 1px solid var(--line);
+}
+
 @media (max-width: 900px) {
   .site-header {
     align-items: flex-start;
