@@ -1,0 +1,60 @@
+# KylinLab Website Configuration
+# Multilingual static site with Jekyll
+
+title: KylinLab
+description: Personal freelance technology consulting, project management support, software development, and practical knowledge sharing.
+url: "https://KylinLabAI.github.io"
+baseurl: ""
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+
+# Collections for dynamic content
+collections:
+  knowledge:
+    output: true
+    permalink: /knowledge/:name.html
+  demos:
+    output: true
+    permalink: /demos/:name.html
+
+# Default values for collections
+defaults:
+  - scope:
+      path: ""
+      type: "knowledge"
+    values:
+      layout: "knowledge-article"
+      lang: "en"
+  - scope:
+      path: ""
+      type: "demos"
+    values:
+      layout: "demo-article"
+      lang: "en"
+
+# Include HTML files in processing (including zh/ subdirectory)
+include:
+  - "*.html"
+  - "zh/*.html"
+
+# Exclude from processing
+exclude:
+  - backup/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .github/
+  - README.md
+  - .gitignore
+  - .env
+
+# Site languages
+languages:
+  - en
+  - zh
+
+# Show ICP备案 link (mainland China hosting only)
+show_beian: false

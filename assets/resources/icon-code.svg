@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">Software development</title>
+  <path d="m24 22-10 10 10 10M40 22l10 10-10 10" fill="none" stroke="#8052b8" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="m35 18-6 28" fill="none" stroke="#37bee8" stroke-width="5" stroke-linecap="round"/>
+</svg>

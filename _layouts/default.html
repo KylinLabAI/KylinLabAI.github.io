@@ -1,0 +1,62 @@
+---
+# Default layout with multilingual support
+# Pages can set lang in frontmatter; defaults to "en"
+---
+{% assign page_lang = page.lang | default: "en" %}
+<!doctype html>
+<html lang="{{ page_lang }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ page.title }} | KylinLab</title>
+    {% if page.description %}
+    <meta name="description" content="{{ page.description }}">
+    {% endif %}
+    <link rel="icon" href="/assets/resources/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/assets/styles.css">
+    {% if page.lang == "zh" %}
+    <link rel="alternate" hreflang="en" href="{{ page.url | replace: '/zh/', '/' }}">
+    {% else %}
+    <link rel="alternate" hreflang="zh" href="/zh{{ page.url }}">
+    {% endif %}
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="KylinLab home">
+        <span class="brand-mark">K</span>
+        <span>KylinLab</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        {% assign nav_prefix = '' %}
+        {% if page_lang == 'zh' %}{% assign nav_prefix = '/zh' %}{% endif %}
+        <a class="nav-link{% if page.url == '/' or page.url == '' %} is-active{% endif %}" href="/"{% if page.url == '/' %} aria-current="page"{% endif %}><img src="/assets/resources/icon-home.svg" alt=""><span data-i18n="nav.home">Home</span></a>
+        <a class="nav-link{% if page.url contains '/knowledge' %} is-active{% endif %}" href="{{ nav_prefix }}/knowledge.html"><img src="/assets/resources/icon-knowledge.svg" alt=""><span data-i18n="nav.knowledge">Knowledge</span></a>
+        <a class="nav-link{% if page.url contains '/services' %} is-active{% endif %}" href="/services.html"><img src="/assets/resources/icon-services.svg" alt=""><span data-i18n="nav.services">Services</span></a>
+        <a class="nav-link{% if page.url contains '/demos' %} is-active{% endif %}" href="{{ nav_prefix }}/demos.html"><img src="/assets/resources/icon-demos.svg" alt=""><span data-i18n="nav.demos">Demos</span></a>
+        <a class="nav-link{% if page.url contains '/about' %} is-active{% endif %}" href="/about.html"><img src="/assets/resources/icon-about.svg" alt=""><span data-i18n="nav.about">About</span></a>
+      </nav>
+      <div class="lang-switcher">
+        <label for="lang-select" class="visually-hidden">Language</label>
+        <select id="lang-select" aria-label="Language selector" data-current-lang="{{ page_lang }}" data-current-url="{{ page.url }}">
+          <option value="en">English</option>
+          <option value="zh">中文</option>
+        </select>
+      </div>
+    </header>
+
+    <main>
+      {{ content }}
+    </main>
+
+    <footer class="site-footer">
+      <p data-i18n="footer.copyright">© 2026 KylinLab. Practical technology consulting and knowledge sharing.</p>
+{% if site.show_beian %}
+      <p class="footer-beian">
+        <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">浙ICP备2026031785号-2</a>
+        <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33010502013136" target="_blank" rel="noopener">浙公网安备33010502013136号</a>
+      </p>
+{% endif %}
+    </footer>
+    <script src="/assets/resources/i18n.js?v=5"></script>
+  </body>
+</html>

@@ -1,0 +1,99 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches: [ source ]
+  workflow_dispatch:
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+        with:
+          ref: source
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+          bundler-cache: true
+
+      - name: Install dependencies
+        run: bundle install
+
+      - name: Build site
+        run: bundle exec jekyll build --trace
+
+      - name: Upload built site artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: _site
+          path: _site/
+
+  deploy-github-pages:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Download built site
+        uses: actions/download-artifact@v4
+        with:
+          name: _site
+          path: _site
+
+      - name: Deploy to GitHub Pages (master branch)
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: _site
+          publish_branch: master
+          force_orphan: true
+
+  deploy-gitee-pages:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download built site
+        uses: actions/download-artifact@v4
+        with:
+          name: _site
+          path: _site
+
+      - name: Clone Gitee Pages repo and push
+        env:
+          GITEE_USERNAME: ${{ secrets.GITEE_USERNAME }}
+          GITEE_TOKEN: ${{ secrets.GITEE_TOKEN }}
+          GITEE_EMAIL: ${{ secrets.GITEE_EMAIL }}
+        run: |
+          set -euo pipefail
+          USER_NAME="${GITEE_USERNAME:-GitHub Actions}"
+          USER_EMAIL="${GITEE_EMAIL:-actions@github.com}"
+          REPO_URL="https://${GITEE_USERNAME}:${GITEE_TOKEN}@gitee.com/KylinLab/KylinLab.gitee.io.git"
+
+          git config --global user.name  "$USER_NAME"
+          git config --global user.email "$USER_EMAIL"
+
+          git clone --depth 1 "$REPO_URL" gitee-repo
+
+          cd gitee-repo
+          # Remove old content preserving .git
+          find . -mindepth 1 -maxdepth 1 ! -name '.git' -exec rm -rf {} +
+          # Copy newly built site
+          cp -a ../_site/. .
+          # Stage everything
+          git add -A
+          # Skip commit if nothing changed
+          if git diff --cached --quiet; then
+            echo "No changes to deploy to Gitee."
+            exit 0
+          fi
+          git commit -m "Deploy: ${{ github.sha }}"
+          # Push back over HTTPS (authenticated via token embedded in origin URL)
+          git push origin master --force

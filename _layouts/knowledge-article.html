@@ -1,0 +1,26 @@
+---
+layout: default
+---
+      <section class="page-hero">
+        <p class="eyebrow" data-i18n="knowledge.eyebrow">Knowledge</p>
+        <h1>{{ page.title }}</h1>
+        <div class="article-meta">
+          <span class="category" data-i18n="knowledge.category.{{ page.category }}">{{ page.category }}</span>
+          <time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: "%B %d, %Y" }}</time>
+        </div>
+      </section>
+
+      <article class="section article-content">
+        {{ content }}
+      </article>
+
+      <section class="article-footer">
+        {% if page.lang == "zh" %}
+          {% assign counterpart_url = "/knowledge/" | append: page.slug | append: ".html" %}
+          <p class="lang-notice"><a href="{{ counterpart_url }}">📖 Read in English</a></p>
+        {% else %}
+          {% assign counterpart_url = "/zh/knowledge/" | append: page.slug | append: ".html" %}
+          <p class="lang-notice"><a href="{{ counterpart_url }}">📖 阅读中文版本</a></p>
+        {% endif %}
+        <a href="{% if page.lang == 'zh' %}/zh/knowledge.html{% else %}/knowledge.html{% endif %}" class="button secondary" data-i18n="knowledge.read_more">← Back to all articles</a>
+      </section>
