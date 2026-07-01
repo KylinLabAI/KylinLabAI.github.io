@@ -2,12 +2,18 @@ name: Build and Deploy
 
 on:
   push:
-    branches: [ source ]
+    branches: [ master ]
   workflow_dispatch:
 
+# Required for actions/deploy-pages to associate with GitHub Pages deployment
 concurrency:
   group: "pages"
   cancel-in-progress: false
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
   build:
@@ -16,7 +22,7 @@ jobs:
       - name: Checkout source
         uses: actions/checkout@v4
         with:
-          ref: source
+          ref: master
 
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
@@ -30,31 +36,34 @@ jobs:
       - name: Build site
         run: bundle exec jekyll build --trace
 
-      - name: Upload built site artifact
+      - name: "Defense: inject .nojekyll so Pages (and any legacy fallback) never re-runs built-in Jekyll"
+        run: touch _site/.nojekyll
+
+      - name: Upload built site artifact (for Gitee deploy job)
         uses: actions/upload-artifact@v4
         with:
           name: _site
           path: _site/
 
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact for GitHub Pages deployment
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site/
+
   deploy-github-pages:
     needs: build
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Download built site
-        uses: actions/download-artifact@v4
-        with:
-          name: _site
-          path: _site
-
-      - name: Deploy to GitHub Pages (master branch)
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: _site
-          publish_branch: master
-          force_orphan: true
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
 
   deploy-gitee-pages:
     needs: build
