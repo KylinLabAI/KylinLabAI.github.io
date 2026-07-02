@@ -84,7 +84,7 @@ jobs:
           set -euo pipefail
           USER_NAME="${GITEE_USERNAME:-GitHub Actions}"
           USER_EMAIL="${GITEE_EMAIL:-actions@github.com}"
-          REPO_URL="https://${GITEE_USERNAME}:${GITEE_TOKEN}@gitee.com/KylinLab/KylinLab.gitee.io.git"
+          REPO_URL="https://${GITEE_USERNAME}:${GITEE_TOKEN}@gitee.com/KylinLab/KylinLab.git"
 
           git config --global user.name  "$USER_NAME"
           git config --global user.email "$USER_EMAIL"
