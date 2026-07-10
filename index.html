@@ -1,0 +1,127 @@
+---
+layout: default
+title: KylinLab | Freelance Technology Consulting
+description: Personal freelance technology consulting, project management support, software development, and practical knowledge sharing.
+---
+      <section class="hero home-hero">
+        <div class="hero-copy">
+          <p class="eyebrow" data-i18n="hero.eyebrow">Personal freelance studio</p>
+          <h1 data-i18n="hero.title">KylinLab</h1>
+          <p class="hero-text" data-i18n="hero.text">Personal freelance technology consulting, project management support, software development, and practical knowledge sharing.</p>
+          <div class="action-row">
+            <a class="button primary" href="/about.html#contact" data-i18n="button.contact">Contact Me</a>
+            <a class="button secondary" href="/demos.html" data-i18n="button.demos">View Demos</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section intro-strip" aria-labelledby="intro-title">
+        <div class="section-head">
+          <p class="eyebrow" data-i18n="intro.eyebrow">What this site answers</p>
+          <h2 id="intro-title" data-i18n="intro.title">Clear paths for clients, builders, and readers.</h2>
+        </div>
+        <div class="answer-grid">
+          <article>
+            <span>01</span>
+            <h3 data-i18n="intro.card1.title">Who is behind KylinLab?</h3>
+            <p data-i18n="intro.card1.text">A practical technology and delivery partner with hands-on software and project management experience.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3 data-i18n="intro.card2.title">What help is available?</h3>
+            <p data-i18n="intro.card2.text">Consulting, delivery support, prototype development, internal tools, automation, and documentation.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3 data-i18n="intro.card3.title">What can visitors explore?</h3>
+            <p data-i18n="intro.card3.text">Knowledge notes, prototype demos, reusable ideas, and examples from practical software delivery work.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="services-title">
+        <div class="section-head split-head">
+          <div>
+            <p class="eyebrow" data-i18n="services.eyebrow">Services</p>
+            <h2 id="services-title" data-i18n="services.title">Focused freelance support.</h2>
+          </div>
+          <a class="text-link" href="/services.html" data-i18n="services.all">All services</a>
+        </div>
+        <div class="card-grid three">
+          <article class="feature-card">
+            <img class="card-icon" src="/assets/resources/icon-consulting.svg" alt="">
+            <h3 data-i18n="services.card1.title">Technical consulting</h3>
+            <p data-i18n="services.card1.line1">Clarify architecture, review implementation options, and turn technical uncertainty into concrete next steps.</p>
+          </article>
+          <article class="feature-card">
+            <img class="card-icon" src="/assets/resources/icon-project.svg" alt="">
+            <h3 data-i18n="services.card2.title">Project management support</h3>
+            <p data-i18n="services.card2.line1">Shape delivery plans, improve team workflows, and keep complex work visible, realistic, and moving.</p>
+          </article>
+          <article class="feature-card">
+            <img class="card-icon" src="/assets/resources/icon-code.svg" alt="">
+            <h3 data-i18n="services.card3.title">Software development</h3>
+            <p data-i18n="services.card3.line1">Build focused web tools, internal utilities, automation scripts, and maintainable prototypes.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section soft-band" aria-labelledby="knowledge-title">
+        <div class="section-head split-head">
+          <div>
+            <p class="eyebrow" data-i18n="knowledge.eyebrow">Knowledge</p>
+            <h2 id="knowledge-title" data-i18n="knowledge.title">Practical notes worth reusing.</h2>
+          </div>
+          <a class="text-link" href="/knowledge.html" data-i18n="knowledge.read_more">Read knowledge</a>
+        </div>
+        <div class="article-list compact">
+          {% for article in site.knowledge reversed limit:2 %}
+          <article class="article-card">
+            <div class="meta-row">
+              <span data-i18n="knowledge.category.{{ article.category }}">{{ article.category }}</span>
+              <time datetime="{{ article.date | date: '%Y-%m-%d' }}">{{ article.date | date: "%b %d, %Y" }}</time>
+            </div>
+            <h3><a href="{{ article.url }}">{{ article.title }}</a></h3>
+            <p>{{ article.description }}</p>
+          </article>
+          {% endfor %}
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="demos-title">
+        <div class="section-head split-head">
+          <div>
+            <p class="eyebrow" data-i18n="demos.eyebrow">Demos</p>
+            <h2 id="demos-title" data-i18n="demos.title">Prototype examples.</h2>
+          </div>
+          <a class="text-link" href="/demos.html" data-i18n="demos.view">View demos</a>
+        </div>
+        <div class="card-grid two">
+          {% for demo in site.demos reversed limit:2 %}
+          <article class="demo-card">
+            <div class="demo-preview {% if demo.category == 'automation' %}green-preview{% elsif demo.category == 'pm' %}violet-preview{% elsif demo.category == 'development' %}blue-preview{% else %}orange-preview{% endif %}">
+              <img src="/assets/resources/icon-{% if demo.category == 'automation' %}automation{% elsif demo.category == 'pm' %}prototype{% elsif demo.category == 'development' %}code{% else %}project{% endif %}.svg" alt="">
+            </div>
+            <div class="demo-body">
+              <p class="tag" data-i18n="demos.tag.prototype">Prototype</p>
+              <h3><a href="{{ demo.url }}">{{ demo.title }}</a></h3>
+              <p>{{ demo.description }}</p>
+              <div class="tech-list">
+                {% for tag in demo.tags limit:3 %}
+                <span data-i18n="demos.tech.{{ tag | downcase | replace: ' ', '_' }}">{{ tag }}</span>
+                {% endfor %}
+              </div>
+            </div>
+          </article>
+          {% endfor %}
+        </div>
+      </section>
+
+      <section class="cta-band" aria-labelledby="contact-title">
+        <div>
+          <p class="eyebrow" data-i18n="contact.eyebrow">Contact</p>
+          <h2 id="contact-title" data-i18n="contact.title">Need practical help with a technical or delivery problem?</h2>
+          <p data-i18n="contact.cta_text">Share the situation, what is blocked, and what outcome you need. KylinLab can help turn it into a focused plan or working prototype.</p>
+        </div>
+        <a class="button primary" href="/about.html#contact" data-i18n="button.contact">Contact Me</a>
+      </section>

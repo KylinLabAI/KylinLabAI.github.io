@@ -1,0 +1,109 @@
+name: Build and Deploy
+
+on:
+  schedule:
+    # Run daily at 01:00 AM UTC
+    - cron: '0 1 * * *'
+  workflow_dispatch:
+
+# Required for actions/deploy-pages to associate with GitHub Pages deployment
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+        with:
+          ref: master
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+          bundler-cache: true
+
+      - name: Install dependencies
+        run: bundle install
+
+      - name: Build site
+        run: bundle exec jekyll build --trace
+
+      - name: "Defense: inject .nojekyll so Pages (and any legacy fallback) never re-runs built-in Jekyll"
+        run: touch _site/.nojekyll
+
+      - name: Upload built site artifact (for Pages repo deploy job)
+        uses: actions/upload-artifact@v4
+        with:
+          name: _site
+          path: _site/
+
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact for GitHub Pages deployment
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site/
+
+  deploy-github-pages:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+  deploy-pages-repo:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download built site
+        uses: actions/download-artifact@v4
+        with:
+          name: _site
+          path: _site
+
+      - name: Clone GitHub Pages repo and push
+        env:
+          GH_PAT: ${{ secrets.GH_PAT }}
+          GH_USERNAME: ${{ secrets.GH_USERNAME }}
+          GH_EMAIL: ${{ secrets.GH_EMAIL }}
+        run: |
+          set -euo pipefail
+          USER_NAME="${GH_USERNAME:-GitHub Actions}"
+          USER_EMAIL="${GH_EMAIL:-actions@github.com}"
+          REPO_URL="https://${GH_USERNAME}:${GH_PAT}@github.com/KylinLabAI/KylinLab.pages.dev.git"
+
+          git config --global user.name  "$USER_NAME"
+          git config --global user.email "$USER_EMAIL"
+
+          git clone --depth 1 "$REPO_URL" pages-repo
+
+          cd pages-repo
+          # Remove old content preserving .git
+          find . -mindepth 1 -maxdepth 1 ! -name '.git' -exec rm -rf {} +
+          # Copy newly built site
+          cp -a ../_site/. .
+          # Stage everything
+          git add -A
+          # Skip commit if nothing changed
+          if git diff --cached --quiet; then
+            echo "No changes to deploy to GitHub Pages repo."
+            exit 0
+          fi
+          git commit -m "Deploy: ${{ github.sha }}"
+          # Push back over HTTPS (authenticated via token embedded in origin URL)
+          git push origin master --force

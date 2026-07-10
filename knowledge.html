@@ -1,0 +1,27 @@
+---
+layout: default
+title: Knowledge
+lang: en
+description: Practical software development, project management, architecture, AI-assisted development, and automation notes from KylinLab.
+---
+      <section class="page-hero">
+        <p class="eyebrow" data-i18n="knowledge.eyebrow">Knowledge</p>
+        <h1 data-i18n="knowledge.title">Practical articles and working notes.</h1>
+        <p data-i18n="hero.text">Short, specific writing on software delivery, architecture, quality, automation, and AI-assisted development practice.</p>
+      </section>
+
+      <section class="section" aria-label="Knowledge articles">
+        <div class="article-list">
+          {% assign articles = site.knowledge | where: "lang", "en" | sort: "date" | reverse %}
+          {% for article in articles %}
+          <article class="article-card">
+            <div class="meta-row">
+              <span data-i18n="knowledge.category.{{ article.category }}">{{ article.category }}</span>
+              <time datetime="{{ article.date | date: '%Y-%m-%d' }}">{{ article.date | date: "%b %d, %Y" }}</time>
+            </div>
+            <h2><a href="{{ article.url }}">{{ article.title }}</a></h2>
+            <p>{{ article.description }}</p>
+          </article>
+          {% endfor %}
+        </div>
+      </section>

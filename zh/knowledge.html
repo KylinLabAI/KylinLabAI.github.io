@@ -1,0 +1,28 @@
+---
+layout: default
+title: 知识
+lang: zh
+permalink: /zh/knowledge.html
+description: KylinLab 的实用软件开发、项目管理、架构、AI辅助开发与自动化笔记。
+---
+      <section class="page-hero">
+        <p class="eyebrow" data-i18n="knowledge.eyebrow">知识</p>
+        <h1 data-i18n="knowledge.title">实用文章与工作笔记。</h1>
+        <p data-i18n="hero.text">关于软件交付、架构、质量、自动化与 AI 辅助开发实践的简短、具体写作。</p>
+      </section>
+
+      <section class="section" aria-label="知识文章">
+        <div class="article-list">
+          {% assign articles = site.knowledge | where: "lang", "zh" | sort: "date" | reverse %}
+          {% for article in articles %}
+          <article class="article-card">
+            <div class="meta-row">
+              <span data-i18n="knowledge.category.{{ article.category }}">{{ article.category }}</span>
+              <time datetime="{{ article.date | date: '%Y-%m-%d' }}">{{ article.date | date: "%Y年%m月%d日" }}</time>
+            </div>
+            <h2><a href="{{ article.url }}">{{ article.title }}</a></h2>
+            <p>{{ article.description }}</p>
+          </article>
+          {% endfor %}
+        </div>
+      </section>

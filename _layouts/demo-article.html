@@ -1,0 +1,35 @@
+---
+layout: default
+---
+      <section class="page-hero">
+        <p class="eyebrow" data-i18n="demos.eyebrow">Demos</p>
+        <h1>{{ page.title }}</h1>
+        <div class="article-meta">
+          <span class="tag" data-i18n="demos.tag.prototype">Prototype</span>
+          <time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: "%B %d, %Y" }}</time>
+        </div>
+      </section>
+
+      <article class="section article-content">
+        {{ content }}
+      </article>
+
+      <section class="article-footer">
+        {% if page.demo_link and page.demo_link != '#' %}
+          <a href="{{ page.demo_link }}" class="button primary" target="_blank" rel="noopener">View Live Demo →</a>
+        {% else %}
+          <span class="text-link muted-link" data-i18n="demos.coming_soon">Demo link coming later</span>
+        {% endif %}
+        <div style="margin-top: 1rem;">
+          {% if page.lang == "zh" %}
+            {% assign counterpart_url = "/demos/" | append: page.slug | append: ".html" %}
+            <p class="lang-notice"><a href="{{ counterpart_url }}">📖 Read in English</a></p>
+          {% else %}
+            {% assign counterpart_url = "/zh/demos/" | append: page.slug | append: ".html" %}
+            <p class="lang-notice"><a href="{{ counterpart_url }}">📖 阅读中文版本</a></p>
+          {% endif %}
+        </div>
+        <div style="margin-top: 1rem;">
+          <a href="{% if page.lang == 'zh' %}/zh/demos.html{% else %}/demos.html{% endif %}" class="button secondary" data-i18n="demos.view">← Back to all demos</a>
+        </div>
+      </section>

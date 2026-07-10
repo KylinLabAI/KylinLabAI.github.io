@@ -1,0 +1,12 @@
+_site/
+_build_candidate/
+.jekyll-cache/
+.jekyll-metadata
+.sass-cache/
+.bundle/
+vendor/
+Gemfile.lock
+node_modules/
+.env
+.DS_Store
+_current_static_backup/

@@ -1,0 +1,39 @@
+---
+layout: default
+title: Demos
+lang: en
+description: Prototype examples and working demonstrations from KylinLab.
+---
+      <section class="page-hero">
+        <p class="eyebrow" data-i18n="demos.eyebrow">Demos</p>
+        <h1 data-i18n="demos.title">Prototype examples and working tools.</h1>
+        <p>Interactive demonstrations of practical solutions, workflow patterns, and development approaches.</p>
+      </section>
+
+      <section class="section" aria-label="Demo list">
+        <div class="card-grid two">
+          {% assign demos = site.demos | where: "lang", "en" | sort: "date" | reverse %}
+          {% for demo in demos %}
+          <article class="demo-card">
+            <div class="demo-preview {% if demo.category == 'automation' %}green-preview{% elsif demo.category == 'pm' %}orange-preview{% elsif demo.category == 'development' %}blue-preview{% elsif demo.category == 'ai' %}violet-preview{% endif %}">
+              <img src="/assets/resources/icon-{% if demo.category == 'automation' %}automation{% elsif demo.category == 'pm' %}project{% elsif demo.category == 'development' %}code{% elsif demo.category == 'ai' %}prototype{% endif %}.svg" alt="">
+            </div>
+            <div class="demo-body">
+              <p class="tag" data-i18n="demos.tag.prototype">Prototype</p>
+              <h2><a href="{{ demo.url }}">{{ demo.title }}</a></h2>
+              <p>{{ demo.description }}</p>
+              <div class="tech-list">
+                {% for tag in demo.tags %}
+                <span data-i18n="demos.tech.{{ tag | downcase | replace: ' ', '_' }}">{{ tag }}</span>
+                {% endfor %}
+              </div>
+              {% if demo.demo_link and demo.demo_link != '#' %}
+                <a href="{{ demo.demo_link }}" class="text-link" target="_blank" rel="noopener">View Demo →</a>
+              {% else %}
+                <span class="text-link muted-link" data-i18n="demos.coming_soon">Demo link coming later</span>
+              {% endif %}
+            </div>
+          </article>
+          {% endfor %}
+        </div>
+      </section>

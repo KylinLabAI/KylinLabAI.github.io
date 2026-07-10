@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">Demos</title>
+  <rect x="10" y="14" width="44" height="36" rx="7" fill="none" stroke="#8052b8" stroke-width="5"/>
+  <path d="m28 25 13 7-13 7V25Z" fill="#8052b8" stroke="#8052b8" stroke-width="3" stroke-linejoin="round"/>
+</svg>

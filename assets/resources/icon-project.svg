@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">Project management</title>
+  <path d="M18 13h28a4 4 0 0 1 4 4v34H14V17a4 4 0 0 1 4-4Z" fill="none" stroke="#26303d" stroke-width="4.5" stroke-linejoin="round"/>
+  <path d="M23 27h18M23 37h12M23 47h20" fill="none" stroke="#26303d" stroke-width="4.5" stroke-linecap="round"/>
+  <path d="M25 13v8M39 13v8" fill="none" stroke="#ff8a17" stroke-width="4.5" stroke-linecap="round"/>
+</svg>
