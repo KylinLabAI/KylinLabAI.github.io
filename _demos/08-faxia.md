@@ -10,6 +10,7 @@ tags: ["blog", "publishing", "markdown", "cross-platform", "automation", "conten
 description: "Write once in Markdown, publish to 11+ blogging platforms simultaneously. Open-source, local-first desktop app and CLI tool for content creators."
 demo_link: "https://github.com/KylinLabAI/FaXia-App"
 status: prototype
+logo: /assets/resources/faxia/logo_256.png
 ---
 
 [中文介绍](/zh/demos/faxia.html)

@@ -10,6 +10,7 @@ tags: ["博客", "发布", "Markdown", "跨平台", "自动化", "内容创作"]
 description: "写一份 Markdown，同时发布到 11+ 个内容平台。开源、本地优先的桌面应用和 CLI 工具，为内容创作者而生。"
 demo_link: "https://github.com/KylinLabAI/FaXia-App"
 status: prototype
+logo: /assets/resources/faxia/logo_256.png
 ---
 
 [English](/demos/faxia.html)
