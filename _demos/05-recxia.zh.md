@@ -14,15 +14,11 @@ status: release
 
 [English](/demos/recxia.html)
 
-<div align="center">
-
 # 录匣 Recxia — AI 模拟面试录制管理系统
 
 ![录匣 Logo](/assets/resources/recxia/logo_256.png)
 
 **面向培训机构的 AI 驱动模拟面试录制管理系统。**
-
-</div>
 
 ## 问题
 

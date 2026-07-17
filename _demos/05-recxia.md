@@ -14,15 +14,11 @@ status: release
 
 [中文介绍](/zh/demos/recxia.html)
 
-<div align="center">
-
 # RecXia — AI-Powered Mock Interview Recording Management
 
 ![RecXia Logo](/assets/resources/recxia/logo_256.png)
 
 **AI-powered mock interview recording management system for training institutions.**
-
-</div>
 
 ## Problem
 
