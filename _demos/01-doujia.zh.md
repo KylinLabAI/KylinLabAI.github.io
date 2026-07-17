@@ -5,6 +5,7 @@ date: 2026-06-09
 category: development
 lang: zh
 slug: doujia
+logo: /assets/resources/douxia/logo_256.png
 permalink: /zh/demos/doujia.html
 tags: ["Electron", "Vue", "AI", "桌面应用"]
 description: "一款桌面应用，把你和 AI 的每一次对话变成可搜索、可整理、可导出的知识资产。内嵌 AI 平台，自动采集对话，完全掌控数据。"

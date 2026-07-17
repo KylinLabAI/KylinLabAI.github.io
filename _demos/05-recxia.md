@@ -5,6 +5,7 @@ date: 2026-07-16
 category: development
 lang: en
 slug: recxia
+logo: /assets/resources/recxia/logo_256.png
 permalink: /demos/recxia.html
 tags: ["AI", "Education", "Interview", "Recording"]
 description: "RecXia is an AI-powered mock interview recording management system for training institutions, enabling schedule-simulate-record-analyze-feedback closed loop."

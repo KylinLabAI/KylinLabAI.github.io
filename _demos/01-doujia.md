@@ -5,6 +5,7 @@ date: 2026-06-09
 category: development
 lang: en
 slug: doujia
+logo: /assets/resources/douxia/logo_256.png
 permalink: /demos/doujia.html
 tags: ["Electron", "Vue", "AI", "Desktop"]
 description: "A desktop app that turns your AI chat history into organized, searchable, exportable knowledge. Embed AI platforms, auto-capture conversations, and own your data."

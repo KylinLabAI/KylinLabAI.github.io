@@ -5,6 +5,7 @@ date: 2026-07-16
 category: development
 lang: zh
 slug: recxia
+logo: /assets/resources/recxia/logo_256.png
 permalink: /zh/demos/recxia.html
 tags: ["AI", "教育", "面试", "录制"]
 description: "录匣 Recxia 是面向培训机构的 AI 驱动模拟面试录制管理系统，实现排序-模拟-录制-AI分析-反馈的完整教学闭环。"
