@@ -115,5 +115,13 @@
   "about.pm.title": "Project management background",
   "about.pm.text": "Support includes planning, delivery coordination, risk management, stakeholder communication, and turning unclear work into visible steps.",
   "about.style.title": "Working style",
-  "about.style.text": "Direct, clear, and outcome-focused. The goal is to make decisions easier, reduce delivery friction, and leave useful artifacts behind."
+  "about.style.text": "Direct, clear, and outcome-focused. The goal is to make decisions easier, reduce delivery friction, and leave useful artifacts behind.",
+
+  "about.contact.eyebrow": "Contact",
+  "about.contact.title": "Start with the problem and the outcome you need.",
+  "about.contact.text": "For consulting, project support, prototype development, or shared software work, send a short note with the current situation and timeline.",
+  "about.contact.email": "Email",
+  "about.contact.github": "GitHub",
+  "about.contact.preferred": "Preferred first message",
+  "about.contact.first_message": "Goal, context, timeline, and current blocker"
 }

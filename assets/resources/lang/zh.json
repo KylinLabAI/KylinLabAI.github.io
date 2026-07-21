@@ -116,5 +116,13 @@
   "about.pm.title": "项目管理背景",
   "about.pm.text": "支持包括规划、交付协调、风险管理、利益相关者沟通，以及将不清晰的工作转化为可见的步骤。",
   "about.style.title": "工作风格",
-  "about.style.text": "直接、清晰且以结果为导向。目标是让决策更容易、减少交付摩擦，并留下有用的产物。"
+  "about.style.text": "直接、清晰且以结果为导向。目标是让决策更容易、减少交付摩擦，并留下有用的产物。",
+
+  "about.contact.eyebrow": "联系",
+  "about.contact.title": "从问题和你需要的结果开始。",
+  "about.contact.text": "如需咨询、项目支持、原型开发或共享软件工作，请发送一条简短的说明，包含当前情况和时间线。",
+  "about.contact.email": "邮箱",
+  "about.contact.github": "GitHub",
+  "about.contact.preferred": "首选首次留言",
+  "about.contact.first_message": "目标、背景、时间线和当前阻碍"
 }

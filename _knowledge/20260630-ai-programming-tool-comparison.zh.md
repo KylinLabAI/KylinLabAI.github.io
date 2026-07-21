@@ -2,6 +2,7 @@
 title: 独立开发者 AI 编程工具横测：¥85 月费最优解
 platform: tou-tiao
 language: zh-CN
+lang: zh
 date: 2026-06-30T00:00:00.000Z
 description: >-
   独立开发场景下实测 ClaudeCode/OpenCode/CodeBuddy/Qoder/TRAE + 各大模型共 6 组 AI

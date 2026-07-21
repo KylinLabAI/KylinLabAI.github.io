@@ -3,7 +3,7 @@
 // - Markdown pages (/knowledge/*, /demos/*): navigate to language-specific URL (/zh/...)
 (function(){
   // Pages that have separate language-specific versions (server-rendered content)
-  var TRANSLATED_PATHS = ['/knowledge.html','/demos.html'];
+  var TRANSLATED_PATHS = ['/knowledge.html','/demos.html','/about.html','/'];
   var TRANSLATED_PREFIXES = ['/knowledge/','/demos/'];
 
   function getPreferredLang(){
@@ -106,12 +106,18 @@
     document.querySelectorAll('.site-nav a').forEach(function(a){
       var href = a.getAttribute('href');
       if (!href) return;
+      // Home link
+      if (href === '/' && isZh) a.setAttribute('href', '/zh/');
+      else if (href === '/zh/' && !isZh) a.setAttribute('href', '/');
       // Knowledge link
-      if (href === '/knowledge.html' && isZh) a.setAttribute('href', '/zh/knowledge.html');
+      else if (href === '/knowledge.html' && isZh) a.setAttribute('href', '/zh/knowledge.html');
       else if (href === '/zh/knowledge.html' && !isZh) a.setAttribute('href', '/knowledge.html');
       // Demos link
       else if (href === '/demos.html' && isZh) a.setAttribute('href', '/zh/demos.html');
       else if (href === '/zh/demos.html' && !isZh) a.setAttribute('href', '/demos.html');
+      // About link
+      else if (href === '/about.html' && isZh) a.setAttribute('href', '/zh/about.html');
+      else if (href === '/zh/about.html' && !isZh) a.setAttribute('href', '/about.html');
     });
   }
 

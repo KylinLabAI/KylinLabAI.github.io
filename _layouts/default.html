@@ -22,18 +22,19 @@
   </head>
   <body>
     <header class="site-header">
-      <a class="brand" href="/" aria-label="KylinLab home">
+      {% assign nav_prefix = '' %}
+      {% if page_lang == 'zh' %}{% assign nav_prefix = '/zh' %}{% endif %}
+      {% assign home_url = nav_prefix | append: '/' %}
+      <a class="brand" href="{{ home_url }}" aria-label="KylinLab home">
         <span class="brand-mark">K</span>
         <span>KylinLab</span>
       </a>
       <nav class="site-nav" aria-label="Primary navigation">
-        {% assign nav_prefix = '' %}
-        {% if page_lang == 'zh' %}{% assign nav_prefix = '/zh' %}{% endif %}
-        <a class="nav-link{% if page.url == '/' or page.url == '' %} is-active{% endif %}" href="/"{% if page.url == '/' %} aria-current="page"{% endif %}><img src="/assets/resources/icon-home.svg" alt=""><span data-i18n="nav.home">Home</span></a>
+        <a class="nav-link{% if page.url == home_url %} is-active{% endif %}" href="{{ home_url }}"{% if page.url == home_url %} aria-current="page"{% endif %}><img src="/assets/resources/icon-home.svg" alt=""><span data-i18n="nav.home">Home</span></a>
         <a class="nav-link{% if page.url contains '/knowledge' %} is-active{% endif %}" href="{{ nav_prefix }}/knowledge.html"><img src="/assets/resources/icon-knowledge.svg" alt=""><span data-i18n="nav.knowledge">Knowledge</span></a>
         <a class="nav-link{% if page.url contains '/services' %} is-active{% endif %}" href="/services.html"><img src="/assets/resources/icon-services.svg" alt=""><span data-i18n="nav.services">Services</span></a>
         <a class="nav-link{% if page.url contains '/demos' %} is-active{% endif %}" href="{{ nav_prefix }}/demos.html"><img src="/assets/resources/icon-demos.svg" alt=""><span data-i18n="nav.demos">Demos</span></a>
-        <a class="nav-link{% if page.url contains '/about' %} is-active{% endif %}" href="/about.html"><img src="/assets/resources/icon-about.svg" alt=""><span data-i18n="nav.about">About</span></a>
+        <a class="nav-link{% if page.url contains '/about' %} is-active{% endif %}" href="{{ nav_prefix }}/about.html"><img src="/assets/resources/icon-about.svg" alt=""><span data-i18n="nav.about">About</span></a>
       </nav>
       <div class="lang-switcher">
         <label for="lang-select" class="visually-hidden">Language</label>
