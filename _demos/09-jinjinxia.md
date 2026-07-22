@@ -96,5 +96,5 @@ Built-in Dashboard, Best Practices, and Settings pages — no external frontend 
 ## Links
 
 - [App Releases](https://github.com/KylinLabAI/JinJinXia-App)
-- [Demo Documentation](../demo/demo.md)
+- [Demo Documentation](https://github.com/KylinLabAI/JinJinXia-App/blob/master/demo/demo.md)
 - [Contact](https://kylinlabai.github.io)

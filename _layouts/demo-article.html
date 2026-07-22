@@ -22,10 +22,10 @@ layout: default
         {% endif %}
         <div style="margin-top: 1rem;">
           {% if page.lang == "zh" %}
-            {% assign counterpart_url = "/demos/" | append: page.slug | append: ".html" %}
+            {% assign counterpart_url = page.url | remove: '/zh' %}
             <p class="lang-notice"><a href="{{ counterpart_url }}">📖 Read in English</a></p>
           {% else %}
-            {% assign counterpart_url = "/zh/demos/" | append: page.slug | append: ".html" %}
+            {% assign counterpart_url = '/zh' | append: page.url %}
             <p class="lang-notice"><a href="{{ counterpart_url }}">📖 阅读中文版本</a></p>
           {% endif %}
         </div>

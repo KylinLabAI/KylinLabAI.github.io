@@ -16,10 +16,10 @@ layout: default
 
       <section class="article-footer">
         {% if page.lang == "zh" %}
-          {% assign counterpart_url = "/knowledge/" | append: page.slug | append: ".html" %}
+          {% assign counterpart_url = page.url | remove: '/zh' %}
           <p class="lang-notice"><a href="{{ counterpart_url }}">📖 Read in English</a></p>
         {% else %}
-          {% assign counterpart_url = "/zh/knowledge/" | append: page.slug | append: ".html" %}
+          {% assign counterpart_url = '/zh' | append: page.url %}
           <p class="lang-notice"><a href="{{ counterpart_url }}">📖 阅读中文版本</a></p>
         {% endif %}
         <a href="{% if page.lang == 'zh' %}/zh/knowledge.html{% else %}/knowledge.html{% endif %}" class="button secondary" data-i18n="knowledge.read_more">← Back to all articles</a>
