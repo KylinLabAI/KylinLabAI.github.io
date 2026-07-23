@@ -46,9 +46,30 @@ You just keep working. The skills get better on their own.
 
 JinJinXia uses each AI platform's native hook system — no skill code changes, no wrappers, no middleware.
 
+### Supported Platforms
+
+JinJinXia supports eight agent clients:
+
+| Agent | Hook Location | Hook Type |
+|-------|---------------|-----------|
+| Claude Code | `~/.claude/hooks.json` | JSON hooks |
+| Copilot CLI | `~/.copilot/hooks/jinjinxia.json` | JSON hooks |
+| Codex | `~/.codex/hooks.json` | Claude-Code-compatible JSON hooks |
+| Qoder | `~/.qoder/settings.json` | Claude-Code-compatible JSON hooks |
+| TRAE | `~/.trae-cn/hooks.json` | Claude-Code-compatible JSON hooks |
+| TRAE Work | `~/.trae-cn/hooks.json` (shared with TRAE) | Claude-Code-compatible JSON hooks |
+| CodeBuddy | `~/.codebuddy/settings.json` | Claude-Code-compatible JSON hooks |
+| OpenCode | `~/.config/opencode/plugins/jinjinxia.js` | JS plugin |
+
+Qoder Work and WorkBuddy are not supported (no public hook system).
+
 ### Transparent Message Capture
 
-The client is a dumb message uploader — incremental uploads, non-blocking, no local disk storage. All intelligence lives on the server.
+The client is a dumb message uploader — incremental uploads, non-blocking. All intelligence lives on the server.
+
+### Offline Buffer
+
+When the server is unreachable, failed uploads are saved to a local offline buffer at `~/.jinjinxia/pending/{session_id}.json`. On the next successful upload, pending messages are flushed first (merged with new messages) and the pending file is deleted — so no conversation data is lost during server downtime.
 
 ### Two-Path Analysis
 
@@ -86,7 +107,7 @@ Built-in Dashboard, Best Practices, and Settings pages — no external frontend 
 
 - **All data stays on your infrastructure** — self-hosted server, local database, no cloud dependency
 - **No account required** — no sign-up, no SaaS, no subscription
-- **Session data is never stored on disk** by the client — streamed to the server on session end
+- **Session data is streamed to the server on session end** — a temporary offline buffer is used only when the server is unreachable, and is flushed as soon as connectivity returns
 - **LLM calls stay internal** — configure your own LLM endpoint
 
 ## Status
@@ -96,5 +117,5 @@ Built-in Dashboard, Best Practices, and Settings pages — no external frontend 
 ## Links
 
 - [App Releases](https://github.com/KylinLabAI/JinJinXia-App)
-- [Demo Documentation](https://github.com/KylinLabAI/JinJinXia-App/blob/master/demo/demo.md)
+- [Demo Documentation](../demo/demo.md)
 - [Contact](https://kylinlabai.github.io)
