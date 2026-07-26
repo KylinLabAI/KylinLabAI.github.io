@@ -1,9 +1,9 @@
 # KylinLab Website Configuration
 # Multilingual static site with Jekyll
 
-title: KylinLab
+title: KylinLab.tech
 description: Personal freelance technology consulting, project management support, software development, and practical knowledge sharing.
-url: "https://KylinLabAI.github.io"
+url: "https://kylinlab.tech"
 baseurl: ""
 
 # Build settings

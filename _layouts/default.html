@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ page.title }} | KylinLab</title>
+    <title>{{ page.title }} | KylinLab.tech</title>
     {% if page.description %}
     <meta name="description" content="{{ page.description }}">
     {% endif %}
@@ -19,6 +19,25 @@
     {% else %}
     <link rel="alternate" hreflang="zh" href="/zh{{ page.url }}">
     {% endif %}
+
+    <!-- SEO: Canonical URL -->
+    <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+
+    <!-- SEO: Open Graph -->
+    <meta property="og:title" content="{{ page.title | default: site.title }}">
+    <meta property="og:description" content="{{ page.description | default: site.description }}">
+    <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="{{ page_lang }}">
+    <meta property="og:site_name" content="KylinLab.tech">
+
+    <!-- SEO: Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="{{ page.title | default: site.title }}">
+    <meta name="twitter:description" content="{{ page.description | default: site.description }}">
+
+    <!-- SEO: Keywords -->
+    <meta name="keywords" content="technology consulting, software development, freelance, project management, KylinLab, KylinLab.tech">
   </head>
   <body>
     <header class="site-header">
@@ -50,7 +69,7 @@
     </main>
 
     <footer class="site-footer">
-      <p data-i18n="footer.copyright">© 2026 KylinLab. Practical technology consulting and knowledge sharing.</p>
+      <p data-i18n="footer.copyright">© 2026 KylinLab.tech. Practical technology consulting and knowledge sharing.</p>
 {% if site.show_beian %}
       <p class="footer-beian">
         <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">浙ICP备2026031785号-2</a>

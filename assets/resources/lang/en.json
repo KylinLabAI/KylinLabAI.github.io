@@ -6,7 +6,7 @@
   "nav.about": "About",
 
   "hero.eyebrow": "Personal freelance studio",
-  "hero.title": "KylinLab",
+  "hero.title": "KylinLab.tech",
   "hero.text": "Personal freelance technology consulting, project management support, software development, and practical knowledge sharing.",
   "button.contact": "Contact Me",
   "button.demos": "View Demos",
@@ -99,8 +99,8 @@
 
   "contact.eyebrow": "Contact",
   "contact.title": "Need practical help with a technical or delivery problem?",
-  "contact.cta_text": "Share the situation, what is blocked, and what outcome you need. KylinLab can help turn it into a focused plan or working prototype.",
-  "footer.copyright": "© 2026 KylinLab. Practical technology consulting and knowledge sharing.",
+  "contact.cta_text": "Share the situation, what is blocked, and what outcome you need. KylinLab.tech can help turn it into a focused plan or working prototype.",
+  "footer.copyright": "© 2026 KylinLab.tech. Practical technology consulting and knowledge sharing.",
 
   "lang.en": "English",
   "lang.zh": "中文"

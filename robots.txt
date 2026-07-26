@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kylinlab.tech/sitemap.xml
+Sitemap: https://kylinlabai.github.io/sitemap.xml
