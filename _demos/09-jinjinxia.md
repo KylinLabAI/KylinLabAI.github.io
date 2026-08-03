@@ -91,22 +91,23 @@ Every resolved issue represents a learning opportunity — automatically capture
 
 One JinJinXia server handles all skills across different Git repos with scan-from-repo capability.
 
-### Tab-Based Web UI
+### Sidebar-Based Web UI & User Management
 
-Built-in Dashboard, Best Practices, and Settings pages — no external frontend framework.
+Built-in Dashboard, Best Practices, Settings, Users, About, and Login pages with per-user accounts — no external frontend framework.
 
 ## Quick Start
 
 1. Start the server: `docker-compose up -d`
-2. Install the client: `pip install jinjinxia-client`
-3. Install hooks for your AI platforms
-4. Configure settings at `http://<server>:8080/admin`
-5. Use your AI skills as usual — improvements happen automatically
+2. Log in with the default account (`admin` / `admin`) and change the password immediately
+3. Install the client: `pip install jinjinxia-client`
+4. Install hooks for your AI platforms: `jinjinxia-client install <agent> --url <URL> --key <KEY>`
+5. Configure settings at `http://<server>:8080/admin`
+6. Use your AI skills as usual — improvements happen automatically
 
 ## Privacy
 
 - **All data stays on your infrastructure** — self-hosted server, local database, no cloud dependency
-- **No account required** — no sign-up, no SaaS, no subscription
+- **Built-in accounts, no third-party SaaS** — a self-hosted account system secures the web UI and message API; no sign-up with external services, no subscription
 - **Session data is streamed to the server on session end** — a temporary offline buffer is used only when the server is unreachable, and is flushed as soon as connectivity returns
 - **LLM calls stay internal** — configure your own LLM endpoint
 
