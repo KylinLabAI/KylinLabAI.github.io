@@ -81,6 +81,6 @@ Open http://localhost:8080, log in with `admin` / `cexia123`, and you're ready t
 |----------|------|
 | macOS (DMG) | [Latest Release](https://github.com/KylinLabAI/CeXia-App/releases/latest) |
 | Docker | `docker pull crpi-5w5kegfxurclu2lz.cn-hangzhou.personal.cr.aliyuncs.com/kylinlab2026/cexia-control-center:latest` |
-| Source | [Gitee](https://gitee.com/KylinLab/CeXia) |
+| Release Repo | [GitHub](https://github.com/KylinLabAI/CeXia-App) |
 
 [Get Started with CeXia →](https://github.com/KylinLabAI/CeXia-App/releases/latest)

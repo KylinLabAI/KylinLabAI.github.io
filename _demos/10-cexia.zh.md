@@ -81,6 +81,6 @@ docker run -d --name cexia-control-center \
 |------|------|
 | macOS (DMG) | [最新版本](https://gitee.com/KylinLab/CeXia-App/releases/latest) |
 | Docker | `docker pull crpi-5w5kegfxurclu2lz.cn-hangzhou.personal.cr.aliyuncs.com/kylinlab2026/cexia-control-center:latest` |
-| 源码 | [Gitee](https://gitee.com/KylinLab/CeXia) |
+| 发布仓库 | [Gitee](https://gitee.com/KylinLab/CeXia-App) |
 
 [立即开始使用 CeXia →](https://gitee.com/KylinLab/CeXia-App/releases/latest)
