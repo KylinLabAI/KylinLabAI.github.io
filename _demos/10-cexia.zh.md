@@ -61,14 +61,14 @@ CLI + GUI 管理工作实例。原生 macOS 应用，支持系统托盘。
 
 ```bash
 # 拉取控制中心 Docker 镜像
-docker pull ghcr.io/kylinlabai/cexia-control-center:latest
+docker pull crpi-5w5kegfxurclu2lz.cn-hangzhou.personal.cr.aliyuncs.com/kylinlab2026/cexia-control-center:latest
 
 # 运行
 docker run -d --name cexia-control-center \
   -p 8080:8080 -p 8000:8000 \
   -v ~/cexia-data:/app/data \
   -e JWT_SECRET_KEY=your-random-secret-key \
-  ghcr.io/kylinlabai/cexia-control-center:latest
+  crpi-5w5kegfxurclu2lz.cn-hangzhou.personal.cr.aliyuncs.com/kylinlab2026/cexia-control-center:latest
 ```
 
 打开 http://localhost:8080，使用 `admin` / `cexia123` 登录，即可开始运营你的虚拟公司。
@@ -80,7 +80,7 @@ docker run -d --name cexia-control-center \
 | 平台 | 链接 |
 |------|------|
 | macOS (DMG) | [最新版本](https://gitee.com/KylinLab/CeXia-App/releases/latest) |
-| Docker | `docker pull ghcr.io/kylinlabai/cexia-control-center:latest` |
+| Docker | `docker pull crpi-5w5kegfxurclu2lz.cn-hangzhou.personal.cr.aliyuncs.com/kylinlab2026/cexia-control-center:latest` |
 | 源码 | [Gitee](https://gitee.com/KylinLab/CeXia) |
 
 [立即开始使用 CeXia →](https://gitee.com/KylinLab/CeXia-App/releases/latest)

@@ -61,14 +61,14 @@ CLI + GUI for managing work instances. Native macOS application with system tray
 
 ```bash
 # Pull the Control Center Docker image
-docker pull ghcr.io/kylinlabai/cexia-control-center:latest
+docker pull crpi-5w5kegfxurclu2lz.cn-hangzhou.personal.cr.aliyuncs.com/kylinlab2026/cexia-control-center:latest
 
 # Run it
 docker run -d --name cexia-control-center \
   -p 8080:8080 -p 8000:8000 \
   -v ~/cexia-data:/app/data \
   -e JWT_SECRET_KEY=your-random-secret-key \
-  ghcr.io/kylinlabai/cexia-control-center:latest
+  crpi-5w5kegfxurclu2lz.cn-hangzhou.personal.cr.aliyuncs.com/kylinlab2026/cexia-control-center:latest
 ```
 
 Open http://localhost:8080, log in with `admin` / `cexia123`, and you're ready to run your virtual company.
@@ -80,7 +80,7 @@ Open http://localhost:8080, log in with `admin` / `cexia123`, and you're ready t
 | Platform | Link |
 |----------|------|
 | macOS (DMG) | [Latest Release](https://github.com/KylinLabAI/CeXia-App/releases/latest) |
-| Docker | `docker pull ghcr.io/kylinlabai/cexia-control-center:latest` |
+| Docker | `docker pull crpi-5w5kegfxurclu2lz.cn-hangzhou.personal.cr.aliyuncs.com/kylinlab2026/cexia-control-center:latest` |
 | Source | [Gitee](https://gitee.com/KylinLab/CeXia) |
 
 [Get Started with CeXia →](https://github.com/KylinLabAI/CeXia-App/releases/latest)
