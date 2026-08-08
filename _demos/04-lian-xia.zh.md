@@ -1,22 +1,22 @@
 ---
 layout: demo-article
-title: "CommonServices — 一套后端，服务所有应用"
+title: "LianXia — 一套后端，服务所有应用"
 date: 2026-06-11
 category: development
 lang: zh
-slug: common-services
-permalink: /zh/demos/common-services.html
+slug: lian-xia
+permalink: /zh/demos/lian-xia.html
 tags: ["Rust", "Axum", "PostgreSQL", "Vue", "后端平台", "多租户", "私有部署"]
 description: "私有部署的通用后端平台，为你的每个应用提供用户认证、软件授权、反馈收集、文件存储和版本升级管理，开箱即用。"
 demo_link: "#"
 status: prototype
 ---
 
-# 🛠️ CommonServices — 一套后端，服务所有应用
+# 🛠️ LianXia — 一套后端，服务所有应用
 
 **别再为每个项目重复造轮子。部署一次，所有应用共享用户体系、授权管理和运维能力。**
 
-[快速开始](#快速开始) · [English](/demos/common-services.html)
+[快速开始](#快速开始) · [English](/demos/lian-xia.html)
 
 ---
 
@@ -33,7 +33,7 @@ status: prototype
 
 ## 解决方案
 
-**CommonServices** 是一个私有部署的通用后端平台，把每个应用都需要的基础能力 — 用户认证、软件授权、反馈收集、文件存储、消息通知、版本升级 — 整合到一套统一的 API 中。你只需要部署一次，注册你的应用，就能立即获得生产级的后端能力，不用再写一行重复代码。
+**LianXia** 是一个私有部署的通用后端平台，把每个应用都需要的基础能力 — 用户认证、软件授权、反馈收集、文件存储、消息通知、版本升级 — 整合到一套统一的 API 中。你只需要部署一次，注册你的应用，就能立即获得生产级的后端能力，不用再写一行重复代码。
 
 ---
 
@@ -97,13 +97,13 @@ Vue 3 构建的 Web 管理后台，集成了仪表盘、用户管理、激活码
 | 命令行工具 | `cargo install --path crates/csctl` | Rust stable |
 | Docker 部署 | `docker compose up` | Docker 24+, Docker Compose v2 |
 
-> CommonServices 为私有部署方案。克隆仓库后部署到你自己的服务器上。
+> LianXia 为私有部署方案。克隆仓库后部署到你自己的服务器上。
 
 ---
 
 ## 隐私与数据
 
-- **数据完全在你的服务器上** — CommonServices 运行在你自己的基础设施上，没有外部遥测，不依赖任何云服务。
+- **数据完全在你的服务器上** — LianXia 运行在你自己的基础设施上，没有外部遥测，不依赖任何云服务。
 - **无需注册第三方账号** — 平台本身不需要向任何外部服务注册。
 - **数据库完全可控** — PostgreSQL 存储，每个应用 Schema 隔离，数据完全归你所有。
 
@@ -111,7 +111,7 @@ Vue 3 构建的 Web 管理后台，集成了仪表盘、用户管理、激活码
 
 ## 路线图
 
-CommonServices 目前处于 **原型** 阶段。
+LianXia 目前处于 **原型** 阶段。
 
 **已实现的能力：**
 - 用户认证（JWT + OAuth：GitHub、微信）

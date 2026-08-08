@@ -1,22 +1,22 @@
 ---
 layout: demo-article
-title: "CommonServices — One Backend for All Your Apps"
+title: "LianXia — One Backend for All Your Apps"
 date: 2026-06-11
 category: development
 lang: en
-slug: common-services
-permalink: /demos/common-services.html
+slug: lian-xia
+permalink: /demos/lian-xia.html
 tags: ["Rust", "Axum", "PostgreSQL", "Vue", "Backend Platform", "Multi-Tenant", "Self-Hosted"]
 description: "A self-hosted backend platform that gives every app you build user auth, licensing, feedback collection, file storage, and managed upgrades — out of the box."
 demo_link: "#"
 status: prototype
 ---
 
-# 🛠️ CommonServices — One Backend for All Your Apps
+# 🛠️ LianXia — One Backend for All Your Apps
 
 **Stop rebuilding user login, licensing, and file storage for every project. Deploy once, connect everything.**
 
-[Get Started](#quick-start) · [中文版](/zh/demos/common-services.html)
+[Get Started](#quick-start) · [中文版](/zh/demos/lian-xia.html)
 
 ---
 
@@ -33,7 +33,7 @@ You end up spending more time on infrastructure plumbing than on the features th
 
 ## The Solution
 
-**CommonServices** is a self-hosted backend platform that provides the foundational services every app needs — authentication, licensing, feedback, file storage, notifications, and managed upgrades — through a single, unified API. You deploy it once on your own server, register each of your apps, and immediately get production-ready backend capabilities without writing another line of boilerplate.
+**LianXia** is a self-hosted backend platform that provides the foundational services every app needs — authentication, licensing, feedback, file storage, notifications, and managed upgrades — through a single, unified API. You deploy it once on your own server, register each of your apps, and immediately get production-ready backend capabilities without writing another line of boilerplate.
 
 ---
 
@@ -97,13 +97,13 @@ A Vue 3 web console gives you dashboards, user management, license key generatio
 | CLI Tool | `cargo install --path crates/csctl` | Rust stable |
 | Docker | `docker compose up` | Docker 24+, Docker Compose v2 |
 
-> CommonServices is self-hosted. Clone the repository and deploy on your own server.
+> LianXia is self-hosted. Clone the repository and deploy on your own server.
 
 ---
 
 ## Privacy & Data
 
-- **Your data stays on your server** — CommonServices runs entirely on your own infrastructure. No external telemetry, no cloud dependencies.
+- **Your data stays on your server** — LianXia runs entirely on your own infrastructure. No external telemetry, no cloud dependencies.
 - **No account required** — the platform itself requires no registration with any third-party service.
 - **Full database control** — PostgreSQL with per-app schema isolation. You own every byte.
 
@@ -111,7 +111,7 @@ A Vue 3 web console gives you dashboards, user management, license key generatio
 
 ## Roadmap
 
-CommonServices is currently in **prototype** stage.
+LianXia is currently in **prototype** stage.
 
 **What's available now:**
 - User authentication with JWT and OAuth (GitHub, WeChat)
