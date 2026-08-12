@@ -79,9 +79,9 @@ visibility: 公开
 
 下面是官方后台的实际用量截图，给大家一个直观感受：
 
-![DeepSeek 月度用量（deepseek-v4-pro）](/assets/resources/deepseek-usage.png)
+![DeepSeek 月度用量（deepseek-v4-pro）](/assets/resources/20260630-ai-programming-tool-comparison/deepseek-usage.png)
 
-![DeepSeek 新定价公告（2026/7/15 起 高峰时段单价翻倍）](/assets/resources/deepseek-new.png)
+![DeepSeek 新定价公告（2026/7/15 起 高峰时段单价翻倍）](/assets/resources/20260630-ai-programming-tool-comparison/deepseek-new.png)
 
 > ⚠️ **📅 DeepSeek 定价更新（2026/7/15 起生效）**
 > 以上 ¥84.68 / 1.628B tokens / 5561 次请求的实际账单，基于**2026/7/15 之前不分时段统一定价**的政策，彼时不存在高峰/低谷价差是单 Token 成本极低的核心原因。
@@ -95,7 +95,7 @@ visibility: 公开
 
 CodeBuddy 配合 glm-5.2 整体**非常稳，没有遇到明显硬伤**：既没有 Kimi 那种任务死循环，也没有 Qoder 那种随机 hang 住无响应的问题。代码推理能力在线，日常开发任务都能顺利完成，是这次横测里**表现最接近海外工具链体感的订阅制客户端**。
 
-![CodeBuddy 用量（积分消耗明细）](/assets/resources/CodeBuddy-masked-user-prompt.png)
+![CodeBuddy 用量（积分消耗明细）](/assets/resources/20260630-ai-programming-tool-comparison/CodeBuddy-masked-user-prompt.png)
 
 **唯一的短板属于订阅制客户端的共性问题**：白名单外模型（比如 GPT-5.5）用不了，或者需要你自己再掏一份 Token 钱；再加上订阅积分绑在客户端上——如果你哪天想换另一款客户端（比如 Qoder 或 OpenCode），CodeBuddy 里剩的积分就作废了，灵活组合的沉没成本不友好。
 
@@ -109,7 +109,7 @@ OpenCode 和 ClaudeCode 同属「模型无关」的通用客户端，通过 API 
 
 先说好的一面：前面 ClaudeCode + Kimi 一直**死循环跑不完**的那些任务，我切到 Qoder + Qwen-3.7-Plus 之后，出乎意料地**全部顺利解决了**。从任务完成率的角度，这一组是 Kimi 失败后的实际救场方案。
 
-![Qoder 月度用量（消耗明细）](/assets/resources/qoder.png)
+![Qoder 月度用量（消耗明细）](/assets/resources/20260630-ai-programming-tool-comparison/qoder.png)
 
 但 Qoder 有两个硬伤，导致我不把它作为主力推荐：
 1. **稳定性差**：经常随机 hang 住直接没反应，只能重新提问，做开发的时候特别打断节奏；
@@ -141,9 +141,9 @@ TRAE 的开箱即用体验确实很好，**豆包系模型默认内置**（疑�
 
 其次是**费用消耗速度远超预期**，相同的开发任务量，Kimi 的 Token 消耗比 DeepSeek-V4-Pro 高出不少，叠加任务跑不完反复重跑的额外开销，性价比非常差。
 
-![Kimi 月度用量（API 调用明细）](/assets/resources/kimi_usage-masked-apikey.png)
+![Kimi 月度用量（API 调用明细）](/assets/resources/20260630-ai-programming-tool-comparison/kimi_usage-masked-apikey.png)
 
-![Kimi 模型具体费用（官方定价明细）](/assets/resources/kimi_fee.png)
+![Kimi 模型具体费用（官方定价明细）](/assets/resources/20260630-ai-programming-tool-comparison/kimi_fee.png)
 
 这些在 Kimi 上一直死循环的任务，后来换到 Qoder + Qwen-3.7-Plus 上反而顺利完成了。所以 Kimi 这组我不推荐大家作为主力使用。
 

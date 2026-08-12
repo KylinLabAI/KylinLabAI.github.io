@@ -108,11 +108,11 @@ Gitee 会自动把 tag 镜像到 GitHub，GitHub Actions 检测到 tag 推送，
 
 整个工作流过程：
 
-![workflow](/assets/resources/workflow.png)
+![workflow](/assets/resources/20260706-indieapp-ci-cd/workflow.png)
 
 发布出来的包：
 
-![release packages](/assets/resources/app-release.png)
+![release packages](/assets/resources/20260706-indieapp-ci-cd/app-release.png)
 
 可以直接在这里看实际的发布页面：
 [DouXia-App v1.0.0 Release](https://github.com/KylinLabAI/DouXia-App/releases/tag/v1.0.0)

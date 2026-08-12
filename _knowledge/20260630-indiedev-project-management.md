@@ -90,7 +90,7 @@ This sounds like a boring implementation detail until you think through the impl
 
 > For engineers, plain-file storage isn't a "feature" the way UI smoothness is. It's an **escape hatch from vendor lock-in that also enables unlimited automation**. That is worth paying for, even though this app is free.
 
-![My actual daily OpenTodoList view — the first 3 items I commit to in the morning are non-negotiable.](/assets/resources/todo-list.png)
+![My actual daily OpenTodoList view — the first 3 items I commit to in the morning are non-negotiable.](/assets/resources/20260630-indiedev-project-management/todo-list.png)
 
 ### Syncthing — P2P file sync with no server and no subscription
 
@@ -151,7 +151,7 @@ find "${BACKUP_ROOT}" -type f -mtime +30 -delete
 
 > If consistency semantics matter more to you than CPU cost, swap `rsync` for Unison. Its bidirectional sync algorithm is first-class instead of approximated. For a todo list touched by one human every 10 minutes, `rsync` twice with backups is already overkill.
 
-![Each task is a structured JSON file under versioned directories. Your data isn't a black box.](/assets/resources/todo-list-file-storage.png)
+![Each task is a structured JSON file under versioned directories. Your data isn't a black box.](/assets/resources/20260630-indiedev-project-management/todo-list-file-storage.png)
 
 ## The three setup mistakes that actually cost me time
 
@@ -178,7 +178,7 @@ The line item that surprised me most was the weekend research bump. By taking "i
 
 > If you've ever felt "busy for no reason" at the end of a workday, you know the feeling I'm describing. It is gone. That vague, unsatisfied sense that you ran all day and went nowhere? Replaced by a 10-second glance at my completed list before closing the laptop.
 
-![Each task's underlying JSON structure is exposed directly in OpenTodoList's UI as well as on disk — scriptable, grepable, inspectable.](/assets/resources/todo-list-item-detail.png)
+![Each task's underlying JSON structure is exposed directly in OpenTodoList's UI as well as on disk — scriptable, grepable, inspectable.](/assets/resources/20260630-indiedev-project-management/todo-list-item-detail.png)
 
 ## What's next, and what I'd change if I started over
 

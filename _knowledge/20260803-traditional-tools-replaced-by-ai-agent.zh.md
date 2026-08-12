@@ -1,41 +1,26 @@
 ---
 layout: knowledge-article
-title: 传统工具全面退场，AI Agent 接管所有生产力工作
-subtitle: 开发、办公、设计、协作的传统重型工具没有消失，而是从「人机交互前台」降级为「AI Agent 后台底座」。新职场能力收敛为三件事。
+title: "传统工具全面退场，AI Agent 接管所有生产力工作"
+subtitle: "开发、办公、设计、协作的传统重型工具没有消失，而是从「人机交互前台」降级为「AI Agent 后台底座」。新职场能力收敛为三件事。"
 platform: github-pages
 language: zh-CN
 lang: zh
-date: 2026-08-03T00:00:00.000Z
-slug: traditional-tools-replaced-by-ai-agent
-description: >-
-  AI Agent 时代，Visual Studio、Office、Figma、Adobe、JIRA 等传统工具从「人机交互前台」降级为「AI
-  后台底座」，新职场核心竞争力收敛为需求拆解、规则定义、结果校验三件事。
-keywords:
-  - AI Agent
-  - 传统工具
-  - 生产力工具
-  - 职场能力
-  - laptop-setup
-tags:
-  - AI
-  - AIAgent
-  - 传统工具
-  - 生产力
-  - 职场
-category: Tech
+date: 2026-08-03
+slug: "traditional-tools-replaced-by-ai-agent"
+description: "AI Agent 时代，Visual Studio、Office、Figma、Adobe、JIRA 等传统工具从「人机交互前台」降级为「AI 后台底座」，新职场核心竞争力收敛为需求拆解、规则定义、结果校验三件事。"
+keywords: ["AI Agent", "传统工具", "生产力工具", "职场能力", "laptop-setup"]
+tags: ["AI", "AIAgent", "传统工具", "生产力", "职场"]
+category: "Tech"
 word_count: 0
-author: kylinlab.tech
-permalink: /zh/knowledge/traditional-tools-replaced-by-ai-agent.html
+author: "kylinlab.tech"
+permalink: "/zh/knowledge/20260803-traditional-tools-replaced-by-ai-agent.html"
 published: true
-excerpt: >-
-  开发、办公、设计、协作的传统重型工具没有消失，而是降级为 AI Agent
-  的后台底座，人不再直接操作。新职场竞争力收敛为需求拆解、规则定义、结果校验三件事，连装机配环境也由 AI skill 接管。
-image: /assets/img/covers/traditional-tools-replaced-by-ai-agent.png
+excerpt: "开发、办公、设计、协作的传统重型工具没有消失，而是降级为 AI Agent 的后台底座，人不再直接操作。新职场竞争力收敛为需求拆解、规则定义、结果校验三件事，连装机配环境也由 AI skill 接管。"
+image: "/assets/resources/20260803-traditional-tools-replaced-by-ai-agent/cover-zh.png"
 toc: true
-ghp_canonical_url: >-
-  https://kylinlabai.github.io/zh/knowledge/traditional-tools-replaced-by-ai-agent.html
-ghp_series: AI 时代职场重构系列
-ghp_disqus_shortname: ''
+ghp_canonical_url: "https://kylinlabai.github.io/zh/knowledge/20260803-traditional-tools-replaced-by-ai-agent.html"
+ghp_series: "AI 时代职场重构系列"
+ghp_disqus_shortname: ""
 ---
 
 # 传统工具全面退场，AI Agent 接管所有生产力工作
@@ -58,7 +43,7 @@ ghp_disqus_shortname: ''
 
 ## 封面图
 
-![封面图：从工具熟练转向任务驾驭](/assets/resources/cover-zh.png)
+![封面图：从工具熟练转向任务驾驭](/assets/resources/20260803-traditional-tools-replaced-by-ai-agent/cover-zh.jpg)
 
 ## 传统工具为何集体「吃灰」
 

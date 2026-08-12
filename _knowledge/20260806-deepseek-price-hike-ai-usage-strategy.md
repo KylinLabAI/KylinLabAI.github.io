@@ -35,7 +35,7 @@ excerpt: >-
   August. This article gives three concrete moves — a lean skill library,
   automated workflows, and post-task retros — to shift from burning compute to
   banking method.
-image: /assets/img/covers/deepseek-price-hike-ai-usage-strategy-en.png
+image: /assets/resources/20260806-deepseek-price-hike-ai-usage-strategy/cover.en.png
 toc: true
 ghp_canonical_url: ''
 ghp_series: ''
@@ -44,7 +44,7 @@ ghp_disqus_shortname: ''
 
 # AI Got More Expensive: From Wasteful Calls to a Lean, Tooled, Repeatable AI Workflow
 
-![Cover](/assets/resources/cover.en.png)
+![Cover](/assets/resources/20260806-deepseek-price-hike-ai-usage-strategy/cover.en.png)
 
 > DeepSeek switched to peak/off-peak pricing (peak = 2×) in July and announced another broad hike in August. That's not one vendor being greedy — it's the whole industry retracting its subsidies. The age of cheap AI compute is over.
 

@@ -41,7 +41,7 @@ excerpt: >-
   retrospective diagnoses two structural failures (boundary blindness and
   unbounded exploration) and provides a 3-gate control framework to keep AI
   agents productive instead of wasteful.
-image: /assets/img/covers/trae-debug-failure-retrospective.png
+image: /assets/resources/20260807-trae-debug-failure-retrospective/cover.en.png
 toc: true
 ghp_canonical_url: 'https://kylinlab.tech/knowledge/trae-debug-failure-retrospective.html'
 ghp_series: ''
@@ -50,7 +50,7 @@ ghp_disqus_shortname: ''
 
 # Why General-Purpose AI Agents Fail at Professional Development: A Debugging Failure Retrospective
 
-![English cover](/assets/resources/cover.en.png)
+![English cover](/assets/resources/20260807-trae-debug-failure-retrospective/cover.en.png)
 
 > 730.29 credits, $2.25, and one unfixed bug. I handed a simple debugging task to a general-purpose AI agent — it failed completely. But the failure contained a reusable methodology for keeping AI productive instead of wasteful.
 
@@ -74,7 +74,7 @@ I handed the fix to the TRAE agent. The results:
 - **Cost**: Based on Pro plan RMB 89/month for 4000 credits, 730.29 ÷ 4000 × 89 ≈ $2.25
 - **Outcome**: Core bug completely unresolved
 
-![TRAE debug failure log](/assets/resources/trae-task-fail.png)
+![TRAE debug failure log](/assets/resources/20260807-trae-debug-failure-retrospective/trae-task-fail.png)
 
 In retrospect, I share some blame. I was multitasking, dismissed it as a minor bug, and didn't monitor the run. Midway through, I glanced at an error and set it aside — only to discover by afternoon that the agent had been operating chaotically for hours, its execution chain long since derailed from the original fix target.
 

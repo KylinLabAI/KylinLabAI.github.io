@@ -45,7 +45,7 @@ excerpt: >-
   systems, treating failures as optimization signals, standardizing workflows,
   and tracking rework rate metrics — all with concrete examples and a continuous
   improvement loop.
-image: /assets/img/covers/ai-engineering-capabilities.png
+image: /assets/resources/20260805-ai-engineering-capabilities/cover-en.jpg
 toc: true
 ghp_canonical_url: 'https://kylinlab.tech/knowledge/ai-engineering-capabilities.html'
 ghp_series: ''
@@ -54,7 +54,7 @@ ghp_disqus_shortname: ''
 
 # 6 Core AI Engineering Capabilities: Cost Awareness, Rule Systems, and Continuous Optimization
 
-![Cover image](/assets/resources/cover-en.jpg)
+![Cover image](/assets/resources/20260805-ai-engineering-capabilities/cover-en.jpg)
 
 In early 2025, I burned through $87 in API credits in a single weekend. The code those credits produced? About 40% of it got rewritten within the week.
 
@@ -171,7 +171,7 @@ Build a project-specific AI behavioral specification system organized into six l
 
 Organize AI Agents for different functions into a directory structure, with each Agent independently handling a class of workflows:
 
-![agents directory structure](/assets/resources/agents.png)
+![agents directory structure](/assets/resources/20260805-ai-engineering-capabilities/agents.png)
 
 As shown above, `agents/` is organized by role (Product Manager, Architect, Full-Stack Engineer, QA Release Manager, UI/UX, Operations, etc.), with each Agent directory aggregating its required `skills/`, `tools/`, and `agent.md` contract file.
 
@@ -179,7 +179,7 @@ As shown above, `agents/` is organized by role (Product Manager, Architect, Full
 
 Skills are the smallest deployable capability units callable by Agents, organized by lifecycle:
 
-![Skill Catalog](/assets/resources/skills.png)
+![Skill Catalog](/assets/resources/20260805-ai-engineering-capabilities/skills.png)
 
 Each Skill explicitly specifies: **which Agent it belongs to**, **what the input is**, and **what artifact it produces** — ensuring predictable, auditable AI output.
 
@@ -199,7 +199,7 @@ Whenever AI output doesn't match expectations, immediately conduct a root cause 
 
 From requirements to release — the complete engineering lifecycle, with each stage owned by a specific Agent:
 
-![Engineering Lifecycle Workflow](/assets/resources/workflow-engineering-lifecycle.png)
+![Engineering Lifecycle Workflow](/assets/resources/20260805-ai-engineering-capabilities/workflow-engineering-lifecycle.png)
 
 - **STAGE A:** Product Manager AI produces the PRD
 - **STAGE B/C:** Architect AI and UI/UX AI produce their respective designs in parallel
@@ -211,7 +211,7 @@ From requirements to release — the complete engineering lifecycle, with each s
 
 Document generation reads a unified configuration (`config.yaml`) first, then selects the appropriate publishing channel based on the scenario:
 
-![Document Workflow](/assets/resources/workflow-documents.png)
+![Document Workflow](/assets/resources/20260805-ai-engineering-capabilities/workflow-documents.png)
 
 - **create mode:** First-time generation of the complete document set
 - **update mode:** On-demand revision of changed documents
@@ -221,7 +221,7 @@ Document generation reads a unified configuration (`config.yaml`) first, then se
 
 End-to-end flow from configuration initialization to dual-platform (GitHub/Gitee) release:
 
-![App Release Workflow](/assets/resources/workflow-release-app.png)
+![App Release Workflow](/assets/resources/20260805-ai-engineering-capabilities/workflow-release-app.png)
 
 - Step 0: `app-config-initializer` generates the single source of truth `config.yaml`
 - Step 1: Tag triggers CI, which auto-generates bilingual release notes

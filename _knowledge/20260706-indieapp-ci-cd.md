@@ -110,11 +110,11 @@ Because Gitee mirrors the tag to GitHub, the workflow is triggered automatically
 
 The workflow process looks like this:
 
-![workflow](/assets/resources/workflow.png)
+![workflow](/assets/resources/20260706-indieapp-ci-cd/workflow.png)
 
 The published release packages are shown below:
 
-![release packages](/assets/resources/app-release.png)
+![release packages](/assets/resources/20260706-indieapp-ci-cd/app-release.png)
 
 You can also view the release directly here:
 

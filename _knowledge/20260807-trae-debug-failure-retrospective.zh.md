@@ -33,7 +33,7 @@ published: true
 excerpt: >-
   用 TRAE 智能体调试自家多平台博客分发工具，消耗 730.29 积分（约 16.25 元）却未能修复核心 Bug。本文复盘事故全过程，诊断通用型 AI
   智能体在专业开发场景下的两大核心缺陷，并给出可写入 AGENTS.md 的三道人工管控方案：硬约束盲目试错、沉淀历史经验、标准化排查流程。
-image: /assets/img/covers/trae-debug-failure-retrospective.png
+image: /assets/resources/20260807-trae-debug-failure-retrospective/cover.zh.png
 toc: true
 ghp_canonical_url: 'https://kylinlab.tech/zh/knowledge/trae-debug-failure-retrospective.html'
 ghp_series: ''
@@ -42,7 +42,7 @@ ghp_disqus_shortname: ''
 
 # 一次失败调试的复盘：通用 AI 智能体为何在专业开发中失灵
 
-![中文封面](/assets/resources/cover.zh.png)
+![中文封面](/assets/resources/20260807-trae-debug-failure-retrospective/cover.zh.png)
 
 > 730.29 积分、16.25 元、一个没修好的 Bug。这次我用通用型 AI 智能体调试自家博客分发工具，惨败收场——但失败里藏着一套可复用的人工管控方法论。
 
@@ -66,7 +66,7 @@ ghp_disqus_shortname: ''
 - **成本换算**：以会员 Pro 每月 89 元/4000 积分计，730.29 ÷ 4000 × 89 ≈ 16.25 元
 - **结果**：核心问题未解决，彻底失败
 
-![TRAE 调试失败运行日志](/assets/resources/trae-task-fail.png)
+![TRAE 调试失败运行日志](/assets/resources/20260807-trae-debug-failure-retrospective/trae-task-fail.png)
 
 复盘下来，我自己也有疏漏：事发时并行多项工作，仅把问题判为"轻微漏洞"未全程跟进；中途报错只简单看了一眼便搁置，直到下午才发现智能体早已无序操作，回溯日志确认其执行链路早已混乱失控、完全偏离修复目标。
 

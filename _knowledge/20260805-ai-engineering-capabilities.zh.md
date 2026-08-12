@@ -30,7 +30,7 @@ permalink: /zh/knowledge/ai-engineering-capabilities.html
 published: true
 excerpt: >-
   AI从免费红利期进入成本管控期，工程师的角色从代码编写者升级为AI指令设计者、输出审核者、方案决策者和成本管控者。本文提出6项核心能力体系——研读思考链路、结构化需求描述、规则体系沉淀、持续迭代优化、Workflow标准化和量化评估——并给出每项能力的工程化落地方法和关键实践。
-image: /assets/img/covers/ai-engineering-capabilities.png
+image: /assets/resources/20260805-ai-engineering-capabilities/cover-zh.jpg
 toc: true
 ghp_canonical_url: 'https://kylinlab.tech/zh/knowledge/ai-engineering-capabilities.html'
 ghp_series: ''
@@ -39,7 +39,7 @@ ghp_disqus_shortname: ''
 
 # AI时代软件工程师核心能力：成本觉醒与工程化实践
 
-![封面图](/assets/resources/cover-zh.jpg)
+![封面图](/assets/resources/20260805-ai-engineering-capabilities/cover-zh.jpg)
 
 2025年以来，AI工具从新鲜玩具变成了日常标配。但一个关键转折正在发生：**AI不再是免费的**。订阅涨价、Token额度收紧、企业按部门配额管控——我们正在从AI的"免费红利期"迈入"精细化成本管控周期"。大多数人还停留在"随便丢一句话让AI干活"的阶段，结果Token烧得飞快，返工率居高不下。
 
@@ -131,13 +131,13 @@ AI可以等价为一名全天候待命的顶级工程师，但**模型不会主�
 
 #### 3.1 Agents 示例：角色化Agent目录
 
-![agents目录结构](/assets/resources/agents.png)
+![agents目录结构](/assets/resources/20260805-ai-engineering-capabilities/agents.png)
 
 如上图所示，`agents/` 下按角色划分（产品经理、架构师、全栈工程师、QA发布经理、UI/UX、运营等），每个 Agent 目录内聚合其所需的 `skills/`、`tools/` 和 `agent.md` 契约文件。
 
 #### 3.2 Skills 示例：可复用技能清单
 
-![技能目录](/assets/resources/skills.png)
+![技能目录](/assets/resources/20260805-ai-engineering-capabilities/skills.png)
 
 每个 Skill 明确说明：**归属于哪个 Agent**、**输入是什么**、**产出什么产物**，保证AI输出的可预期性。
 
@@ -155,7 +155,7 @@ AI可以等价为一名全天候待命的顶级工程师，但**模型不会主�
 
 #### 5.1 工程生命周期工作流
 
-![工程生命周期工作流](/assets/resources/workflow-engineering-lifecycle.png)
+![工程生命周期工作流](/assets/resources/20260805-ai-engineering-capabilities/workflow-engineering-lifecycle.png)
 
 - **STAGE A**：产品经理AI产出 PRD
 - **STAGE B/C**：架构师AI与 UI/UX AI并行产出方案
@@ -165,7 +165,7 @@ AI可以等价为一名全天候待命的顶级工程师，但**模型不会主�
 
 #### 5.2 文档生成与发布工作流
 
-![文档工作流](/assets/resources/workflow-documents.png)
+![文档工作流](/assets/resources/20260805-ai-engineering-capabilities/workflow-documents.png)
 
 - **create 模式**：首次生成完整文档集
 - **update 模式**：按需修订变更文档
@@ -173,7 +173,7 @@ AI可以等价为一名全天候待命的顶级工程师，但**模型不会主�
 
 #### 5.3 App 发布与镜像工作流
 
-![App发布工作流](/assets/resources/workflow-release-app.png)
+![App发布工作流](/assets/resources/20260805-ai-engineering-capabilities/workflow-release-app.png)
 
 从配置初始化到 GitHub/Gitee 双端发布的端到端流程：`app-config-initializer` 生成单一事实源 `config.yaml` → 打tag触发 CI，自动生成双语 release note → GitHub Actions 构建安装包并创建 Release → 自动镜像到 Gitee → 生成文档并发布到 release 仓库。
 

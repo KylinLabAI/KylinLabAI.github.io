@@ -139,9 +139,9 @@ This was the only setup that scored a full ten out of ten on every single dimens
 
 The part that's still hard for me to believe is the cost. Here's the actual screenshot from my DeepSeek dashboard at the end of the billing period:
 
-![DeepSeek monthly usage dashboard — deepseek-v4-pro, 5,561 calls, 1.628B tokens, ¥84.68](/assets/resources/deepseek-usage.png)
+![DeepSeek monthly usage dashboard — deepseek-v4-pro, 5,561 calls, 1.628B tokens, ¥84.68](/assets/resources/20260630-ai-programming-tool-comparison/deepseek-usage.png)
 
-![DeepSeek new pricing announcement — peak hours × 2, effective July 15, 2026](/assets/resources/deepseek-new.png)
+![DeepSeek new pricing announcement — peak hours × 2, effective July 15, 2026](/assets/resources/20260630-ai-programming-tool-comparison/deepseek-new.png)
 
 Five thousand, five hundred and sixty-one API requests.
 
@@ -173,8 +173,8 @@ What I find fascinating about Kimi is that it's the same *agent* as setup A — 
 
 And the difference in behavior was night and day. Multi-step coding tasks entered infinite loops. The agent would rewrite the same file four times in a row, detect that nothing had changed, rewrite it again. Every time I killed the loop and restarted, the token counter was already inflated by retries. Same ClaudeCode, completely different outcomes.
 
-![Kimi monthly API usage detail — masked API key column](/assets/resources/kimi_usage-masked-apikey.png)
-![Kimi official per-model pricing detail sheet](/assets/resources/kimi_fee.png)
+![Kimi monthly API usage detail — masked API key column](/assets/resources/20260630-ai-programming-tool-comparison/kimi_usage-masked-apikey.png)
+![Kimi official per-model pricing detail sheet](/assets/resources/20260630-ai-programming-tool-comparison/kimi_fee.png)
 
 The raw token-per-dollar rate on paper doesn't look that different from DeepSeek's. In practice, the model's behavior on agentic coding tasks meant I was burning 1.5–2× the tokens for *zero successful task completion.* Terrible value. Don't use this model for multi-step coding agents in its current version.
 
@@ -182,7 +182,7 @@ The raw token-per-dollar rate on paper doesn't look that different from DeepSeek
 
 CodeBuddy paired with glm-5.2 was genuinely solid. No infinite loops, no random hangs, clean code reasoning. If subscription-based clients *were* the answer, this would be my pick.
 
-![CodeBuddy point-based consumption history — user prompt column masked](/assets/resources/CodeBuddy-masked-user-prompt.png)
+![CodeBuddy point-based consumption history — user prompt column masked](/assets/resources/20260630-ai-programming-tool-comparison/CodeBuddy-masked-user-prompt.png)
 
 But even the best subscription setup has a structural problem that no amount of model quality can fix. We're about to get to that.
 
@@ -190,7 +190,7 @@ But even the best subscription setup has a structural problem that no amount of 
 
 Qoder had one superpower: tasks that Kimi (setup F) could never finish *did* finish on Qoder with the same underlying Qwen model family. So the agent client's orchestration logic genuinely matters. But Qoder also had the single worst stability issue in the entire benchmark before the TRAE crash finding: completely random hangs with no error output, no logs, nothing to debug. You'd just be sitting there, twenty minutes into a deep coding flow, and you'd realize the agent had stopped responding two minutes ago. Devastating.
 
-![Qoder per-session consumption dashboard](/assets/resources/qoder.png)
+![Qoder per-session consumption dashboard](/assets/resources/20260630-ai-programming-tool-comparison/qoder.png)
 
 ### Setup E — the trap.
 

@@ -1,53 +1,33 @@
 ---
 layout: knowledge-article
-title: Traditional Tools Are Retiring — AI Agents Now Run the Show
-subtitle: >-
-  Visual Studio, Office, Figma, Adobe, JIRA haven't vanished. They've been
-  demoted to the backends AI Agents call. Here's why the new edge is no longer
-  software fluency.
+title: "Traditional Tools Are Retiring — AI Agents Now Run the Show"
+subtitle: "Visual Studio, Office, Figma, Adobe, JIRA haven't vanished. They've been demoted to the backends AI Agents call. Here's why the new edge is no longer software fluency."
 platform: github-pages
 language: en-US
 lang: en
-date: 2026-08-03T00:00:00.000Z
-slug: traditional-tools-replaced-by-ai-agent
-description: >-
-  Traditional dev, office, design, and collab tools are being demoted from the
-  human-facing front end to the backend AI Agents call. The new workplace edge
-  narrows to three skills.
-keywords:
-  - AI Agents
-  - productivity tools
-  - workplace
-  - dev tools
-tags:
-  - AI
-  - AIAgents
-  - Productivity
-  - Workplace
-  - DevTools
-category: Tech
+date: 2026-08-03
+slug: "traditional-tools-replaced-by-ai-agent"
+description: "Traditional dev, office, design, and collab tools are being demoted from the human-facing front end to the backend AI Agents call. The new workplace edge narrows to three skills."
+keywords: ["AI Agents", "productivity tools", "workplace", "dev tools"]
+tags: ["AI", "AIAgents", "Productivity", "Workplace", "DevTools"]
+category: "Tech"
 word_count: 0
-author: kylinlab.tech
-permalink: /knowledge/traditional-tools-replaced-by-ai-agent.html
+author: "kylinlab.tech"
+permalink: "/knowledge/20260803-traditional-tools-replaced-by-ai-agent.html"
 published: true
-excerpt: >-
-  Traditional dev, office, design, and collab tools haven't vanished — they've
-  been demoted to backends AI Agents call. The new workplace edge narrows to
-  three skills: precise requirement breakdown, clear rule definition, and strict
-  result validation.
-image: /assets/img/covers/traditional-tools-replaced-by-ai-agent.png
+excerpt: "Traditional dev, office, design, and collab tools haven't vanished — they've been demoted to backends AI Agents call. The new workplace edge narrows to three skills: precise requirement breakdown, clear rule definition, and strict result validation."
+image: "/assets/resources/20260803-traditional-tools-replaced-by-ai-agent/cover-en.png"
 toc: true
-ghp_canonical_url: >-
-  https://kylinlabai.github.io/knowledge/traditional-tools-replaced-by-ai-agent.html
-ghp_series: AI Workplace Transformation
-ghp_disqus_shortname: ''
+ghp_canonical_url: "https://kylinlabai.github.io/knowledge/20260803-traditional-tools-replaced-by-ai-agent.html"
+ghp_series: "AI Workplace Transformation"
+ghp_disqus_shortname: ""
 ---
 
 # Traditional Tools Are Retiring — AI Agents Now Run the Show
 
 > The one-line version: dev, office, design, and collab tools haven't disappeared — they've moved behind AI Agents and now run as the backend those agents call. Humans no longer operate them directly.
 
-![Cover image: Mastering AI is the new productivity](/assets/resources/cover-en.png)
+![Cover image: Mastering AI is the new productivity](/assets/resources/20260803-traditional-tools-replaced-by-ai-agent/cover-en.jpg)
 
 ## Why this matters
 

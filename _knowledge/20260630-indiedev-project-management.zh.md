@@ -177,15 +177,15 @@ find "${BACKUP_ROOT}" -type f -mtime +30 -delete
 
 任务清单主界面：
 
-![OpenTodoList 主界面，展示每日任务分层视图](/assets/resources/todo-list.png)
+![OpenTodoList 主界面，展示每日任务分层视图](/assets/resources/20260630-indiedev-project-management/todo-list.png)
 
 任务数据的文件存储结构（平的文件目录，不是黑盒）：
 
-![OpenTodoList 文件存储结构，展示 JSON 任务文件的目录布局](/assets/resources/todo-list-file-storage.png)
+![OpenTodoList 文件存储结构，展示 JSON 任务文件的目录布局](/assets/resources/20260630-indiedev-project-management/todo-list-file-storage.png)
 
 单条任务在底层的 JSON 结构：
 
-![OpenTodoList 单条任务 JSON 详情，展示结构化字段](/assets/resources/todo-list-item-detail.png)
+![OpenTodoList 单条任务 JSON 详情，展示结构化字段](/assets/resources/20260630-indiedev-project-management/todo-list-item-detail.png)
 
 ## 生产落地建议
 
