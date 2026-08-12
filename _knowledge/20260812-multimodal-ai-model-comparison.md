@@ -1,26 +1,47 @@
 ---
 layout: knowledge-article
-title: "Multimodality Is Not a Bonus: A Single IDE Screenshot Test of DeepSeek vs kimi-k2.7"
-subtitle: "One IDE backend Credits screenshot contrasts ClaudeCode + DeepSeek's OCR degradation with CodeBuddy + kimi-k2.7's native multimodal understanding — and why multimodality is the hard gate for getting the task done."
+title: >-
+  Multimodality Is Not a Bonus: A Single IDE Screenshot Test of DeepSeek vs
+  kimi-k2.7
+subtitle: >-
+  One IDE backend Credits screenshot contrasts ClaudeCode + DeepSeek's OCR
+  degradation with CodeBuddy + kimi-k2.7's native multimodal understanding — and
+  why multimodality is the hard gate for getting the task done.
 platform: github-pages
 language: en-US
 lang: en
-date: 2026-08-12
-slug: "multimodal-ai-model-comparison"
-description: "A hands-on test with one IDE screenshot compares DeepSeek (ClaudeCode / CodeBuddy) and kimi-k2.7 on image understanding, exposing how OCR degrades context and why native multimodality is the real gate."
-keywords: ["multimodal", "DeepSeek", "kimi-k2.7", "OCR", "ClaudeCode", "CodeBuddy", "model comparison"]
-tags: ["Multimodal", "LLM", "AI Evaluation"]
-category: "Tech"
+date: 2026-08-12T00:00:00.000Z
+slug: multimodal-ai-model-comparison
+description: >-
+  A hands-on test with one IDE screenshot compares DeepSeek (ClaudeCode /
+  CodeBuddy) and kimi-k2.7 on image understanding, exposing how OCR degrades
+  context and why native multimodality is the real gate.
+keywords:
+  - multimodal
+  - DeepSeek
+  - kimi-k2.7
+  - OCR
+  - ClaudeCode
+  - CodeBuddy
+  - model comparison
+tags:
+  - Multimodal
+  - LLM
+  - AI Evaluation
+category: Tech
 word_count: 0
-author: "kylinlab.tech"
-permalink: "/knowledge/20260812-multimodal-ai-model-comparison.html"
+author: kylinlab.tech
+permalink: ''
 published: true
-excerpt: "One IDE screenshot test: ClaudeCode + DeepSeek fails via OCR (misreads '30 days' as $30K) while CodeBuddy + kimi-k2.7 reads UI hierarchy natively. Multimodality is a hard gate, not a bonus."
-image: "/assets/resources/20260812-multimodal-ai-model-comparison/cover.en.png"
+excerpt: >-
+  One IDE screenshot test: ClaudeCode + DeepSeek fails via OCR (misreads '30
+  days' as $30K) while CodeBuddy + kimi-k2.7 reads UI hierarchy natively.
+  Multimodality is a hard gate, not a bonus.
+image: resources/cover.en.png
 toc: true
-ghp_canonical_url: "https://kylinlabai.github.io/knowledge/20260812-multimodal-ai-model-comparison.html"
-ghp_series: ""
-ghp_disqus_shortname: ""
+ghp_canonical_url: ''
+ghp_series: ''
+ghp_disqus_shortname: ''
 ---
 
 # Multimodality Is Not a Bonus: A Single IDE Screenshot Test of DeepSeek vs kimi-k2.7
