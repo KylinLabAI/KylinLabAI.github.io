@@ -4,7 +4,7 @@ title: "多模态不是附加功能：一张 IDE 截图实测 DeepSeek 与 kimi-
 subtitle: "用一张 IDE 后台 Credits 用量截图，对比 ClaudeCode+DeepSeek 的 OCR 退化与 CodeBuddy+kimi-k2.7 的原生多模态理解，揭示多模态为何是任务完成的硬门槛。"
 platform: github-pages
 language: zh-CN
-lang: zh-CN
+lang: zh
 date: 2026-08-12
 slug: "multimodal-ai-model-comparison"
 description: "用一张 IDE 后台截图实测 DeepSeek 与 kimi-k2.7 的读图能力，对比 OCR 退化与多模态原生理解的差异，说明多模态是任务完成的硬门槛。"
