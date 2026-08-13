@@ -21,7 +21,7 @@ tags:
 category: Tech
 word_count: 0
 author: kylinlab.tech
-permalink: ''
+permalink: /zh/knowledge/deepseek-price-hike-ai-usage-strategy.html
 published: true
 excerpt: "DeepSeek 7月改峰谷定价、8月预告整体大幅上调，AI 行业补贴时代落幕。本文给出三条落地思路：沉淀专属技能库、固化常规工作流、做好任务约束并沉淀最佳实践，帮助使用者从消耗算力转向沉淀方法。"
 image: /assets/resources/20260806-deepseek-price-hike-ai-usage-strategy/cover.zh.png

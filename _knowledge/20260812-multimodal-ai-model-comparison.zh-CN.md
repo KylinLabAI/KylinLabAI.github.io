@@ -25,7 +25,7 @@ tags:
 category: Tech
 word_count: 0
 author: kylinlab.tech
-permalink: ''
+permalink: /zh/knowledge/multimodal-ai-model-comparison.html
 published: true
 excerpt: >-
   用一张 IDE 后台截图实测：ClaudeCode+DeepSeek 靠 OCR 几乎全错（把"30天"误读成

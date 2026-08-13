@@ -28,7 +28,7 @@ tags:
 category: Tech
 word_count: 0
 author: kylinlab.tech
-permalink: ''
+permalink: /knowledge/deepseek-price-hike-ai-usage-strategy.html
 published: true
 excerpt: >-
   DeepSeek moved to 2x peak pricing in July and announced another broad hike in

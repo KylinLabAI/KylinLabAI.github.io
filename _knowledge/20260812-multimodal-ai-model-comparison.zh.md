@@ -15,7 +15,7 @@ word_count: 0
 author: "kylinlab.tech"
 permalink: "/zh/knowledge/20260812-multimodal-ai-model-comparison.html"
 published: true
-excerpt: "用一张 IDE 后台截图实测：ClaudeCode+DeepSeek 靠 OCR 几乎全错（把"30天"误读成 $30K），CodeBuddy+kimi-k2.7 原生读懂 UI 层级与遮挡。多模态不是附加功能，而是任务完成的硬门槛。"
+excerpt: "用一张 IDE 后台截图实测：ClaudeCode+DeepSeek 靠 OCR 几乎全错（把30天误读成 $30K），CodeBuddy+kimi-k2.7 原生读懂 UI 层级与遮挡。多模态不是附加功能，而是任务完成的硬门槛。"
 image: "/assets/resources/20260812-multimodal-ai-model-comparison/cover.zh.png"
 toc: true
 ghp_canonical_url: "https://kylinlabai.github.io/zh/knowledge/20260812-multimodal-ai-model-comparison.html"

@@ -31,7 +31,7 @@ tags:
 category: Tech
 word_count: 0
 author: kylinlab.tech
-permalink: ''
+permalink: /knowledge/multimodal-ai-model-comparison.html
 published: true
 excerpt: >-
   One IDE screenshot test: ClaudeCode + DeepSeek fails via OCR (misreads '30
