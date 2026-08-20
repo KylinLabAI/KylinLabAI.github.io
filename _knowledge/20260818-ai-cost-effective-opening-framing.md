@@ -47,7 +47,12 @@ ghp_disqus_shortname: ''
 
 # AI Cost-Effective Series — Opening: Why You Should Rethink and Choose AI Smartly
 
+## Cover image
+
+![Cover image: Rethink AI, choose it smartly](/assets/resources/20260818-ai-cost-effective-opening-framing/cover-en.png)
+
 > One-line conclusion: as model capability gaps narrow and prices keep dropping, what actually separates good from great is no longer how well you use a particular tool — it's whether you get the *cognition* and the *choice* right: right direction, right tool, clear requirements, solid validation.
+
 
 ## Why this is worth reading
 
@@ -62,10 +67,6 @@ This post focuses on the honest read of the 2025–2026 AI landscape: converging
 1. **AI sits in a middle ground, not at the extremes** — capability converges, prices fall, use cases stratify; the old "buy the priciest to be safe" narrative is outdated.
 2. **The leverage point has shifted** — as model gaps narrow and prices drop, what separates people moves from "can you use it" to "do you see clearly and choose well."
 3. **Choosing well beats piling on configuration** — tiering tasks, comparing within the tier, and embedding AI in your flow are the three gates to cost-effectiveness.
-
-## Cover image
-
-![Cover image: Rethink AI, choose it smartly](/assets/resources/20260818-ai-cost-effective-opening-framing/cover-en.png)
 
 ## 1. First, see clearly: where does AI actually stand today
 
